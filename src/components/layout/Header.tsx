@@ -67,7 +67,7 @@ export function Header() {
           {/* Right actions */}
           <div className="flex items-center gap-3 flex-shrink-0">
             <a
-              href="https://dashboard.collectiveaudience.co"
+              href="https://desk.collectiveaudience.co"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex items-center gap-1.5 text-sm font-medium text-ca-muted hover:text-ca-text transition-colors"
@@ -116,7 +116,7 @@ export function Header() {
               ))}
               <div className="pt-3 border-t border-ca-border flex flex-col gap-2">
                 <a
-                  href="https://dashboard.collectiveaudience.co"
+                  href="https://desk.collectiveaudience.co"
                   className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-ca-muted"
                 >
                   Sign in <ExternalLink className="w-3.5 h-3.5" />
