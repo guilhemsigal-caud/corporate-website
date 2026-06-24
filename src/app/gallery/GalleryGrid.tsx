@@ -53,12 +53,20 @@ export function GalleryGrid() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" style={{ background: `radial-gradient(circle at 50% 0%,${item.accent}10 0%,transparent 65%)` }} />
 
                   <div className="relative flex flex-col h-full">
-                    {/* Category badge */}
+                    {/* Category badge + demo badge */}
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full border" style={{ color: item.accent, borderColor: `${item.accent}30`, background: `${item.accent}0a` }}>
                         {item.category}
                       </span>
-                      <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5" style={{ color: item.accent }} />
+                      <div className="flex items-center gap-2">
+                        {item.demos && item.demos.length > 0 && (
+                          <span className="flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full border" style={{ color: item.accent, borderColor: `${item.accent}30`, background: `${item.accent}0a` }}>
+                            <span className="w-1.5 h-1.5 rounded-full" style={{ background: item.accent }} />
+                            {item.demos.length} démo{item.demos.length > 1 ? "s" : ""}
+                          </span>
+                        )}
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5" style={{ color: item.accent }} />
+                      </div>
                     </div>
 
                     <h3 className="text-lg font-bold text-ca-text mb-2 leading-snug">{item.name}</h3>
