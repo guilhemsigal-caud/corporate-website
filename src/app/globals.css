@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0c14;
+  --foreground: #f0f2ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-ca-blue: #5b8cff;
+  --color-ca-mint: #7df0c8;
+  --color-ca-violet: #7b3fff;
+  --color-ca-dark: #0a0c14;
+  --color-ca-surface: #111420;
+  --color-ca-border: #1e2236;
+  --color-ca-text: #f0f2ff;
+  --color-ca-muted: #8892b0;
+
+  --animate-blob: blob 10s ease-in-out infinite;
+  --animate-blob-delay: blob 10s ease-in-out infinite 3s;
+  --animate-blob-delay2: blob 10s ease-in-out infinite 6s;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-rev: marquee-rev 40s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2s ease-in-out infinite;
+
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(40px, -40px) scale(1.08); }
+  50%  { transform: translate(-25px, 25px) scale(0.94); }
+  75%  { transform: translate(25px, 40px) scale(1.04); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.15); }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.gradient-text-blue-mint {
+  background: linear-gradient(135deg, #5b8cff 0%, #7df0c8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-violet-blue {
+  background: linear-gradient(135deg, #7b3fff 0%, #5b8cff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-blue { box-shadow: 0 0 40px rgba(91, 140, 255, 0.3); }
+.glow-mint  { box-shadow: 0 0 40px rgba(125, 240, 200, 0.25); }
+.glow-violet { box-shadow: 0 0 40px rgba(123, 63, 255, 0.3); }
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
 }
