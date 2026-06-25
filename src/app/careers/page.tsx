@@ -6,25 +6,25 @@ import { useLang } from "@/lib/i18n";
 const JOBS = {
   en: [
     { title: "Senior Full-Stack Engineer", location: "Paris / Remote", type: "Full-time", accent: "#5b8cff" },
-    { title: "Product Manager — Publisher Platform", location: "Paris", type: "Full-time", accent: "#07e2dc" },
-    { title: "Data Scientist — Audience Intelligence", location: "New York / Remote", type: "Full-time", accent: "#7b3fff" },
-    { title: "Sales Director — EMEA Publishers", location: "Paris", type: "Full-time", accent: "#5b8cff" },
-    { title: "Account Manager — Advertisers", location: "New York", type: "Full-time", accent: "#07e2dc" },
+    { title: "Product Manager: Publisher Platform", location: "Paris", type: "Full-time", accent: "#07e2dc" },
+    { title: "Data Scientist: Audience Intelligence", location: "New York / Remote", type: "Full-time", accent: "#7b3fff" },
+    { title: "Sales Director: EMEA Publishers", location: "Paris", type: "Full-time", accent: "#5b8cff" },
+    { title: "Account Manager: Advertisers", location: "New York", type: "Full-time", accent: "#07e2dc" },
     { title: "Marketing Manager", location: "Paris / New York", type: "Full-time", accent: "#7b3fff" },
   ],
   fr: [
     { title: "Ingénieur Full-Stack Senior", location: "Paris / Remote", type: "CDI", accent: "#5b8cff" },
-    { title: "Product Manager — Plateforme éditeurs", location: "Paris", type: "CDI", accent: "#07e2dc" },
-    { title: "Data Scientist — Intelligence Audience", location: "New York / Remote", type: "CDI", accent: "#7b3fff" },
-    { title: "Directeur Commercial — Éditeurs EMEA", location: "Paris", type: "CDI", accent: "#5b8cff" },
-    { title: "Account Manager — Annonceurs", location: "New York", type: "CDI", accent: "#07e2dc" },
+    { title: "Product Manager: Plateforme éditeurs", location: "Paris", type: "CDI", accent: "#07e2dc" },
+    { title: "Data Scientist: Intelligence Audience", location: "New York / Remote", type: "CDI", accent: "#7b3fff" },
+    { title: "Directeur Commercial: Éditeurs EMEA", location: "Paris", type: "CDI", accent: "#5b8cff" },
+    { title: "Account Manager: Annonceurs", location: "New York", type: "CDI", accent: "#07e2dc" },
     { title: "Responsable Marketing", location: "Paris / New York", type: "CDI", accent: "#7b3fff" },
   ],
 };
 
 const COPY = {
-  en: { badge: "Careers", headline: "Build the open web with us.", subtitle: "We're a team of adtech veterans and engineers in New York and Paris, building infrastructure for a better internet. Come join us.", noRole: "Don't see your role?", sendCv: "Send us your CV", noRoleSuffix: " — we hire for talent first." },
-  fr: { badge: "Carrières", headline: "Construisons le web ouvert ensemble.", subtitle: "Nous sommes une équipe de vétérans de l'adtech et d'ingénieurs à New York et Paris, construisant l'infrastructure d'un internet meilleur. Rejoignez-nous.", noRole: "Vous ne trouvez pas votre poste ?", sendCv: "Envoyez-nous votre CV", noRoleSuffix: " — nous recrutons avant tout les talents." },
+  en: { badge: "Careers", headline: "Build the open web with us.", subtitle: "We're a team of adtech veterans and engineers in New York and Paris, building infrastructure for a better internet. Come join us.", noRole: "Don't see your role?", sendCv: "Send us your CV", noRoleSuffix: ": we hire for talent first." },
+  fr: { badge: "Carrières", headline: "Construisons le web ouvert ensemble.", subtitle: "Nous sommes une équipe de vétérans de l'adtech et d'ingénieurs à New York et Paris, construisant l'infrastructure d'un internet meilleur. Rejoignez-nous.", noRole: "Vous ne trouvez pas votre poste ?", sendCv: "Envoyez-nous votre CV", noRoleSuffix: ": nous recrutons avant tout les talents." },
 };
 
 export default function CareersPage() {

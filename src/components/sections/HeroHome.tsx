@@ -135,7 +135,7 @@ export function HeroHome() {
           className="max-w-2xl mx-auto text-lg md:text-xl text-ca-muted leading-relaxed mb-12"
         >
           Collective Audience unifies media monetization, audience data, and advertising
-          into one open platform — cookieless, scalable, built for the open web.
+          into one open platform, cookieless, scalable, built for the open web.
         </motion.p>
 
         {/* CTAs */}

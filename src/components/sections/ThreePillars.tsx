@@ -49,7 +49,7 @@ const PILLARS = [
     tag: "Platform",
     headline: "AudienceCloud OS",
     description:
-      "A modular, open platform connecting publishers and advertisers — AudienceDesk, AudienceAds, AudienceConnect, and AudienceMatching.",
+      "A modular, open platform connecting publishers and advertisers: AudienceDesk, AudienceAds, AudienceConnect, and AudienceMatching.",
     features: ["Trading desk & omnichannel", "Conversational ad formats", "Cookieless identity matching"],
     metric: "4",
     metricLabel: "platform modules",
@@ -90,7 +90,7 @@ export function ThreePillars() {
             </span>
           </h2>
           <p className="text-ca-muted text-lg max-w-xl mx-auto">
-            Whether you publish content, run campaigns, or build data products — Collective Audience has your stack.
+            Whether you publish content, run campaigns, or build data products: Collective Audience has your stack.
           </p>
         </motion.div>
 

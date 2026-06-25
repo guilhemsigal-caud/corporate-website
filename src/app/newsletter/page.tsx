@@ -5,7 +5,7 @@ import { useLang } from "@/lib/i18n";
 const COPY = {
   en: {
     badge: "Newsletter", headline: "Stay ahead of the open web.",
-    subtitle: "Industry insights, product updates, and adtech trends — curated weekly by the Collective Audience team. No spam. Unsubscribe anytime.",
+    subtitle: "Industry insights, product updates, and adtech trends, curated weekly by the Collective Audience team. No spam. Unsubscribe anytime.",
     emailLabel: "Email", roleLabel: "I am a...",
     roles: ["Publisher", "Advertiser / Agency", "Adtech professional", "Other"],
     consent: "I agree to receive the newsletter and accept the", privacyLabel: "Privacy Policy",
@@ -15,7 +15,7 @@ const COPY = {
   },
   fr: {
     badge: "Newsletter", headline: "Restez en avance sur le web ouvert.",
-    subtitle: "Insights secteur, mises à jour produit et tendances adtech — sélectionnés chaque semaine par l'équipe Collective Audience. Pas de spam. Désinscription à tout moment.",
+    subtitle: "Insights secteur, mises à jour produit et tendances adtech, sélectionnés chaque semaine par l'équipe Collective Audience. Pas de spam. Désinscription à tout moment.",
     emailLabel: "Email", roleLabel: "Je suis...",
     roles: ["Éditeur", "Annonceur / Agence", "Professionnel adtech", "Autre"],
     consent: "J'accepte de recevoir la newsletter et j'accepte la", privacyLabel: "Politique de confidentialité",

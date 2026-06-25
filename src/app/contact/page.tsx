@@ -5,7 +5,7 @@ import { useLang } from "@/lib/i18n";
 const COPY = {
   en: {
     badge: "Contact", headline: "Let's talk.",
-    subtitle: "Whether you're a publisher, advertiser, or investor — our team is here.",
+    subtitle: "Whether you're a publisher, advertiser, or investor. Our team is here.",
     formTitle: "Send us a message",
     firstName: "First name", lastName: "Last name", email: "Professional email",
     company: "Company", role: "I am a...",
@@ -23,7 +23,7 @@ const COPY = {
   },
   fr: {
     badge: "Contact", headline: "Parlons-en.",
-    subtitle: "Éditeur, annonceur ou investisseur — notre équipe est là pour vous.",
+    subtitle: "Éditeur, annonceur ou investisseur. Notre équipe est là pour vous.",
     formTitle: "Envoyez-nous un message",
     firstName: "Prénom", lastName: "Nom", email: "Email professionnel",
     company: "Entreprise", role: "Je suis...",

@@ -3,8 +3,8 @@ import { GalleryGrid } from "./GalleryGrid";
 import { useLang } from "@/lib/i18n";
 
 const COPY = {
-  en: { badge: "Format Gallery", headline: "Creatives by industry.", subtitle: "Explore our formats by sector — click to see live demos." },
-  fr: { badge: "Galerie de formats", headline: "Créatives par industrie.", subtitle: "Explorez nos formats par secteur — cliquez pour voir les démos en direct." },
+  en: { badge: "Format Gallery", headline: "Creatives by industry.", subtitle: "Explore our formats by sector. Click to see live demos." },
+  fr: { badge: "Galerie de formats", headline: "Créatives par industrie.", subtitle: "Explorez nos formats par secteur, cliquez pour voir les démos en direct." },
 };
 
 export default function GalleryPage() {

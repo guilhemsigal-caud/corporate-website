@@ -9,8 +9,8 @@ import { use } from "react";
 import { notFound } from "next/navigation";
 
 const COPY = {
-  en: { back: "Gallery", countLabel: (n: number) => `${n} creative${n > 1 ? "s" : ""} — click to see live demo`, onDemand: "Demo on request", onDemandDesc: "Contact us for a live demonstration of this format.", demoCta: "Request a demo", related: "Similar formats" },
-  fr: { back: "Galerie", countLabel: (n: number) => `${n} créative${n > 1 ? "s" : ""} — cliquez pour voir la démo en direct`, onDemand: "Démo sur demande", onDemandDesc: "Contactez-nous pour une démonstration en direct de ce format.", demoCta: "Demander une démo", related: "Formats similaires" },
+  en: { back: "Gallery", countLabel: (n: number) => `${n} creative${n > 1 ? "s" : ""}, click to see live demo`, onDemand: "Demo on request", onDemandDesc: "Contact us for a live demonstration of this format.", demoCta: "Request a demo", related: "Similar formats" },
+  fr: { back: "Galerie", countLabel: (n: number) => `${n} créative${n > 1 ? "s" : ""}, cliquez pour voir la démo en direct`, onDemand: "Démo sur demande", onDemandDesc: "Contactez-nous pour une démonstration en direct de ce format.", demoCta: "Demander une démo", related: "Formats similaires" },
 };
 
 export default function GalleryItemPage({ params }: { params: Promise<{ slug: string }> }) {

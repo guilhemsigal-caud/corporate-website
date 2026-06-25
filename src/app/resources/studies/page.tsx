@@ -11,9 +11,9 @@ const COPY = {
     studies: [
       { title: "S.T.A.M.P. Attention Study 2024", desc: "Comprehensive analysis of attention metrics across 50+ campaigns and 200+ publisher environments.", type: "White Paper", accent: "#5b8cff" },
       { title: "Cookieless Advertising Playbook", desc: "A practical guide for publishers and advertisers navigating the cookieless transition in 2024-2025.", type: "Guide", accent: "#07e2dc" },
-      { title: "Brand Lift Meta-Analysis", desc: "Aggregated brand lift data from 100+ campaigns — benchmarks by industry, format, and audience size.", type: "Research Report", accent: "#7b3fff" },
+      { title: "Brand Lift Meta-Analysis", desc: "Aggregated brand lift data from 100+ campaigns, benchmarks by industry, format, and audience size.", type: "Research Report", accent: "#7b3fff" },
       { title: "Publisher Monetization Index 2024", desc: "Yearly benchmark report on eCPM, fill rates, and revenue per session across the publisher network.", type: "Annual Report", accent: "#5b8cff" },
-      { title: "The Economics of Attention", desc: "Why attention time is the better proxy for advertising value — a case for CPM reform.", type: "Thought Leadership", accent: "#07e2dc" },
+      { title: "The Economics of Attention", desc: "Why attention time is the better proxy for advertising value: a case for CPM reform.", type: "Thought Leadership", accent: "#07e2dc" },
       { title: "Open Web Audience Study 2024", desc: "Audience insights, engagement patterns, and content consumption trends from 200+ publishers.", type: "Research Report", accent: "#7b3fff" },
     ],
   },
@@ -24,9 +24,9 @@ const COPY = {
     studies: [
       { title: "Étude S.T.A.M.P. Attention 2024", desc: "Analyse complète des métriques d'attention sur 50+ campagnes et 200+ environnements éditeurs.", type: "Livre blanc", accent: "#5b8cff" },
       { title: "Guide Publicité Sans Cookie", desc: "Guide pratique pour éditeurs et annonceurs qui naviguent la transition cookieless en 2024-2025.", type: "Guide", accent: "#07e2dc" },
-      { title: "Méta-analyse Brand Lift", desc: "Données agrégées de brand lift sur 100+ campagnes — benchmarks par secteur, format et taille d'audience.", type: "Rapport de recherche", accent: "#7b3fff" },
+      { title: "Méta-analyse Brand Lift", desc: "Données agrégées de brand lift sur 100+ campagnes, benchmarks par secteur, format et taille d'audience.", type: "Rapport de recherche", accent: "#7b3fff" },
       { title: "Indice de Monétisation Éditeurs 2024", desc: "Rapport annuel de benchmark sur l'eCPM, les taux de remplissage et le revenu par session.", type: "Rapport annuel", accent: "#5b8cff" },
-      { title: "L'Économie de l'Attention", desc: "Pourquoi le temps d'attention est le meilleur proxy de valeur publicitaire — un plaidoyer pour réformer le CPM.", type: "Thought Leadership", accent: "#07e2dc" },
+      { title: "L'Économie de l'Attention", desc: "Pourquoi le temps d'attention est le meilleur proxy de valeur publicitaire: un plaidoyer pour réformer le CPM.", type: "Thought Leadership", accent: "#07e2dc" },
       { title: "Étude Audience Web Ouvert 2024", desc: "Insights audience, patterns d'engagement et tendances de consommation de contenu de 200+ éditeurs.", type: "Rapport de recherche", accent: "#7b3fff" },
     ],
   },

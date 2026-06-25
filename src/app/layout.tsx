@@ -12,11 +12,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Collective Audience — The Open Web Platform",
+  title: "Collective Audience: The Open Web Platform",
   description:
-    "Collective Audience unifies media monetization, audience data, and advertising into one open platform — cookieless, scalable, and built for the open web.",
+    "Collective Audience unifies media monetization, audience data, and advertising into one open platform, cookieless, scalable, and built for the open web.",
   openGraph: {
-    title: "Collective Audience — The Open Web Platform",
+    title: "Collective Audience: The Open Web Platform",
     description: "Unify media monetization, audience data, and advertising into one open platform.",
     type: "website",
   },

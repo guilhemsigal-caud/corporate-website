@@ -6,7 +6,7 @@ import { useLang } from "@/lib/i18n";
 
 const COPY = {
   en: {
-    tagline: "The Open Web Platform — unifying media, data, and advertising for the cookieless era.",
+    tagline: "The Open Web Platform, unifying media, data, and advertising for the cookieless era.",
     copyright: `© ${new Date().getFullYear()} Collective Audience. All rights reserved.`,
     cols: [
       { heading: "Publishers", links: [{ label: "Overview", href: "/publishers" }, { label: "Monetization & Yield", href: "/publishers/monetization" }, { label: "Data & Insights", href: "/publishers/data" }, { label: "Editorial Tool", href: "/publishers/editorial" }, { label: "Media Partners", href: "/publishers/partners" }] },
@@ -18,7 +18,7 @@ const COPY = {
     legal: [{ label: "Privacy Policy", href: "/legal/privacy" }, { label: "Terms of Use", href: "/legal/terms" }, { label: "Cookie Policy", href: "/legal/cookies" }, { label: "Accessibility", href: "/legal/accessibility" }],
   },
   fr: {
-    tagline: "La plateforme du web ouvert — unifier médias, données et publicité pour l'ère sans cookies.",
+    tagline: "La plateforme du web ouvert, pour unifier médias, données et publicité pour l'ère sans cookies.",
     copyright: `© ${new Date().getFullYear()} Collective Audience. Tous droits réservés.`,
     cols: [
       { heading: "Éditeurs", links: [{ label: "Vue d'ensemble", href: "/publishers" }, { label: "Monétisation & Yield", href: "/publishers/monetization" }, { label: "Données & Insights", href: "/publishers/data" }, { label: "Outil éditorial", href: "/publishers/editorial" }, { label: "Partenaires médias", href: "/publishers/partners" }] },

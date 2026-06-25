@@ -25,13 +25,13 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     slug: "focus-video", category: "formats", name: "Focus Vidéo",
-    description: "Mid-article scroll-triggered video format that activates only when fully in view — maximizing completion rate.",
+    description: "Mid-article scroll-triggered video format that activates only when fully in view, maximizing completion rate.",
     kpis: [{ label: "Completion rate", value: "78%" }, { label: "Attention", value: "42s" }, { label: "Brand recall", value: "+52%" }],
     accent: "#5b8cff", tags: ["Video", "Scroll-triggered"],
   },
   {
     slug: "automobile", category: "industries", name: "Automobile",
-    description: "High-attention formats for automotive brands — from model launches to test-drive conversions.",
+    description: "High-attention formats for automotive brands, from model launches to test-drive conversions.",
     kpis: [{ label: "Brand lift", value: "+52%" }, { label: "Test drive intent", value: "+38%" }, { label: "Attention", value: "38s" }],
     accent: "#07e2dc", tags: ["Audi", "BMW", "Renault"],
     demos: [

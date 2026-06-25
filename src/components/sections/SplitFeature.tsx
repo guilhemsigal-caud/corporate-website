@@ -195,7 +195,7 @@ export function AdvertisersVisual() {
         style={{ background: "rgba(7,226,220,0.05)" }}
       >
         <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-semibold text-ca-text">BMW M Series — FR</span>
+          <span className="text-sm font-semibold text-ca-text">BMW M Series, FR</span>
           <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 border border-green-500/20">
             {fr ? "En direct" : "Live"}
           </span>
