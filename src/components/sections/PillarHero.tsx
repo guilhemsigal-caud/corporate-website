@@ -32,7 +32,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
       {/* Grid */}
       <div aria-hidden className="absolute inset-0 pointer-events-none opacity-25"
         style={{
-          backgroundImage: "linear-gradient(to right, #1e2236 1px, transparent 1px), linear-gradient(to bottom, #1e2236 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(to right, #c4d0f0 1px, transparent 1px), linear-gradient(to bottom, #c4d0f0 1px, transparent 1px)",
           backgroundSize: "72px 72px",
           maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, #000 50%, transparent 100%)",
         }}
@@ -48,7 +48,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
 
         <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.08] mb-6"
-          style={{ background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.5) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+          style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
         >
           {headline}
         </motion.h1>
@@ -76,7 +76,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
             )}
             {ctaSecondary && (
               <Link href={ctaSecondary.href}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-ca-border bg-white/4 text-ca-text font-semibold text-sm backdrop-blur-sm transition-all duration-200 hover:bg-white/8 hover:border-opacity-60 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold text-sm backdrop-blur-sm transition-all duration-200 hover:bg-black/8 hover:border-opacity-60 active:scale-[0.98]"
                 style={{ ["--hover-border" as string]: accent }}
               >
                 {ctaSecondary.label}
@@ -103,7 +103,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
       </div>
 
       <div aria-hidden className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-        style={{ background: "linear-gradient(to top, #0a0c14, transparent)" }}
+        style={{ background: "linear-gradient(to top, #fafbff, transparent)" }}
       />
     </section>
   );

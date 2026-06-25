@@ -4,10 +4,10 @@ import { MapPin, ArrowRight } from "lucide-react";
 export const metadata: Metadata = { title: "Careers — Collective Audience" };
 const JOBS = [
   { title: "Senior Full-Stack Engineer", location: "Paris / Remote", type: "Full-time", accent: "#5b8cff" },
-  { title: "Product Manager — Publisher Platform", location: "Paris", type: "Full-time", accent: "#7df0c8" },
+  { title: "Product Manager — Publisher Platform", location: "Paris", type: "Full-time", accent: "#07e2dc" },
   { title: "Data Scientist — Audience Intelligence", location: "New York / Remote", type: "Full-time", accent: "#7b3fff" },
   { title: "Sales Director — EMEA Publishers", location: "Paris", type: "Full-time", accent: "#5b8cff" },
-  { title: "Account Manager — Advertisers", location: "New York", type: "Full-time", accent: "#7df0c8" },
+  { title: "Account Manager — Advertisers", location: "New York", type: "Full-time", accent: "#07e2dc" },
   { title: "Marketing Manager", location: "Paris / New York", type: "Full-time", accent: "#7b3fff" },
 ];
 export default function CareersPage() {

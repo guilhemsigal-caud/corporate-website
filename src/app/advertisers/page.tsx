@@ -36,7 +36,7 @@ export default function AdvertisersPage() {
       <section className="relative bg-ca-dark overflow-hidden py-28">
         <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[5%] w-[700px] h-[700px] rounded-full"
-            style={{ background: "radial-gradient(circle,rgba(125,240,200,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
+            style={{ background: "radial-gradient(circle,rgba(7,226,220,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full"
             style={{ background: "radial-gradient(circle,rgba(91,140,255,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 6s" }} />
         </div>
@@ -52,7 +52,7 @@ export default function AdvertisersPage() {
             Reach engaged readers on 200+ premium publishers with high-attention formats, cookieless targeting, and measurable brand outcomes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ca-mint text-[#0a0c14] font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(125,240,200,0.35)]">
+            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ca-mint text-[#0a0c14] font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]">
               Contact our sales team <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-white/4 text-ca-text font-semibold hover:bg-white/8 transition-all">
@@ -95,12 +95,12 @@ export default function AdvertisersPage() {
               </div>
             </div>
             {/* CA */}
-            <div className="rounded-2xl border p-7 relative overflow-hidden" style={{ borderColor: "rgba(125,240,200,0.3)", background: "linear-gradient(145deg,rgba(125,240,200,0.08) 0%,#111420 60%)" }}>
-              <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: "linear-gradient(to right,transparent,#7df0c8,transparent)" }} />
+            <div className="rounded-2xl border p-7 relative overflow-hidden" style={{ borderColor: "rgba(7,226,220,0.3)", background: "linear-gradient(145deg,rgba(7,226,220,0.08) 0%,#111420 60%)" }}>
+              <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: "linear-gradient(to right,transparent,#07e2dc,transparent)" }} />
               <div className="text-sm font-semibold text-ca-mint uppercase tracking-widest mb-5">Collective Audience</div>
               <div className="space-y-4">
-                {[[">1%","Interaction rate","#7df0c8"],["34 seconds","Avg. time on format","#5b8cff"],["+40%","Brand lift","#7df0c8"],["First-party","Rich audience data","#7b3fff"],["Cookieless","No cookie required","#7df0c8"],["Premium only","200+ vetted publishers","#5b8cff"]].map(([v,l,c]) => (
-                  <div key={l as string} className="flex items-center justify-between py-2 border-b last:border-0" style={{ borderColor: "rgba(125,240,200,0.1)" }}>
+                {[[">1%","Interaction rate","#07e2dc"],["34 seconds","Avg. time on format","#5b8cff"],["+40%","Brand lift","#07e2dc"],["First-party","Rich audience data","#7b3fff"],["Cookieless","No cookie required","#07e2dc"],["Premium only","200+ vetted publishers","#5b8cff"]].map(([v,l,c]) => (
+                  <div key={l as string} className="flex items-center justify-between py-2 border-b last:border-0" style={{ borderColor: "rgba(7,226,220,0.1)" }}>
                     <span className="text-sm text-ca-muted">{l as string}</span>
                     <span className="text-sm font-bold" style={{ color: c as string }}>{v as string}</span>
                   </div>
@@ -130,7 +130,7 @@ export default function AdvertisersPage() {
                 <div><div className="text-xs text-ca-muted mb-1">Campaign: BMW M Series — FR</div><div className="text-xl font-bold text-ca-mint">Active</div></div>
                 <div className="text-xs px-2.5 py-1 rounded-full bg-green-500/15 text-green-400 border border-green-500/20">Live</div>
               </div>
-              {[["Brand Lift","78%","#7df0c8"],["Attention Score","92%","#5b8cff"],["Interaction Rate","1.4%","#7b3fff"]].map(([l,v,c]) => (
+              {[["Brand Lift","78%","#07e2dc"],["Attention Score","92%","#5b8cff"],["Interaction Rate","1.4%","#7b3fff"]].map(([l,v,c]) => (
                 <div key={l as string} className="mb-3">
                   <div className="flex justify-between mb-1"><span className="text-xs text-ca-muted">{l as string}</span><span className="text-xs font-bold" style={{ color: c as string }}>{v as string}</span></div>
                   <div className="h-1.5 rounded-full bg-ca-border overflow-hidden"><div className="h-full rounded-full" style={{ width: v as string, background: c as string }} /></div>
@@ -184,7 +184,7 @@ export default function AdvertisersPage() {
             <div className="p-6 space-y-3">
               {[
                 { label: "Article topic", value: "Electric vehicles — Test drive review", score: 98, color: "#5b8cff" },
-                { label: "Brand safety", value: "Premium / Safe", score: 100, color: "#7df0c8" },
+                { label: "Brand safety", value: "Premium / Safe", score: 100, color: "#07e2dc" },
                 { label: "Context match", value: "Automotive — High intent", score: 94, color: "#7b3fff" },
                 { label: "Attention prediction", value: "Very high (>40s)", score: 88, color: "#5b8cff" },
               ].map(s => (
@@ -214,7 +214,7 @@ export default function AdvertisersPage() {
           </h2>
           <p className="text-ca-muted mb-10 max-w-xl mx-auto">From conversational Q&A to immersive video — discover all our interactive ad formats with live demos and real KPIs.</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-            {[["Conversational","Q&A & dialogue formats","#5b8cff"],["Focus Vidéo","Scroll-triggered video","#7df0c8"],["Immersif","Full-immersion formats","#7b3fff"],["Slider","Before/after comparison","#5b8cff"],["Branded Content","Native editorial integration","#7df0c8"],["Rich Media","Expandable & animated","#7b3fff"]].map(([n,d,c]) => (
+            {[["Conversational","Q&A & dialogue formats","#5b8cff"],["Focus Vidéo","Scroll-triggered video","#07e2dc"],["Immersif","Full-immersion formats","#7b3fff"],["Slider","Before/after comparison","#5b8cff"],["Branded Content","Native editorial integration","#07e2dc"],["Rich Media","Expandable & animated","#7b3fff"]].map(([n,d,c]) => (
               <Link key={n as string} href="/gallery"
                 className="group rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5"
                 style={{ borderColor: `${c as string}22`, background: `${c as string}08` }}>

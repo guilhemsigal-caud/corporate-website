@@ -4,10 +4,10 @@ import { ArrowRight, Download } from "lucide-react";
 export const metadata: Metadata = { title: "Studies & White Papers — Collective Audience" };
 const STUDIES = [
   { title: "S.T.A.M.P. Attention Study 2024", desc: "Comprehensive analysis of attention metrics across 50+ campaigns and 200+ publisher environments.", type: "White Paper", accent: "#5b8cff" },
-  { title: "Cookieless Advertising Playbook", desc: "A practical guide for publishers and advertisers navigating the cookieless transition in 2024-2025.", type: "Guide", accent: "#7df0c8" },
+  { title: "Cookieless Advertising Playbook", desc: "A practical guide for publishers and advertisers navigating the cookieless transition in 2024-2025.", type: "Guide", accent: "#07e2dc" },
   { title: "Brand Lift Meta-Analysis", desc: "Aggregated brand lift data from 100+ campaigns — benchmarks by industry, format, and audience size.", type: "Research Report", accent: "#7b3fff" },
   { title: "Publisher Monetization Index 2024", desc: "Yearly benchmark report on eCPM, fill rates, and revenue per session across the publisher network.", type: "Annual Report", accent: "#5b8cff" },
-  { title: "The Economics of Attention", desc: "Why attention time is the better proxy for advertising value — a case for CPM reform.", type: "Thought Leadership", accent: "#7df0c8" },
+  { title: "The Economics of Attention", desc: "Why attention time is the better proxy for advertising value — a case for CPM reform.", type: "Thought Leadership", accent: "#07e2dc" },
   { title: "Open Web Audience Study 2024", desc: "Audience insights, engagement patterns, and content consumption trends from 200+ publishers.", type: "Research Report", accent: "#7b3fff" },
 ];
 export default function StudiesPage() {

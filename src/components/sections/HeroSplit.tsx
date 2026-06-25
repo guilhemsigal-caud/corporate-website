@@ -57,7 +57,7 @@ function ProductMockup() {
             <div
               className="absolute top-0 left-0 right-0 h-px"
               style={{
-                background: "linear-gradient(to right, transparent, #5b8cff, #7df0c8, transparent)",
+                background: "linear-gradient(to right, transparent, #5b8cff, #07e2dc, transparent)",
               }}
             />
             <div className="p-5">
@@ -81,7 +81,7 @@ function ProductMockup() {
                     className="h-full rounded-full"
                     style={{
                       width: `${tick}%`,
-                      background: "linear-gradient(to right, #5b8cff, #7df0c8)",
+                      background: "linear-gradient(to right, #5b8cff, #07e2dc)",
                     }}
                   />
                 </div>
@@ -97,7 +97,7 @@ function ProductMockup() {
                       height: `${h}%`,
                       background:
                         i < Math.floor(tick / 10)
-                          ? "linear-gradient(to top, #5b8cff, #7df0c8)"
+                          ? "linear-gradient(to top, #5b8cff, #07e2dc)"
                           : "rgba(91,140,255,0.2)",
                     }}
                     transition={{ duration: 0.3 }}
@@ -135,7 +135,7 @@ function ProductMockup() {
         <div
           className="text-3xl font-bold"
           style={{
-            background: "linear-gradient(135deg, #5b8cff, #7df0c8)",
+            background: "linear-gradient(135deg, #5b8cff, #07e2dc)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -166,7 +166,7 @@ function ProductMockup() {
         className="absolute top-1/2 -left-8 -translate-y-1/2 rounded-2xl border border-ca-border bg-ca-surface px-4 py-3 shadow-xl hidden xl:block"
         style={{ backdropFilter: "blur(12px)" }}
       >
-        <div className="text-2xl font-bold" style={{ color: "#7df0c8" }}>200+</div>
+        <div className="text-2xl font-bold" style={{ color: "#07e2dc" }}>200+</div>
         <div className="text-xs text-ca-muted">Publishers</div>
       </motion.div>
     </div>
@@ -195,7 +195,7 @@ export function HeroSplit() {
         <div
           className="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(125,240,200,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(7,226,220,0.07) 0%, transparent 70%)",
             animation: "blob 12s ease-in-out infinite 8s",
           }}
         />
@@ -207,7 +207,7 @@ export function HeroSplit() {
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
           backgroundImage:
-            "linear-gradient(to right, #1e2236 1px, transparent 1px), linear-gradient(to bottom, #1e2236 1px, transparent 1px)",
+            "linear-gradient(to right, #c4d0f0 1px, transparent 1px), linear-gradient(to bottom, #c4d0f0 1px, transparent 1px)",
           backgroundSize: "72px 72px",
           maskImage:
             "radial-gradient(ellipse 90% 90% at 50% 50%, #000 50%, transparent 100%)",
@@ -241,7 +241,7 @@ export function HeroSplit() {
           >
             <span
               style={{
-                background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.5) 100%)",
+                background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -254,7 +254,7 @@ export function HeroSplit() {
             </span>
             <span
               style={{
-                background: "linear-gradient(135deg, #5b8cff 0%, #7df0c8 100%)",
+                background: "linear-gradient(135deg, #5b8cff 0%, #07e2dc 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -321,7 +321,7 @@ export function HeroSplit() {
       <div
         aria-hidden
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: "linear-gradient(to top, #0a0c14, transparent)" }}
+        style={{ background: "linear-gradient(to top, #fafbff, transparent)" }}
       />
     </section>
   );

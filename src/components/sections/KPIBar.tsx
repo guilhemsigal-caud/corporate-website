@@ -37,7 +37,7 @@ function AnimatedStat({ prefix, value, suffix, label, sublabel, accent, delay }:
       <div
         className="text-5xl md:text-6xl font-bold tracking-tight mb-2 tabular-nums"
         style={{
-          background: `linear-gradient(135deg, ${accent} 0%, #f0f2ff 80%)`,
+          background: `linear-gradient(135deg, ${accent} 0%, #0e1025 100%)`,
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
@@ -68,7 +68,7 @@ const STATS: Omit<StatProps, "delay">[] = [
     suffix: "s",
     label: "Time on Format",
     sublabel: "avg. attention per ad unit",
-    accent: "#7df0c8",
+    accent: "#07e2dc",
   },
   {
     prefix: ">",
@@ -97,7 +97,7 @@ export function KPIBar() {
         className="absolute inset-x-0 top-0 h-px"
         style={{
           background:
-            "linear-gradient(to right, transparent, rgba(91,140,255,0.5) 30%, rgba(125,240,200,0.5) 70%, transparent)",
+            "linear-gradient(to right, transparent, rgba(91,140,255,0.5) 30%, rgba(7,226,220,0.5) 70%, transparent)",
         }}
       />
 

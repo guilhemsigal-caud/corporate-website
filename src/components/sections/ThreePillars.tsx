@@ -8,8 +8,8 @@ const PILLARS = [
   {
     href: "/publishers",
     accent: "#5b8cff",
-    accentDim: "rgba(91,140,255,0.12)",
-    accentBorder: "rgba(91,140,255,0.25)",
+    accentDim: "rgba(91,140,255,0.18)",
+    accentBorder: "rgba(91,140,255,0.35)",
     tag: "Publishers",
     headline: "Monetize. Collect. Engage.",
     description:
@@ -25,9 +25,9 @@ const PILLARS = [
   },
   {
     href: "/advertisers",
-    accent: "#7df0c8",
-    accentDim: "rgba(125,240,200,0.10)",
-    accentBorder: "rgba(125,240,200,0.22)",
+    accent: "#07e2dc",
+    accentDim: "rgba(7,226,220,0.16)",
+    accentBorder: "rgba(7,226,220,0.35)",
     tag: "Advertisers",
     headline: "Reach. Target. Measure.",
     description:
@@ -44,8 +44,8 @@ const PILLARS = [
   {
     href: "/platform",
     accent: "#7b3fff",
-    accentDim: "rgba(123,63,255,0.12)",
-    accentBorder: "rgba(123,63,255,0.25)",
+    accentDim: "rgba(123,63,255,0.18)",
+    accentBorder: "rgba(123,63,255,0.35)",
     tag: "Platform",
     headline: "AudienceCloud OS",
     description:
@@ -80,7 +80,7 @@ export function ThreePillars() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
             <span
               style={{
-                background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.55) 100%)",
+                background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -109,7 +109,8 @@ export function ThreePillars() {
                 className="group relative flex flex-col h-full rounded-2xl border bg-ca-surface overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1"
                 style={{
                   borderColor: pillar.accentBorder,
-                  background: `linear-gradient(145deg, ${pillar.accentDim} 0%, #111420 40%)`,
+                  background: `linear-gradient(145deg, ${pillar.accentDim} 0%, #eef0fb 100%)`,
+                  boxShadow: "0 2px 16px rgba(0,0,40,0.07), 0 1px 3px rgba(0,0,40,0.05)",
                 }}
               >
                 {/* Top accent line */}

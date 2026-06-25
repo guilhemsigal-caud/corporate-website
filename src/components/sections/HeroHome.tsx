@@ -48,7 +48,7 @@ export function HeroHome() {
         <div
           className="absolute bottom-[5%] left-[25%] w-[480px] h-[480px] rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(125,240,200,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(7,226,220,0.1) 0%, transparent 70%)",
             animation: "blob 10s ease-in-out infinite 7s",
           }}
         />
@@ -95,7 +95,7 @@ export function HeroHome() {
           <span
             className="block"
             style={{
-              background: "linear-gradient(135deg, #f0f2ff 30%, rgba(240,242,255,0.55) 100%)",
+              background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -202,7 +202,7 @@ export function HeroHome() {
             bars: [65, 80, 55, 90, 72, 85, 95],
           },
           {
-            accent: "#7df0c8",
+            accent: "#07e2dc",
             label: "Advertisers",
             metric: "34s",
             sub: "avg. time on format",
@@ -285,7 +285,7 @@ export function HeroHome() {
         aria-hidden
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
         style={{
-          background: "linear-gradient(to top, #0a0c14 0%, transparent 100%)",
+          background: "linear-gradient(to top, #fafbff 0%, transparent 100%)",
         }}
       />
     </section>

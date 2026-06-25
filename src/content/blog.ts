@@ -63,7 +63,7 @@ The cookieless transition is not a threat — it's an opportunity to build a mor
     category: "Advertisers",
     date: "2025-05-28",
     readTime: "6 min read",
-    accent: "#7df0c8",
+    accent: "#07e2dc",
     content: `The advertising industry has spent 30 years optimizing for the wrong metric. Click-through rate (CTR) was never a meaningful proxy for brand recall, purchase intent, or business outcomes — yet it became the default measurement for digital campaigns.
 
 The result: an industry that optimized for bots, banner blindness, and accidental clicks, while genuine brand impact went unmeasured.
@@ -198,7 +198,7 @@ That belief is what brought BeOp and NYIAX together. And it's what drives Collec
     category: "Research",
     date: "2025-04-05",
     readTime: "10 min read",
-    accent: "#7df0c8",
+    accent: "#07e2dc",
     content: `We commissioned an independent meta-analysis of 50+ campaigns run through our platform, using certified brand lift methodologies from Lucid Research and Dynata. The findings confirm what our clients have been experiencing — and they're significant enough to change how the industry thinks about format selection.
 
 **Key findings**

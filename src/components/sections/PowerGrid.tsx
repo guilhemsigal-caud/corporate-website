@@ -22,7 +22,8 @@ function NodePill({
       transition={{ delay, duration: 0.4 }}
       className="flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium text-ca-text"
       style={{
-        borderColor: `${accent}25`,
+        boxShadow: "0 1px 6px rgba(0,0,40,0.06)",
+        borderColor: `${accent}45`,
         background: `${accent}0c`,
       }}
     >
@@ -53,7 +54,7 @@ export function PowerGrid() {
           <h2
             className="text-3xl md:text-4xl font-bold tracking-tight"
             style={{
-              background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.5) 100%)",
+              background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -92,12 +93,12 @@ export function PowerGrid() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative rounded-2xl border border-ca-border p-6 text-center"
-            style={{ background: "linear-gradient(145deg, rgba(123,63,255,0.08) 0%, #111420 60%)" }}
+            style={{ background: "linear-gradient(145deg, rgba(123,63,255,0.15) 0%, #eef0fb 100%)", boxShadow: "0 2px 20px rgba(0,0,40,0.08), 0 1px 4px rgba(0,0,40,0.05)", borderColor: "rgba(123,63,255,0.35)" }}
           >
             <div
               className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl"
               style={{
-                background: "linear-gradient(to right, transparent, #7b3fff, #5b8cff, #7df0c8, transparent)",
+                background: "linear-gradient(to right, transparent, #7b3fff, #5b8cff, #07e2dc, transparent)",
               }}
             />
 
@@ -119,9 +120,9 @@ export function PowerGrid() {
             <div className="space-y-3">
               {[
                 { label: "Audience signals / day", value: "4B+", accent: "#5b8cff" },
-                { label: "Cookieless matching", value: "AI", accent: "#7df0c8" },
+                { label: "Cookieless matching", value: "AI", accent: "#07e2dc" },
                 { label: "Real-time targeting", value: "<50ms", accent: "#7b3fff" },
-                { label: "Brand safety score", value: "99%", accent: "#7df0c8" },
+                { label: "Brand safety score", value: "99%", accent: "#07e2dc" },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -153,7 +154,7 @@ export function PowerGrid() {
                 <motion.div
                   key={i}
                   className="h-px w-5 rounded-full"
-                  style={{ background: "#7df0c8" }}
+                  style={{ background: "#07e2dc" }}
                   animate={{ opacity: [0.2, 1, 0.2], scaleX: [0.5, 1, 0.5] }}
                   transition={{ duration: 1.5, delay: i * 0.2 + 0.75, repeat: Infinity }}
                 />
@@ -167,7 +168,7 @@ export function PowerGrid() {
               Advertisers
             </div>
             {BRANDS.map((b, i) => (
-              <NodePill key={b} label={b} accent="#7df0c8" delay={i * 0.06 + 0.3} />
+              <NodePill key={b} label={b} accent="#07e2dc" delay={i * 0.06 + 0.3} />
             ))}
             <motion.div
               initial={{ opacity: 0 }}

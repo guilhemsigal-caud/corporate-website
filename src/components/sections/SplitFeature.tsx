@@ -54,7 +54,7 @@ export function SplitFeature({
             <h2
               className="text-3xl md:text-4xl font-bold tracking-tight mb-5 leading-snug"
               style={{
-                background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.5) 100%)",
+                background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -117,7 +117,7 @@ export function SplitFeature({
 export function PublishersVisual() {
   const stats = [
     { label: "eCPM uplift", value: "+28%", accent: "#5b8cff" },
-    { label: "Fill rate", value: "94%", accent: "#7df0c8" },
+    { label: "Fill rate", value: "94%", accent: "#07e2dc" },
     { label: "Brand safety", value: "99%", accent: "#7b3fff" },
     { label: "Latency", value: "<50ms", accent: "#5b8cff" },
   ];
@@ -125,11 +125,11 @@ export function PublishersVisual() {
   return (
     <div
       className="relative rounded-2xl border border-ca-border p-7 overflow-hidden"
-      style={{ background: "linear-gradient(145deg, rgba(91,140,255,0.08) 0%, #111420 60%)" }}
+      style={{ background: "linear-gradient(145deg, rgba(91,140,255,0.14) 0%, #eef0fb 100%)", boxShadow: "0 2px 16px rgba(0,0,40,0.07), 0 1px 3px rgba(0,0,40,0.05)", borderColor: "rgba(91,140,255,0.35)" }}
     >
       <div
         className="absolute top-0 left-0 right-0 h-[2px]"
-        style={{ background: "linear-gradient(to right, transparent, #5b8cff, #7df0c8, transparent)" }}
+        style={{ background: "linear-gradient(to right, transparent, #5b8cff, #07e2dc, transparent)" }}
       />
       <div className="text-xs font-semibold tracking-widest uppercase text-ca-blue mb-5">
         Publisher Dashboard
@@ -177,11 +177,11 @@ export function AdvertisersVisual() {
   return (
     <div
       className="relative rounded-2xl border border-ca-border p-7 overflow-hidden"
-      style={{ background: "linear-gradient(145deg, rgba(125,240,200,0.07) 0%, #111420 60%)" }}
+      style={{ background: "linear-gradient(145deg, rgba(7,226,220,0.13) 0%, #eef0fb 100%)", boxShadow: "0 2px 16px rgba(0,0,40,0.07), 0 1px 3px rgba(0,0,40,0.05)", borderColor: "rgba(7,226,220,0.35)" }}
     >
       <div
         className="absolute top-0 left-0 right-0 h-[2px]"
-        style={{ background: "linear-gradient(to right, transparent, #7df0c8, #7b3fff, transparent)" }}
+        style={{ background: "linear-gradient(to right, transparent, #07e2dc, #7b3fff, transparent)" }}
       />
       <div className="text-xs font-semibold tracking-widest uppercase text-ca-mint mb-5">
         Campaign Performance
@@ -190,7 +190,7 @@ export function AdvertisersVisual() {
       {/* Campaign card */}
       <div
         className="rounded-xl border border-ca-border p-4 mb-4"
-        style={{ background: "rgba(125,240,200,0.05)" }}
+        style={{ background: "rgba(7,226,220,0.05)" }}
       >
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-semibold text-ca-text">BMW M Series — FR</span>
@@ -199,7 +199,7 @@ export function AdvertisersVisual() {
           </span>
         </div>
         {[
-          { label: "Brand Lift", value: 78, color: "#7df0c8" },
+          { label: "Brand Lift", value: 78, color: "#07e2dc" },
           { label: "Attention Score", value: 92, color: "#5b8cff" },
           { label: "Interaction Rate", value: 65, color: "#7b3fff" },
         ].map((m) => (
@@ -226,7 +226,7 @@ export function AdvertisersVisual() {
 
       <div className="grid grid-cols-3 gap-3 text-center">
         {[
-          { v: "+40%", l: "Brand Lift", c: "#7df0c8" },
+          { v: "+40%", l: "Brand Lift", c: "#07e2dc" },
           { v: "34s", l: "Attention", c: "#5b8cff" },
           { v: "3×", l: "Attribution", c: "#7b3fff" },
         ].map((s) => (

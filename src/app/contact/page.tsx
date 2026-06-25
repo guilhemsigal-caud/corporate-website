@@ -38,7 +38,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             {[
               { city: "New York", address: "85 Broad Street, NY 10004", email: "hello@collectiveaudience.co", accent: "#5b8cff" },
-              { city: "Paris", address: "33 rue La Fayette, 75009 Paris", email: "bonjour@collectiveaudience.co", accent: "#7df0c8" },
+              { city: "Paris", address: "33 rue La Fayette, 75009 Paris", email: "bonjour@collectiveaudience.co", accent: "#07e2dc" },
             ].map(o => (
               <div key={o.city} className="rounded-2xl border p-6" style={{ borderColor: `${o.accent}22`, background: `${o.accent}08` }}>
                 <div className="text-sm font-bold mb-3" style={{ color: o.accent }}>{o.city}</div>

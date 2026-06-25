@@ -25,7 +25,7 @@ const METRICS = [
     title: "Attention strengthens brand & ROI",
     description: "High-attention formats deliver double the brand recall and measurable ROI lift",
     source: "WARC Meta-Analysis, 2024",
-    accent: "#7df0c8",
+    accent: "#07e2dc",
     stats: [
       { value: ">1%", label: "Interaction rate" },
       { value: "3×", label: "Attribution" },
@@ -81,8 +81,9 @@ export function ImpactMetrics() {
               transition={{ delay: i * 0.1, duration: 0.55 }}
               className="group relative rounded-2xl border overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1"
               style={{
-                borderColor: `${m.accent}22`,
-                background: `linear-gradient(145deg, ${m.accent}0d 0%, #111420 50%)`,
+                borderColor: `${m.accent}45`,
+                background: `linear-gradient(145deg, ${m.accent}20 0%, #eef0fb 100%)`,
+                boxShadow: "0 2px 16px rgba(0,0,40,0.07), 0 1px 3px rgba(0,0,40,0.05)",
               }}
             >
               {/* Top accent */}

@@ -17,12 +17,12 @@ const BRAND_LOGOS = [
 function LogoItem({ name, accent }: { name: string; accent: string }) {
   return (
     <div
-      className="inline-flex items-center px-6 py-2.5 rounded-lg border border-ca-border bg-ca-surface/50 mx-3 flex-shrink-0 transition-all duration-300 hover:border-opacity-80"
-      style={{ borderColor: `${accent}22` }}
+      className="inline-flex items-center px-6 py-2.5 rounded-lg border mx-3 flex-shrink-0 transition-all duration-300"
+      style={{ borderColor: `${accent}40`, background: `${accent}0a`, boxShadow: "0 1px 6px rgba(0,0,40,0.06)" }}
     >
       <span
         className="text-sm font-semibold tracking-wide whitespace-nowrap"
-        style={{ color: "#8892b0" }}
+        style={{ color: "#5a6480" }}
       >
         {name}
       </span>
@@ -94,7 +94,7 @@ export function LogoCloud() {
             </span>
             <div className="h-px flex-1 bg-ca-border" />
           </div>
-          <Marquee items={BRAND_LOGOS} accent="#7df0c8" reverse />
+          <Marquee items={BRAND_LOGOS} accent="#07e2dc" reverse />
         </motion.div>
 
         {/* Testimonial strip */}

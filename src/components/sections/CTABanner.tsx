@@ -23,7 +23,7 @@ export function CTABanner() {
         className="absolute inset-x-0 top-0 h-px"
         style={{
           background:
-            "linear-gradient(to right, transparent, rgba(91,140,255,0.5) 30%, rgba(125,240,200,0.5) 70%, transparent)",
+            "linear-gradient(to right, transparent, rgba(91,140,255,0.5) 30%, rgba(7,226,220,0.5) 70%, transparent)",
         }}
       />
 
@@ -41,7 +41,7 @@ export function CTABanner() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             <span
               style={{
-                background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.5) 100%)",
+                background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -65,7 +65,7 @@ export function CTABanner() {
             </Link>
             <Link
               href="/gallery"
-              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl border border-ca-border bg-white/4 text-ca-text font-semibold text-[1.05rem] backdrop-blur-sm transition-all duration-200 hover:bg-white/8 hover:border-ca-mint/40 active:scale-[0.98]"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold text-[1.05rem] backdrop-blur-sm transition-all duration-200 hover:bg-black/8 hover:border-ca-mint/40 active:scale-[0.98]"
             >
               Explore formats
               <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />

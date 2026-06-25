@@ -38,7 +38,7 @@ export default function PublishersPage() {
           <div className="absolute top-[-10%] left-[5%] w-[700px] h-[700px] rounded-full"
             style={{ background: "radial-gradient(circle,rgba(91,140,255,0.16) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] right-[10%] w-[500px] h-[500px] rounded-full"
-            style={{ background: "radial-gradient(circle,rgba(125,240,200,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 5s" }} />
+            style={{ background: "radial-gradient(circle,rgba(7,226,220,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 5s" }} />
         </div>
         <div aria-hidden className="absolute inset-0 pointer-events-none opacity-25"
           style={{ backgroundImage: "linear-gradient(to right,#1e2236 1px,transparent 1px),linear-gradient(to bottom,#1e2236 1px,transparent 1px)", backgroundSize: "72px 72px", maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,#000 50%,transparent 100%)" }} />
@@ -77,7 +77,7 @@ export default function PublishersPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { icon: "💰", title: "Sell", subtitle: "Monetize every impression", desc: "Header bidding, direct deals, programmatic — one unified platform to maximise your ad revenue without complexity.", color: "#5b8cff" },
-              { icon: "📊", title: "Collect", subtitle: "Own your audience data", desc: "Build a first-party CRM/DMP from every article read. Cookieless, GDPR-compliant, 100% owned by you.", color: "#7df0c8" },
+              { icon: "📊", title: "Collect", subtitle: "Own your audience data", desc: "Build a first-party CRM/DMP from every article read. Cookieless, GDPR-compliant, 100% owned by you.", color: "#07e2dc" },
               { icon: "💬", title: "Engage", subtitle: "Activate your readers", desc: "Inline conversational and editorial formats that turn passive readers into engaged audiences — without disrupting editorial.", color: "#7b3fff" },
             ].map(p => (
               <div key={p.title} className="rounded-2xl border p-7 text-center" style={{ borderColor: `${p.color}22`, background: `${p.color}08` }}>
@@ -152,7 +152,7 @@ export default function PublishersPage() {
             </div>
             <div className="p-6 space-y-4">
               {[
-                { label: "Engaged readers", value: "1.2M", color: "#7df0c8", pct: 82 },
+                { label: "Engaged readers", value: "1.2M", color: "#07e2dc", pct: 82 },
                 { label: "Active subscribers", value: "340k", color: "#5b8cff", pct: 55 },
                 { label: "High-intent profiles", value: "89k", color: "#7b3fff", pct: 28 },
               ].map(s => (

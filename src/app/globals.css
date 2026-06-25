@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0c14;
-  --foreground: #f0f2ff;
+  --background: #fafbff;
+  --foreground: #0e1025;
 }
 
 @theme {
   --color-ca-blue: #5b8cff;
-  --color-ca-mint: #7df0c8;
+  --color-ca-mint: #07e2dc;
   --color-ca-violet: #7b3fff;
-  --color-ca-dark: #0a0c14;
-  --color-ca-surface: #111420;
-  --color-ca-border: #1e2236;
-  --color-ca-text: #f0f2ff;
-  --color-ca-muted: #8892b0;
+  --color-ca-dark: #fafbff;
+  --color-ca-surface: #f0f2fc;
+  --color-ca-border: #d0d8f0;
+  --color-ca-text: #0e1025;
+  --color-ca-muted: #5a6480;
 
   --animate-blob: blob 10s ease-in-out infinite;
   --animate-blob-delay: blob 10s ease-in-out infinite 3s;
@@ -60,7 +60,7 @@ body {
 }
 
 .gradient-text-blue-mint {
-  background: linear-gradient(135deg, #5b8cff 0%, #7df0c8 100%);
+  background: linear-gradient(135deg, #5b8cff 0%, #07e2dc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -74,7 +74,7 @@ body {
 }
 
 .glow-blue { box-shadow: 0 0 40px rgba(91, 140, 255, 0.3); }
-.glow-mint  { box-shadow: 0 0 40px rgba(125, 240, 200, 0.25); }
+.glow-mint  { box-shadow: 0 0 40px rgba(7, 226, 220, 0.25); }
 .glow-violet { box-shadow: 0 0 40px rgba(123, 63, 255, 0.3); }
 
 .marquee-mask {

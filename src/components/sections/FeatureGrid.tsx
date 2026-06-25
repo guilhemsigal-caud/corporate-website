@@ -33,7 +33,7 @@ export function FeatureGrid({ features, cols = 3, accent = "#5b8cff" }: FeatureG
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
             className="group relative rounded-2xl border overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1"
-            style={{ borderColor: `${color}22`, background: `linear-gradient(145deg, ${color}0a 0%, #111420 55%)` }}
+            style={{ borderColor: `${color}45`, background: `linear-gradient(145deg, ${color}1e 0%, #eef0fb 100%)`, boxShadow: "0 2px 16px rgba(0,0,40,0.07), 0 1px 3px rgba(0,0,40,0.05)" }}
           >
             <div className="absolute top-0 left-0 right-0 h-[2px]"
               style={{ background: `linear-gradient(to right, transparent 5%, ${color} 40%, ${color} 60%, transparent 95%)` }}

@@ -67,7 +67,7 @@ export function Footer() {
       <div
         className="h-px"
         style={{
-          background: "linear-gradient(to right, transparent, #5b8cff 30%, #7df0c8 70%, transparent)",
+          background: "linear-gradient(to right, transparent, #5b8cff 30%, #07e2dc 70%, transparent)",
         }}
       />
 

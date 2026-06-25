@@ -20,7 +20,7 @@ function FeatureLine({ text }: { text: string }) {
 const MODULES = [
   { name: "AudienceDesk", href: "/platform/desk", desc: "Self-serve & managed trading desk for omnichannel media buying.", accent: "#7b3fff", icon: "🖥️" },
   { name: "AudienceAds", href: "/platform/ads", desc: "Conversational & high-attention ad format engine.", accent: "#5b8cff", icon: "💬" },
-  { name: "AudienceConnect", href: "/platform/connect", desc: "Omnichannel distribution: display, video, social, email, push.", accent: "#7df0c8", icon: "🔗" },
+  { name: "AudienceConnect", href: "/platform/connect", desc: "Omnichannel distribution: display, video, social, email, push.", accent: "#07e2dc", icon: "🔗" },
   { name: "AudienceMatching", href: "/platform/matching", desc: "Cookieless identity matching via first-party signals and AI.", accent: "#7b3fff", icon: "🔒" },
 ];
 
@@ -96,7 +96,7 @@ export default function PlatformPage() {
             <div className="px-5 py-3 border-b border-ca-border"><span className="text-xs text-ca-muted">AudienceDesk Dashboard</span></div>
             <div className="p-6">
               <div className="grid grid-cols-2 gap-3 mb-5">
-                {[["Active campaigns","12","#7b3fff"],["Total impressions","24.8M","#5b8cff"],["Avg. attention","34s","#7df0c8"],["Brand lift","+40%","#7b3fff"]].map(([l,v,c]) => (
+                {[["Active campaigns","12","#7b3fff"],["Total impressions","24.8M","#5b8cff"],["Avg. attention","34s","#07e2dc"],["Brand lift","+40%","#7b3fff"]].map(([l,v,c]) => (
                   <div key={l as string} className="rounded-xl border border-ca-border bg-ca-dark p-3">
                     <div className="text-[10px] text-ca-muted mb-1">{l as string}</div>
                     <div className="text-lg font-bold" style={{ color: c as string }}>{v as string}</div>
@@ -122,7 +122,7 @@ export default function PlatformPage() {
             <div className="p-6 space-y-3">
               {[
                 { from: "Publisher first-party signal", to: "Audience profile", accent: "#5b8cff" },
-                { from: "Article context (NLP)", to: "Intent score", accent: "#7df0c8" },
+                { from: "Article context (NLP)", to: "Intent score", accent: "#07e2dc" },
                 { from: "Advertiser CRM", to: "Matched segment", accent: "#7b3fff" },
               ].map((row, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -163,7 +163,7 @@ export default function PlatformPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { name: "AudienceAds", href: "/platform/ads", accent: "#5b8cff", desc: "The conversational ad format engine — powering every high-attention and interactive creative served across our network.", features: ["Q&A, polls, quizzes, dialogue formats","Scroll-triggered inline video","Sub-50ms serving latency","Pre-bid brand safety classification","Attention tracking per impression"] },
-              { name: "AudienceConnect", href: "/platform/connect", accent: "#7df0c8", desc: "Omnichannel distribution hub — activate your audiences across display, video, social, email, and push from one platform.", features: ["Display & native programmatic","Video outstream & instream","Social sync (Meta, LinkedIn, TikTok)","Email partner network activation","Unified cross-channel reporting"] },
+              { name: "AudienceConnect", href: "/platform/connect", accent: "#07e2dc", desc: "Omnichannel distribution hub — activate your audiences across display, video, social, email, and push from one platform.", features: ["Display & native programmatic","Video outstream & instream","Social sync (Meta, LinkedIn, TikTok)","Email partner network activation","Unified cross-channel reporting"] },
             ].map(mod => (
               <div key={mod.name} className="rounded-2xl border p-7" style={{ borderColor: `${mod.accent}25`, background: `${mod.accent}08` }}>
                 <div className="h-px w-10 mb-5 rounded-full" style={{ background: mod.accent }} />

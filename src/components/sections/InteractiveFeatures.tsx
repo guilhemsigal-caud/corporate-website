@@ -29,7 +29,7 @@ const FEATURES = [
   {
     id: "timing",
     tab: "Right moment",
-    accent: "#7df0c8",
+    accent: "#07e2dc",
     headline: "Be present at the right moment",
     description:
       "Our formats activate at the scroll — precisely when readers are most engaged. Semantic contextual targeting ensures brand relevance in real time.",
@@ -43,7 +43,7 @@ const FEATURES = [
     href: "/advertisers/targeting",
     visual: {
       items: ["Scroll Intent", "Context Score", "Brand Safety", "Attention AI"],
-      accent: "#7df0c8",
+      accent: "#07e2dc",
     },
   },
   {
@@ -136,7 +136,7 @@ function VisualPanel({ feature }: { feature: (typeof FEATURES)[0] }) {
             <div
               className="text-4xl font-bold"
               style={{
-                background: `linear-gradient(135deg, ${feature.visual.accent}, #f0f2ff)`,
+                background: `linear-gradient(135deg, ${feature.visual.accent}, #0e1025)`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -191,9 +191,9 @@ export function InteractiveFeatures() {
           <span
             className="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full border"
             style={{
-              color: "#7df0c8",
-              borderColor: "rgba(125,240,200,0.2)",
-              background: "rgba(125,240,200,0.06)",
+              color: "#07e2dc",
+              borderColor: "rgba(7,226,220,0.2)",
+              background: "rgba(7,226,220,0.06)",
             }}
           >
             Elevate your impact
@@ -201,7 +201,7 @@ export function InteractiveFeatures() {
           <h2
             className="text-3xl md:text-5xl font-bold tracking-tight mb-4"
             style={{
-              background: "linear-gradient(135deg, #f0f2ff 40%, rgba(240,242,255,0.5) 100%)",
+              background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -229,9 +229,9 @@ export function InteractiveFeatures() {
                       boxShadow: `0 0 24px ${f.accent}50`,
                     }
                   : {
-                      border: `1px solid rgba(255,255,255,0.08)`,
-                      color: "#8892b0",
-                      background: "rgba(255,255,255,0.03)",
+                      border: `1px solid rgba(0,0,30,0.1)`,
+                      color: "#5a6480",
+                      background: "rgba(0,0,30,0.04)",
                     }
               }
             >
@@ -255,8 +255,8 @@ export function InteractiveFeatures() {
               transition={{ duration: 0.35 }}
               className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r"
               style={{
-                borderColor: `${feature.accent}20`,
-                background: `linear-gradient(145deg, ${feature.accent}0d 0%, #0d1020 60%)`,
+                borderColor: `${feature.accent}40`,
+                background: `linear-gradient(145deg, ${feature.accent}1c 0%, #eef0fb 100%)`,
               }}
             >
               {/* Top line */}

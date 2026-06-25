@@ -46,7 +46,7 @@ export default function Home() {
           "Creative studio — no assets required",
         ]}
         cta={{ label: "For Advertisers", href: "/advertisers" }}
-        accent="#7df0c8"
+        accent="#07e2dc"
         reverse
         visual={<AdvertisersVisual />}
       />

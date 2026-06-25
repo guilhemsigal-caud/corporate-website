@@ -5,7 +5,7 @@ import { CTABanner } from "@/components/sections/CTABanner";
 export const metadata: Metadata = { title: "About — Collective Audience" };
 const VALUES = [
   { title: "Open Web First", desc: "We believe in a free, open, and independent web — funded by advertising that respects users and publishers.", accent: "#5b8cff" },
-  { title: "Privacy by Design", desc: "Every product decision starts with privacy. Cookieless is not a constraint — it's our foundation.", accent: "#7df0c8" },
+  { title: "Privacy by Design", desc: "Every product decision starts with privacy. Cookieless is not a constraint — it's our foundation.", accent: "#07e2dc" },
   { title: "Publisher Independence", desc: "We give publishers the tools to own their audiences and monetize without compromising their editorial mission.", accent: "#7b3fff" },
   { title: "Transparency", desc: "No black boxes. Publishers and advertisers see every signal, every decision, every euro.", accent: "#5b8cff" },
 ];

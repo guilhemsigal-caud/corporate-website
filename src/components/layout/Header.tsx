@@ -35,9 +35,9 @@ export function Header() {
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          background: scrolled ? "rgba(10,12,20,0.95)" : "rgba(10,12,20,0.6)",
+          background: scrolled ? "rgba(250,251,255,0.97)" : "rgba(250,251,255,0.88)",
           backdropFilter: "blur(16px)",
-          borderBottom: scrolled ? "1px solid rgba(30,34,54,0.8)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid rgba(208,216,240,0.9)" : "1px solid transparent",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between gap-8">
@@ -54,10 +54,10 @@ export function Header() {
                 href={item.href}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150"
                 style={{
-                  color: pathname.startsWith(item.href) && item.href !== "/" ? "#f0f2ff" : "#8892b0",
+                  color: pathname.startsWith(item.href) && item.href !== "/" ? "#0e1025" : "#5a6480",
                 }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#f0f2ff"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = pathname.startsWith(item.href) && item.href !== "/" ? "#f0f2ff" : "#8892b0"}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#0e1025"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = pathname.startsWith(item.href) && item.href !== "/" ? "#0e1025" : "#5a6480"}
               >
                 {item.label}
               </Link>
@@ -102,7 +102,7 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22 }}
             className="fixed top-16 left-0 right-0 z-40 border-b border-ca-border overflow-hidden"
-            style={{ background: "rgba(10,12,20,0.97)", backdropFilter: "blur(16px)" }}
+            style={{ background: "rgba(250,251,255,0.97)", backdropFilter: "blur(16px)" }}
           >
             <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
               {NAV.map((item) => (

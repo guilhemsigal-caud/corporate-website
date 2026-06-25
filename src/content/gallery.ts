@@ -33,7 +33,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     slug: "automobile", category: "industries", name: "Automobile",
     description: "High-attention formats for automotive brands — from model launches to test-drive conversions.",
     kpis: [{ label: "Brand lift", value: "+52%" }, { label: "Test drive intent", value: "+38%" }, { label: "Attention", value: "38s" }],
-    accent: "#7df0c8", tags: ["Audi", "BMW", "Renault"],
+    accent: "#07e2dc", tags: ["Audi", "BMW", "Renault"],
     demos: [
       { url: "https://demo.collectiveaudience.co/?beop_brand=5a4c9fc4c9e77c00015c3811&beop_content=6250242f01322c33d37e593f&sa=1", label: "Démo 1" },
       { url: "https://demo.collectiveaudience.co/?beop_brand=5e1317b646e0fb00012a5310&beop_content=67f7c91ffd30d544c0c52f86", label: "Démo 2" },
@@ -48,7 +48,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     slug: "beaute", category: "industries", name: "Beauté",
     description: "Conversational and visual formats for beauty brands driving purchase intent and product discovery.",
     kpis: [{ label: "Purchase intent", value: "+44%" }, { label: "Interaction rate", value: "1.8%" }, { label: "Viewability", value: "94%" }],
-    accent: "#7df0c8", tags: ["L'Oréal", "LVMH", "Sanofi"],
+    accent: "#07e2dc", tags: ["L'Oréal", "LVMH", "Sanofi"],
     demos: [
       { url: "https://demo.collectiveaudience.co/?beop_brand=5de63c4c46e0fb000144acba&beop_content=606f12ef4e99b70a6814689b&sa=1", label: "Démo 1" },
       { url: "https://demo.collectiveaudience.co/?beop_brand=603fb19efa390a60cb8164ca&beop_content=609043057a87004a98d65791", label: "Démo 2" },
@@ -61,7 +61,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     slug: "sante", category: "industries", name: "Santé",
     description: "Brand-safe, contextual health formats that drive awareness with editorial precision.",
     kpis: [{ label: "Awareness lift", value: "+36%" }, { label: "Brand safety", value: "99%" }, { label: "Context match", value: "97%" }],
-    accent: "#7df0c8", tags: ["Healthcare", "OTC", "Wellness"],
+    accent: "#07e2dc", tags: ["Healthcare", "OTC", "Wellness"],
     demos: [
       { url: "https://demo.collectiveaudience.co/?beop_brand=60b7f2cbb81f0074d380f8bf&beop_content=622a5e5c17c75344d0a55265", label: "Démo 1" },
       { url: "https://demo.collectiveaudience.co/?beop_brand=5de63c4c46e0fb000144acba&beop_content=60edc787eafa03548154caeb", label: "Démo 2" },
@@ -75,25 +75,25 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     slug: "retail", category: "industries", name: "Retail",
     description: "Performance-driven formats for retail brands optimizing for foot traffic and online conversions.",
     kpis: [{ label: "ROAS", value: "3.2×" }, { label: "Foot traffic lift", value: "+29%" }, { label: "Interaction", value: "1.4%" }],
-    accent: "#7df0c8", tags: ["Carrefour", "FNAC", "Galeries Lafayette"],
+    accent: "#07e2dc", tags: ["Carrefour", "FNAC", "Galeries Lafayette"],
   },
   {
     slug: "finance", category: "industries", name: "Finance Perso",
     description: "Trust-building formats for fintech and banking brands driving sign-up intent.",
     kpis: [{ label: "Sign-up intent", value: "+35%" }, { label: "Completion rate", value: "72%" }, { label: "CTR", value: "2.1%" }],
-    accent: "#7df0c8", tags: ["Boursorama", "BNP", "Fortuneo"],
+    accent: "#07e2dc", tags: ["Boursorama", "BNP", "Fortuneo"],
   },
   {
     slug: "spiritueux", category: "industries", name: "Spiritueux",
     description: "Premium brand storytelling formats for spirits and luxury beverage categories.",
     kpis: [{ label: "Brand affinity", value: "+48%" }, { label: "Attention", value: "41s" }, { label: "Completion", value: "81%" }],
-    accent: "#7df0c8", tags: ["Premium", "Luxury", "Spirits"],
+    accent: "#07e2dc", tags: ["Premium", "Luxury", "Spirits"],
   },
   {
     slug: "droit-politique", category: "industries", name: "Droit & Politique",
     description: "Contextual formats targeting engaged civic readers on premium news environments.",
     kpis: [{ label: "Engagement", value: "1.9%" }, { label: "Context score", value: "98%" }, { label: "Completion", value: "76%" }],
-    accent: "#7df0c8", tags: ["News", "Civic", "Legal"],
+    accent: "#07e2dc", tags: ["News", "Civic", "Legal"],
   },
   {
     slug: "immersif", category: "innovations", name: "Immersif",
