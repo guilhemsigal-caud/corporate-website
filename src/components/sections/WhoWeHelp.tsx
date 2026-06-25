@@ -65,8 +65,9 @@ export function WhoWeHelp() {
   const c = COPY[lang];
 
   return (
-    <section
-      className="relative overflow-hidden"
+    <section className="px-4 md:px-6 py-4">
+    <div
+      className="relative overflow-hidden rounded-3xl w-full"
       style={{ background: "#07080f" }}
     >
       {/* Moving white glow */}
@@ -176,6 +177,7 @@ export function WhoWeHelp() {
         </div>
 
       </div>
+    </div>
     </section>
   );
 }
