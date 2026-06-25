@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -71,10 +71,25 @@ function VisualPanel({ item, accent }: { item: (typeof COPY.en.items)[0]; accent
 
 export function InteractiveFeatures() {
   const [active, setActive] = useState(0);
+  const [switchCount, setSwitchCount] = useState(0);
   const { lang } = useLang();
   const c = COPY[lang];
   const item = c.items[active];
   const accent = ACCENTS[active];
+
+  // Auto-advance: 5s timer resets every time active changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActive(prev => (prev + 1) % c.items.length);
+      setSwitchCount(n => n + 1);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [active, c.items.length]);
+
+  const handleTabClick = (i: number) => {
+    setActive(i);
+    setSwitchCount(n => n + 1);
+  };
 
   return (
     <section className="bg-ca-dark py-24 overflow-hidden">
@@ -91,14 +106,34 @@ export function InteractiveFeatures() {
           <p className="text-ca-muted text-lg max-w-xl mx-auto">{c.subtitle}</p>
         </motion.div>
 
-        {/* Tabs */}
+        {/* Tabs with progress fill */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {c.items.map((f, i) => (
-            <button key={f.tab} onClick={() => setActive(i)} className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200"
+            <button
+              key={f.tab}
+              onClick={() => handleTabClick(i)}
+              className="relative px-5 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-shadow duration-300"
               style={active === i
-                ? { background: ACCENTS[i], color: "#0e1025", boxShadow: `0 0 24px ${ACCENTS[i]}50` }
-                : { border: "1px solid rgba(0,0,30,0.1)", color: "#5a6480", background: "rgba(0,0,30,0.04)" }}>
-              {f.tab}
+                ? { border: `1px solid ${ACCENTS[i]}60`, boxShadow: `0 0 20px ${ACCENTS[i]}35`, minWidth: 110 }
+                : { border: "1px solid rgba(0,0,30,0.1)", minWidth: 110 }}
+            >
+              {/* Progress fill — only on active tab, resets via switchCount key */}
+              {active === i && (
+                <motion.div
+                  key={switchCount}
+                  className="absolute inset-0 rounded-full"
+                  style={{ background: ACCENTS[i], transformOrigin: "left center" }}
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 5, ease: "linear" }}
+                />
+              )}
+              <span
+                className="relative z-10"
+                style={{ color: active === i ? "#0e1025" : "#5a6480" }}
+              >
+                {f.tab}
+              </span>
             </button>
           ))}
         </div>
