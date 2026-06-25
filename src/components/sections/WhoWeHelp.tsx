@@ -68,7 +68,7 @@ export function WhoWeHelp() {
     <section className="px-4 md:px-5 py-4">
       <div
         className="relative overflow-hidden rounded-3xl w-full"
-        style={{ background: "#07080f", minHeight: 580 }}
+        style={{ background: "#07080f", minHeight: 700 }}
       >
         {/* Glow blob — bright white, moving randomly across the section */}
         <div
@@ -87,7 +87,7 @@ export function WhoWeHelp() {
 
         <div
           className="relative z-10 flex flex-col"
-          style={{ padding: "5rem 4rem 4rem", minHeight: 580 }}
+          style={{ padding: "6rem 5rem 5rem", minHeight: 700 }}
         >
           {/* Main 3-col grid */}
           <div
@@ -101,7 +101,7 @@ export function WhoWeHelp() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex flex-col justify-between"
-              style={{ minHeight: 320 }}
+              style={{ minHeight: 400 }}
             >
               <h2
                 className="font-extrabold text-white leading-none tracking-tight"
@@ -130,8 +130,8 @@ export function WhoWeHelp() {
             >
               <div className="w-full">
                 <p
-                  className="font-extrabold text-white mb-5"
-                  style={{ fontSize: "1.35rem" }}
+                  className="font-black text-white mb-5"
+                  style={{ fontSize: "1.75rem" }}
                 >
                   {c.publishers.heading}
                 </p>
@@ -159,8 +159,8 @@ export function WhoWeHelp() {
             >
               <div className="w-full">
                 <p
-                  className="font-extrabold text-white mb-5"
-                  style={{ fontSize: "1.35rem" }}
+                  className="font-black text-white mb-5"
+                  style={{ fontSize: "1.75rem" }}
                 >
                   {c.advertisers.heading}
                 </p>
