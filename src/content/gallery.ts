@@ -3,6 +3,7 @@ export type GalleryCategory = "all" | "formats" | "industries" | "innovations" |
 export interface GalleryDemo {
   url: string;
   label?: string;
+  scriptUrl?: string; // tw.collectiveaudience.co embed script (preferred over iframe)
 }
 
 export interface GalleryItem {
@@ -40,7 +41,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     accent: "#07e2dc", tags: ["Audi", "BMW", "Renault"],
     fr: { description: "Formats haute attention pour les marques automobiles, des lancements de modèles aux conversions d'essai.", kpis: [{ label: "Lift de marque", value: "+52%" }, { label: "Intention d'essai", value: "+38%" }, { label: "Attention", value: "38s" }] },
     demos: [
-      { url: "https://demo.collectiveaudience.co/?beop_brand=5a4c9fc4c9e77c00015c3811&beop_content=6250242f01322c33d37e593f&sa=1", label: "Démo 1" },
+      { url: "https://demo.collectiveaudience.co/?beop_brand=5a4c9fc4c9e77c00015c3811&beop_content=6250242f01322c33d37e593f&sa=1", label: "Démo 1", scriptUrl: "https://tw.collectiveaudience.co/local/dist/creative-connect-web.min.js?ba=5aa9175a46e0fb00011583af&bca=6250231801322c33d37d9f3e&bi=6250231801322c33d37d9f3e&bco=6250231801322c33d37d9f3e&bs=&bm=adserving&bw=&bh=&bsln=embed-6250231801322c33d37d9f3e&clk=" },
       { url: "https://demo.collectiveaudience.co/?beop_brand=5e1317b646e0fb00012a5310&beop_content=67f7c91ffd30d544c0c52f86", label: "Démo 2" },
       { url: "https://demo.collectiveaudience.co/?beop_brand=5c921a6546e0fb000117bbdd&beop_content=5ffc7b12ed6e8a1f05b88189", label: "Démo 3" },
       { url: "https://demo.collectiveaudience.co/?beop_brand=5e1317b646e0fb00012a5310&beop_brand_exit=5e316ddb46e0fb00018367dd&beop_content=6231fee2c2c8b05f9e419c6f&sa=1", label: "Démo 4" },
