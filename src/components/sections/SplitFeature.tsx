@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useLang } from "@/lib/i18n";
 
 interface SplitFeatureProps {
   eyebrow: string;
@@ -115,12 +116,11 @@ export function SplitFeature({
 /* ── Reusable visual blocks ── */
 
 export function PublishersVisual() {
-  const stats = [
-    { label: "eCPM uplift", value: "+28%", accent: "#5b8cff" },
-    { label: "Fill rate", value: "94%", accent: "#07e2dc" },
-    { label: "Brand safety", value: "99%", accent: "#7b3fff" },
-    { label: "Latency", value: "<50ms", accent: "#5b8cff" },
-  ];
+  const { lang } = useLang();
+  const stats = lang === "fr"
+    ? [{ label: "Hausse eCPM", value: "+28%", accent: "#5b8cff" }, { label: "Taux remplissage", value: "94%", accent: "#07e2dc" }, { label: "Brand safety", value: "99%", accent: "#7b3fff" }, { label: "Latence", value: "<50ms", accent: "#5b8cff" }]
+    : [{ label: "eCPM uplift", value: "+28%", accent: "#5b8cff" }, { label: "Fill rate", value: "94%", accent: "#07e2dc" }, { label: "Brand safety", value: "99%", accent: "#7b3fff" }, { label: "Latency", value: "<50ms", accent: "#5b8cff" }];
+  const dashLabel = lang === "fr" ? "Tableau de bord éditeur" : "Publisher Dashboard";
 
   return (
     <div
@@ -132,7 +132,7 @@ export function PublishersVisual() {
         style={{ background: "linear-gradient(to right, transparent, #5b8cff, #07e2dc, transparent)" }}
       />
       <div className="text-xs font-semibold tracking-widest uppercase text-ca-blue mb-5">
-        Publisher Dashboard
+        {dashLabel}
       </div>
 
       {/* Fake revenue chart */}
@@ -174,6 +174,8 @@ export function PublishersVisual() {
 }
 
 export function AdvertisersVisual() {
+  const { lang } = useLang();
+  const fr = lang === "fr";
   return (
     <div
       className="relative rounded-2xl border border-ca-border p-7 overflow-hidden"
@@ -184,7 +186,7 @@ export function AdvertisersVisual() {
         style={{ background: "linear-gradient(to right, transparent, #07e2dc, #7b3fff, transparent)" }}
       />
       <div className="text-xs font-semibold tracking-widest uppercase text-ca-mint mb-5">
-        Campaign Performance
+        {fr ? "Performance campagne" : "Campaign Performance"}
       </div>
 
       {/* Campaign card */}
@@ -195,13 +197,13 @@ export function AdvertisersVisual() {
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-semibold text-ca-text">BMW M Series — FR</span>
           <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 border border-green-500/20">
-            Live
+            {fr ? "En direct" : "Live"}
           </span>
         </div>
         {[
-          { label: "Brand Lift", value: 78, color: "#07e2dc" },
-          { label: "Attention Score", value: 92, color: "#5b8cff" },
-          { label: "Interaction Rate", value: 65, color: "#7b3fff" },
+          { label: fr ? "Lift de marque" : "Brand Lift", value: 78, color: "#07e2dc" },
+          { label: fr ? "Score d'attention" : "Attention Score", value: 92, color: "#5b8cff" },
+          { label: fr ? "Taux d'interaction" : "Interaction Rate", value: 65, color: "#7b3fff" },
         ].map((m) => (
           <div key={m.label} className="mb-3">
             <div className="flex items-center justify-between mb-1">
@@ -226,9 +228,9 @@ export function AdvertisersVisual() {
 
       <div className="grid grid-cols-3 gap-3 text-center">
         {[
-          { v: "+40%", l: "Brand Lift", c: "#07e2dc" },
-          { v: "34s", l: "Attention", c: "#5b8cff" },
-          { v: "3×", l: "Attribution", c: "#7b3fff" },
+          { v: "+40%", l: fr ? "Lift marque" : "Brand Lift", c: "#07e2dc" },
+          { v: "34s", l: fr ? "Attention" : "Attention", c: "#5b8cff" },
+          { v: "3×", l: fr ? "Attribution" : "Attribution", c: "#7b3fff" },
         ].map((s) => (
           <div
             key={s.l}
