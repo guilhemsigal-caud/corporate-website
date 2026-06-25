@@ -14,11 +14,11 @@ export default function GalleryPage() {
             Format Gallery
           </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-5"
-            style={{ background: "linear-gradient(135deg,#f0f2ff 40%,rgba(240,242,255,0.5) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            Formats that earn attention.
+            style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            Créatives par industrie.
           </h1>
           <p className="text-ca-muted text-lg max-w-xl mx-auto">
-            Explore every format with live demos and real campaign KPIs — filterable by category.
+            Explorez nos formats par secteur — cliquez pour voir les démos en direct.
           </p>
         </div>
       </section>
