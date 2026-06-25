@@ -89,15 +89,18 @@ body {
 
 /* WhoWeHelp moving glow */
 @keyframes whoGlowMove {
-  0%   { transform: translate(0%,   0%);   opacity: 0.14; }
-  15%  { transform: translate(55%, -15%);  opacity: 0.20; }
-  30%  { transform: translate(72%,  45%);  opacity: 0; }
-  38%  { transform: translate(72%,  45%);  opacity: 0; }
-  50%  { transform: translate(-5%,  65%);  opacity: 0.16; }
-  65%  { transform: translate(35%,  80%);  opacity: 0.22; }
-  78%  { transform: translate(-18%, 25%);  opacity: 0; }
-  86%  { transform: translate(-18%, 25%);  opacity: 0; }
-  100% { transform: translate(0%,   0%);   opacity: 0.14; }
+  0%   { transform: translate(0%,    10%);  opacity: 0.55; }
+  12%  { transform: translate(45%,  -5%);   opacity: 0.70; }
+  25%  { transform: translate(75%,   35%);  opacity: 0.10; }
+  30%  { transform: translate(75%,   35%);  opacity: 0; }
+  38%  { transform: translate(10%,   70%);  opacity: 0; }
+  48%  { transform: translate(10%,   70%);  opacity: 0.60; }
+  62%  { transform: translate(60%,   55%);  opacity: 0.75; }
+  74%  { transform: translate(80%,   10%);  opacity: 0.10; }
+  78%  { transform: translate(80%,   10%);  opacity: 0; }
+  86%  { transform: translate(-5%,   30%);  opacity: 0; }
+  93%  { transform: translate(-5%,   30%);  opacity: 0.50; }
+  100% { transform: translate(0%,    10%);  opacity: 0.55; }
 }
 
 .marquee-mask {

@@ -70,59 +70,57 @@ export function WhoWeHelp() {
         className="relative overflow-hidden rounded-3xl w-full"
         style={{ background: "#07080f", minHeight: 580 }}
       >
-        {/* Animated white glow — large, bright, moving */}
+        {/* Glow blob — bright white, moving randomly across the section */}
         <div
           className="absolute pointer-events-none"
           style={{
-            top: "-20%",
-            left: "-15%",
-            width: "70%",
-            height: "120%",
+            top: "-30%",
+            left: "-20%",
+            width: "65%",
+            height: "130%",
             background:
-              "radial-gradient(ellipse at center, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.08) 40%, transparent 70%)",
-            animation: "whoGlowMove 9s ease-in-out infinite",
+              "radial-gradient(ellipse at center, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 35%, transparent 65%)",
+            animation: "whoGlowMove 11s ease-in-out infinite",
             willChange: "transform, opacity",
           }}
         />
 
-        <div className="relative z-10 px-10 md:px-16 py-16 md:py-20 flex flex-col h-full" style={{ minHeight: 580 }}>
-
-          {/* Main grid: title col | publishers col | advertisers col */}
+        <div
+          className="relative z-10 flex flex-col"
+          style={{ padding: "5rem 4rem 4rem", minHeight: 580 }}
+        >
+          {/* Main 3-col grid */}
           <div
             className="grid flex-1"
-            style={{
-              gridTemplateColumns: "5fr 4fr 4fr",
-              gap: "3rem",
-              flex: 1,
-              minHeight: 360,
-            }}
+            style={{ gridTemplateColumns: "5fr 4fr 4fr", gap: "3.5rem", flex: 1 }}
           >
-            {/* Left: title top, button bottom */}
+            {/* Left col: big title top, white CTA button bottom */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex flex-col justify-between"
+              style={{ minHeight: 320 }}
             >
               <h2
-                className="font-bold text-white leading-none"
-                style={{ fontSize: "clamp(52px, 6vw, 88px)" }}
+                className="font-extrabold text-white leading-none tracking-tight"
+                style={{ fontSize: "clamp(52px, 5.5vw, 86px)" }}
               >
                 {c.title}
               </h2>
-              <div className="mt-10">
+              <div>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-sm font-semibold transition-colors duration-200 hover:bg-white/10"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-colors duration-200 hover:bg-white/90"
+                  style={{ background: "#ffffff", color: "#07080f" }}
                 >
                   {c.learnMore} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </motion.div>
 
-            {/* Publishers — vertically centered */}
+            {/* Publishers — vertically centered, no border above heading */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -131,14 +129,18 @@ export function WhoWeHelp() {
               className="flex items-center"
             >
               <div className="w-full">
-                <div className="border-t border-white/25 pt-4 mb-4">
-                  <span className="text-xl font-bold text-white">{c.publishers.heading}</span>
-                </div>
+                <p
+                  className="font-extrabold text-white mb-5"
+                  style={{ fontSize: "1.35rem" }}
+                >
+                  {c.publishers.heading}
+                </p>
                 <ul>
                   {c.publishers.bullets.map((b, i) => (
                     <li
                       key={i}
-                      className="border-b border-white/10 py-4 text-white/60 text-sm leading-relaxed"
+                      className="border-b py-4 text-white/60 text-sm leading-relaxed"
+                      style={{ borderColor: "rgba(255,255,255,0.12)" }}
                     >
                       {b}
                     </li>
@@ -147,7 +149,7 @@ export function WhoWeHelp() {
               </div>
             </motion.div>
 
-            {/* Advertisers — vertically centered */}
+            {/* Advertisers — vertically centered, no border above heading */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,14 +158,18 @@ export function WhoWeHelp() {
               className="flex items-center"
             >
               <div className="w-full">
-                <div className="border-t border-white/25 pt-4 mb-4">
-                  <span className="text-xl font-bold text-white">{c.advertisers.heading}</span>
-                </div>
+                <p
+                  className="font-extrabold text-white mb-5"
+                  style={{ fontSize: "1.35rem" }}
+                >
+                  {c.advertisers.heading}
+                </p>
                 <ul>
                   {c.advertisers.bullets.map((b, i) => (
                     <li
                       key={i}
-                      className="border-b border-white/10 py-4 text-white/60 text-sm leading-relaxed"
+                      className="border-b py-4 text-white/60 text-sm leading-relaxed"
+                      style={{ borderColor: "rgba(255,255,255,0.12)" }}
                     >
                       {b}
                     </li>
@@ -189,11 +195,12 @@ export function WhoWeHelp() {
                 >
                   {s.value}
                 </div>
-                <div className="text-white/45 text-sm leading-snug">{s.label}</div>
+                <div className="text-sm leading-snug" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {s.label}
+                </div>
               </motion.div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
