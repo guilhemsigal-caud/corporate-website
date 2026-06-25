@@ -23,7 +23,7 @@ const COPY = {
   },
   fr: {
     badge: "La plateforme du web ouvert",
-    line1: "Des résultats d'exception,",
+    line1: "Des résultats",
     line2: "du branding",
     line3: "à la performance.",
     subtitle: "Collective Audience unifie médias premium, données d'audience first-party et formats haute attention en une plateforme ouverte, sans cookies, conçue pour le web ouvert.",
