@@ -87,7 +87,7 @@ body {
   to   { clip-path: inset(0 0% 0 0); }
 }
 
-/* WhoWeHelp moving glow */
+/* WhoWeHelp moving glows */
 @keyframes whoGlowMove {
   0%   { transform: translate(0%,    10%);  opacity: 0.65; }
   18%  { transform: translate(50%,  -8%);   opacity: 0.80; }
@@ -101,6 +101,21 @@ body {
   86%  { transform: translate(30%,   -5%);  opacity: 0.75; }
   93%  { transform: translate(0%,    20%);  opacity: 0.60; }
   100% { transform: translate(0%,    10%);  opacity: 0.65; }
+}
+
+@keyframes whoGlowMove2 {
+  0%   { transform: translate(80%,   60%);  opacity: 0.55; }
+  14%  { transform: translate(20%,   80%);  opacity: 0.70; }
+  25%  { transform: translate(-10%,  40%);  opacity: 0.05; }
+  29%  { transform: translate(-10%,  40%);  opacity: 0; }
+  34%  { transform: translate(60%,  -10%);  opacity: 0.60; }
+  50%  { transform: translate(90%,   30%);  opacity: 0.75; }
+  62%  { transform: translate(40%,   75%);  opacity: 0.05; }
+  66%  { transform: translate(40%,   75%);  opacity: 0; }
+  72%  { transform: translate(70%,   10%);  opacity: 0.60; }
+  84%  { transform: translate(10%,   -5%);  opacity: 0.70; }
+  92%  { transform: translate(85%,   50%);  opacity: 0.55; }
+  100% { transform: translate(80%,   60%);  opacity: 0.55; }
 }
 
 .marquee-mask {

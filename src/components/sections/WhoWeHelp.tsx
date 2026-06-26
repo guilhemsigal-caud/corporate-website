@@ -129,7 +129,7 @@ export function WhoWeHelp() {
         className="relative overflow-hidden rounded-3xl w-full"
         style={{ background: "#07080f", minHeight: "90vh" }}
       >
-        {/* Glow blob */}
+        {/* Glow blob 1 — white */}
         <div
           className="absolute pointer-events-none"
           style={{
@@ -140,6 +140,21 @@ export function WhoWeHelp() {
             background:
               "radial-gradient(ellipse at center, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 35%, transparent 65%)",
             animation: "whoGlowMove 11s ease-in-out infinite",
+            willChange: "transform, opacity",
+          }}
+        />
+
+        {/* Glow blob 2 — blue/violet, different path & speed */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "-25%",
+            left: "10%",
+            width: "55%",
+            height: "110%",
+            background:
+              "radial-gradient(ellipse at center, rgba(91,140,255,0.35) 0%, rgba(123,63,255,0.18) 40%, transparent 68%)",
+            animation: "whoGlowMove2 14s ease-in-out infinite",
             willChange: "transform, opacity",
           }}
         />
