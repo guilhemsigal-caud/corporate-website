@@ -87,9 +87,6 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
             </div>
           </Link>
 
-          {/* Divider */}
-          <div className="border-t border-ca-border mb-12" />
-
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {rest.map(post => {
