@@ -42,7 +42,7 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
       </section>
 
       <section className="bg-ca-dark py-14 pb-24">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
+        <div className="max-w-5xl mx-auto px-6 md:px-8 rounded-2xl border border-ca-border p-8 md:p-10" style={{ background: "#f8f9fe" }}>
 
           {/* Featured article */}
           <Link href={`/blog/${featured.slug}`} className="group block mb-14">
