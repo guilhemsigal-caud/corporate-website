@@ -7,9 +7,13 @@ import { useLang } from "@/lib/i18n";
 import type { BlogPost } from "@/content/blog";
 
 const COPY = {
-  en: { badge: "Blog & Insights", headline: "The Open Web Digest", subtitle: "Research, product news, and adtech thinking from the Collective Audience team.", featured: "Featured", read: "Read article", readShort: "Read", statLabel: "Brand lift with attention formats" },
-  fr: { badge: "Blog & Insights", headline: "Le Digest du Web Ouvert", subtitle: "Recherche, actualités produit et réflexions adtech par l'équipe Collective Audience.", featured: "À la une", read: "Lire l'article", readShort: "Lire", statLabel: "Lift de marque avec les formats attention" },
+  en: { badge: "Blog & Insights", headline: "The Open Web Digest", subtitle: "Research, product news, and adtech thinking from the Collective Audience team.", read: "Read article", readShort: "Read", by: "By" },
+  fr: { badge: "Blog & Insights", headline: "Le Digest du Web Ouvert", subtitle: "Recherche, actualités produit et réflexions adtech par l'équipe Collective Audience.", read: "Lire l'article", readShort: "Lire", by: "Par" },
 };
+
+function formatDate(date: string, locale: string) {
+  return new Date(date).toLocaleDateString(locale, { month: "long", day: "numeric", year: "numeric" });
+}
 
 export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
   const { lang } = useLang();
@@ -19,66 +23,124 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
 
   if (!featured) return null;
 
+  const featuredTitle = lang === "fr" && featured.fr ? featured.fr.title : featured.title;
+  const featuredExcerpt = lang === "fr" && featured.fr ? featured.fr.excerpt : featured.excerpt;
+  const featuredReadTime = lang === "fr" && featured.fr ? featured.fr.readTime : featured.readTime;
+
   return (
     <main>
-      <section className="bg-ca-dark py-20 border-b border-ca-border">
+      {/* Header */}
+      <section className="bg-ca-dark pt-20 pb-12 border-b border-ca-border">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-blue/30 bg-ca-blue/8 text-xs font-semibold tracking-widest uppercase text-ca-blue mb-6">{c.badge}</div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.headline}</h1>
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ca-blue mb-4">{c.badge}</span>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3"
+            style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            {c.headline}
+          </h1>
           <p className="text-ca-muted text-lg max-w-xl">{c.subtitle}</p>
         </div>
       </section>
+
       <section className="bg-ca-dark py-14 pb-24">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <Link href={`/blog/${featured.slug}`} className="group relative flex flex-col md:flex-row gap-8 rounded-2xl border overflow-hidden p-8 mb-10 transition-all duration-300 hover:-translate-y-0.5"
-            style={{ borderColor: `${featured.accent}35`, background: `linear-gradient(135deg, ${featured.accent}15 0%, #eef0fb 100%)`, boxShadow: "0 2px 16px rgba(0,0,40,0.07)" }}>
-            <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(to right,transparent,${featured.accent},transparent)` }} />
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full border" style={{ color: featured.accent, borderColor: `${featured.accent}30`, background: `${featured.accent}0a` }}>{featured.category}</span>
-                <span className="text-[10px] text-ca-muted">{c.featured}</span>
-                <span className="text-[10px] text-ca-muted">· {lang === "fr" && featured.fr ? featured.fr.readTime : featured.readTime}</span>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-ca-text mb-3 group-hover:text-white transition-colors leading-snug">{lang === "fr" && featured.fr ? featured.fr.title : featured.title}</h2>
-              <p className="text-ca-muted leading-relaxed mb-5">{lang === "fr" && featured.fr ? featured.fr.excerpt : featured.excerpt}</p>
-              {featured.author && (
-                <p className="text-xs text-ca-muted mb-2">par <span className="font-semibold text-ca-text">{featured.author}</span></p>
-              )}
-              <div className="flex items-center gap-2 text-sm font-semibold" style={{ color: featured.accent }}>{c.read} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" /></div>
-            </div>
-            <div className="md:w-48 flex-shrink-0 flex flex-col justify-between">
-              <div className="rounded-xl border p-4" style={{ borderColor: `${featured.accent}20`, background: `${featured.accent}08` }}>
-                <div className="text-3xl font-bold gradient-text-blue-mint mb-1">+40%</div>
-                <div className="text-xs text-ca-muted">{c.statLabel}</div>
-              </div>
-              <div className="text-xs text-ca-muted mt-4">{new Date(featured.date).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" })}</div>
-            </div>
-          </Link>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {rest.map(post => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="group relative flex flex-col rounded-2xl border overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1"
-                style={{ borderColor: `${post.accent}35`, background: `linear-gradient(145deg, ${post.accent}12 0%, #eef0fb 100%)`, boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
-                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(to right,transparent 5%,${post.accent} 40%,${post.accent} 60%,transparent 95%)` }} />
-                {post.coverImage && (
-                  <div className="relative w-full h-36 mb-4 rounded-lg overflow-hidden">
-                    <Image src={post.coverImage} alt={post.coverImageAlt ?? post.title} fill className="object-cover" sizes="400px" />
+
+          {/* Featured article */}
+          <Link href={`/blog/${featured.slug}`} className="group block mb-14">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Image */}
+              <div className="relative rounded-2xl overflow-hidden bg-ca-surface"
+                style={{ aspectRatio: "16/10", border: `1px solid ${featured.accent}25` }}>
+                {featured.coverImage ? (
+                  <Image src={featured.coverImage} alt={featured.coverImageAlt ?? featuredTitle} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" sizes="(max-width: 768px) 100vw, 50vw" />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${featured.accent}15, ${featured.accent}05)` }}>
+                    <div className="w-12 h-12 rounded-full opacity-20" style={{ background: featured.accent }} />
                   </div>
                 )}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full border" style={{ color: post.accent, borderColor: `${post.accent}30`, background: `${post.accent}0a` }}>{post.category}</span>
-                  <span className="text-[10px] text-ca-muted">{lang === "fr" && post.fr ? post.fr.readTime : post.readTime}</span>
+                <div className="absolute top-3 left-3">
+                  <span className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full backdrop-blur-sm"
+                    style={{ color: featured.accent, background: "rgba(255,255,255,0.9)", border: `1px solid ${featured.accent}30` }}>
+                    {featured.category}
+                  </span>
                 </div>
-                <h3 className="text-base font-bold text-ca-text mb-2 leading-snug group-hover:text-white transition-colors flex-1">{lang === "fr" && post.fr ? post.fr.title : post.title}</h3>
-                <p className="text-xs text-ca-muted leading-relaxed mb-4 line-clamp-3">{lang === "fr" && post.fr ? post.fr.excerpt : post.excerpt}</p>
-                <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: `${post.accent}18` }}>
-                  <span className="text-[10px] text-ca-muted">{new Date(post.date).toLocaleDateString(dateLocale, { month: "short", year: "numeric" })}</span>
-                  <span className="flex items-center gap-1 text-xs font-semibold" style={{ color: post.accent }}>{c.readShort} <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" /></span>
+              </div>
+
+              {/* Text */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs text-ca-muted">{formatDate(featured.date, dateLocale)}</span>
+                  <span className="text-ca-border">·</span>
+                  <span className="text-xs text-ca-muted">{featuredReadTime}</span>
                 </div>
-              </Link>
-            ))}
+                <h2 className="text-2xl md:text-3xl font-bold text-ca-text mb-3 leading-snug group-hover:opacity-70 transition-opacity">
+                  {featuredTitle}
+                </h2>
+                <p className="text-ca-muted leading-relaxed mb-5 text-sm">{featuredExcerpt}</p>
+                {featured.author && (
+                  <p className="text-xs text-ca-muted mb-5">{c.by} <span className="text-ca-text font-medium">{featured.author}</span></p>
+                )}
+                <span className="inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3" style={{ color: featured.accent }}>
+                  {c.read} <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Divider */}
+          <div className="border-t border-ca-border mb-12" />
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {rest.map(post => {
+              const postTitle = lang === "fr" && post.fr ? post.fr.title : post.title;
+              const postExcerpt = lang === "fr" && post.fr ? post.fr.excerpt : post.excerpt;
+              const postReadTime = lang === "fr" && post.fr ? post.fr.readTime : post.readTime;
+
+              return (
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col">
+                  {/* Image */}
+                  <div className="relative rounded-xl overflow-hidden mb-4 bg-ca-surface"
+                    style={{ aspectRatio: "16/10", border: `1px solid ${post.accent}20` }}>
+                    {post.coverImage ? (
+                      <Image src={post.coverImage} alt={post.coverImageAlt ?? postTitle} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 33vw" />
+                    ) : (
+                      <div className="absolute inset-0"
+                        style={{ background: `linear-gradient(135deg, ${post.accent}12 0%, #eef0fb 100%)` }} />
+                    )}
+                    <div className="absolute top-2.5 left-2.5">
+                      <span className="text-[10px] font-semibold tracking-widest uppercase px-2 py-0.5 rounded-full backdrop-blur-sm"
+                        style={{ color: post.accent, background: "rgba(255,255,255,0.9)", border: `1px solid ${post.accent}25` }}>
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[11px] text-ca-muted">{formatDate(post.date, dateLocale)}</span>
+                      <span className="text-ca-border text-[10px]">·</span>
+                      <span className="text-[11px] text-ca-muted">{postReadTime}</span>
+                    </div>
+                    <h3 className="text-base font-bold text-ca-text mb-2 leading-snug group-hover:opacity-70 transition-opacity flex-1">
+                      {postTitle}
+                    </h3>
+                    <p className="text-xs text-ca-muted leading-relaxed mb-3 line-clamp-2">{postExcerpt}</p>
+                    {post.author && (
+                      <p className="text-[11px] text-ca-muted mb-3">{c.by} <span className="text-ca-text font-medium">{post.author}</span></p>
+                    )}
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all group-hover:gap-2.5" style={{ color: post.accent }}>
+                      {c.readShort} <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
+
       <CTABanner />
     </main>
   );
