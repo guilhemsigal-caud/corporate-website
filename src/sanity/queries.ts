@@ -1,3 +1,16 @@
+export const PAGE_QUERY = `*[_type == "page" && slug.current == $slug][0] {
+  title,
+  seoTitle,
+  seoDescription,
+  sections[] {
+    ...,
+    _type == "splitSection" => {
+      ...,
+      "image": image { "asset": asset-> { url }, alt }
+    }
+  }
+}`;
+
 export const BLOG_POSTS_QUERY = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
   "slug": slug.current,
   title,
