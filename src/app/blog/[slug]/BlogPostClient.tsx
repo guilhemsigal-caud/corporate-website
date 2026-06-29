@@ -2,10 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
-import { useMemo } from "react";
 import { marked } from "marked";
+import { useMemo } from "react";
 import type { BlogPost } from "@/content/blog";
 
 const COPY = {
@@ -15,6 +16,77 @@ const COPY = {
 
 marked.setOptions({ breaks: true, gfm: true });
 
+/* ── Portable Text renderer ── */
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="mb-5 text-ca-muted leading-relaxed">{children}</p>,
+    h2: ({ children }) => <h2 className="text-2xl font-bold text-ca-text mt-10 mb-4 pb-2 border-b border-ca-border">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-bold text-ca-text mt-8 mb-3">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-base font-bold text-ca-text mt-6 mb-2">{children}</h4>,
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-[3px] border-ca-blue pl-5 my-6 italic text-ca-muted">{children}</blockquote>
+    ),
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-semibold text-ca-text">{children}</strong>,
+    em: ({ children }) => <em>{children}</em>,
+    underline: ({ children }) => <span className="underline">{children}</span>,
+    "strike-through": ({ children }) => <span className="line-through">{children}</span>,
+    code: ({ children }) => (
+      <code className="bg-ca-surface border border-ca-border rounded px-1.5 py-0.5 text-[0.85em] text-ca-blue font-mono">{children}</code>
+    ),
+    link: ({ value, children }) => (
+      <a href={value?.href} target={value?.blank ? "_blank" : undefined} rel="noopener noreferrer"
+        className="text-ca-blue underline underline-offset-2 hover:opacity-75 transition-opacity">
+        {children}
+      </a>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className="mb-5 space-y-2 pl-0">{children}</ul>,
+    number: ({ children }) => <ol className="mb-5 space-y-2 list-decimal pl-5 text-ca-muted">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <li className="flex items-start gap-3 text-ca-muted text-sm leading-relaxed">
+        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-ca-blue flex-shrink-0" />
+        <span>{children}</span>
+      </li>
+    ),
+    number: ({ children }) => <li className="text-ca-muted text-sm leading-relaxed pl-1">{children}</li>,
+  },
+  types: {
+    image: ({ value }) => (
+      <figure className="my-8">
+        <div className="relative w-full rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+          <Image src={value.url} alt={value.alt ?? ""} fill className="object-cover" sizes="768px" />
+        </div>
+        {value.caption && (
+          <figcaption className="text-center text-xs text-ca-muted mt-2">{value.caption}</figcaption>
+        )}
+      </figure>
+    ),
+  },
+};
+
+function ArticleBody({ content }: { content: unknown }) {
+  // Portable Text (Sanity array of blocks)
+  if (Array.isArray(content)) {
+    return (
+      <div className="article-body">
+        <PortableText value={content as Parameters<typeof PortableText>[0]["value"]} components={portableTextComponents} />
+      </div>
+    );
+  }
+  // Fallback: legacy Markdown string (static content)
+  if (typeof content === "string") {
+    return (
+      <div className="article-body" dangerouslySetInnerHTML={{ __html: marked(content) as string }} />
+    );
+  }
+  return null;
+}
+
 export function BlogPostClient({ post, related }: { post: BlogPost; related: BlogPost[] }) {
   const { lang } = useLang();
   const c = COPY[lang];
@@ -23,12 +95,11 @@ export function BlogPostClient({ post, related }: { post: BlogPost; related: Blo
   const title = lang === "fr" && post.fr ? post.fr.title : post.title;
   const excerpt = lang === "fr" && post.fr ? post.fr.excerpt : post.excerpt;
   const readTime = lang === "fr" && post.fr ? post.fr.readTime : post.readTime;
-  const content = lang === "fr" && post.fr && (post.fr as { content?: string }).content
-    ? (post.fr as { content?: string }).content!
+  const content = lang === "fr" && post.fr && (post.fr as { content?: unknown }).content
+    ? (post.fr as { content?: unknown }).content
     : post.content;
 
   const formattedDate = new Date(post.date).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" });
-  const htmlContent = useMemo(() => marked(content ?? "") as string, [content]);
 
   return (
     <main>
@@ -53,7 +124,7 @@ export function BlogPostClient({ post, related }: { post: BlogPost; related: Blo
             {title}
           </h1>
           <p className="text-ca-muted text-xl leading-relaxed mb-8">{excerpt}</p>
-          <div className="h-px w-full mb-0" style={{ background: `linear-gradient(to right, ${post.accent}, transparent)` }} />
+          <div className="h-px w-full" style={{ background: `linear-gradient(to right, ${post.accent}, transparent)` }} />
         </div>
       </section>
 
@@ -69,7 +140,7 @@ export function BlogPostClient({ post, related }: { post: BlogPost; related: Blo
 
       <section className="bg-ca-dark py-12">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
-          <div className="article-body" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+          <ArticleBody content={content} />
         </div>
       </section>
 

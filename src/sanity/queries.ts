@@ -24,6 +24,27 @@ export const BLOG_POST_QUERY = `*[_type == "post" && slug.current == $slug][0] {
   author,
   "coverImage": coverImage.asset->url,
   "coverImageAlt": coverImage.alt,
-  content,
-  fr
+  content[] {
+    ...,
+    _type == "image" => {
+      ...,
+      "url": asset->url,
+      "alt": alt,
+      "caption": caption
+    }
+  },
+  fr {
+    title,
+    excerpt,
+    readTime,
+    content[] {
+      ...,
+      _type == "image" => {
+        ...,
+        "url": asset->url,
+        "alt": alt,
+        "caption": caption
+      }
+    }
+  }
 }`;

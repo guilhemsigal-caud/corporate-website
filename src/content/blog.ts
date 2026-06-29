@@ -6,7 +6,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   accent: string;
-  content: string;
+  content: string | unknown[];
   author?: string;
   coverImage?: string;
   coverImageAlt?: string;
@@ -14,7 +14,7 @@ export interface BlogPost {
     title: string;
     excerpt: string;
     readTime: string;
-    content?: string;
+    content?: string | unknown[];
   };
 }
 
