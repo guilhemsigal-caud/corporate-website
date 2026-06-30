@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { DraftModeBanner } from "@/components/DraftModeBanner";
@@ -23,7 +25,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const { isEnabled } = await draftMode();
+
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-ca-dark text-ca-text">
@@ -33,6 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div className="flex-1 pt-16">{children}</div>
           <Footer />
         </LanguageProvider>
+        {isEnabled && <VisualEditing />}
       </body>
     </html>
   );
