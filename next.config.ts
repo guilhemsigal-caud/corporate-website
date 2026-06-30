@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' data: https://*.collectiveaudience.co https://*.gstatic.com",
               "frame-src 'self' https://*.collectiveaudience.co https://*.beop.io",
               "media-src 'self' https://*.collectiveaudience.co https://*.beop.io",
+              "frame-ancestors 'self' http://localhost:3333 https://*.sanity.studio https://*.collectiveaudience.co",
             ].join("; "),
           },
         ],
