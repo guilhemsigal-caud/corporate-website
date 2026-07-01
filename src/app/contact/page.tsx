@@ -1,4 +1,5 @@
 "use client";
+import Script from "next/script";
 import { MapPin, Mail } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
@@ -41,8 +42,6 @@ const COPY = {
   },
 };
 
-const INPUT = "w-full px-4 py-3 rounded-xl border border-ca-border bg-ca-dark text-ca-text text-sm placeholder:text-ca-muted focus:outline-none focus:border-ca-blue/50 focus:ring-1 focus:ring-ca-blue/30 transition-colors";
-
 export default function ContactPage() {
   const { lang } = useLang();
   const c = COPY[lang];
@@ -56,26 +55,8 @@ export default function ContactPage() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="rounded-2xl border border-ca-border bg-ca-surface p-8" style={{ boxShadow: "0 2px 16px rgba(0,0,40,0.07)" }}>
-            <h2 className="text-lg font-bold text-ca-text mb-6">{c.formTitle}</h2>
-            <form className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div><label className="block text-xs font-semibold text-ca-muted mb-1.5">{c.firstName} *</label><input type="text" required className={INPUT} /></div>
-                <div><label className="block text-xs font-semibold text-ca-muted mb-1.5">{c.lastName} *</label><input type="text" required className={INPUT} /></div>
-              </div>
-              <div><label className="block text-xs font-semibold text-ca-muted mb-1.5">{c.email} *</label><input type="email" required className={INPUT} /></div>
-              <div><label className="block text-xs font-semibold text-ca-muted mb-1.5">{c.company}</label><input type="text" className={INPUT} /></div>
-              <div><label className="block text-xs font-semibold text-ca-muted mb-1.5">{c.role}</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-ca-border bg-ca-dark text-ca-muted text-sm focus:outline-none focus:border-ca-blue/50 transition-colors">
-                  {c.roles.map(r => <option key={r}>{r}</option>)}
-                </select>
-              </div>
-              <div><label className="block text-xs font-semibold text-ca-muted mb-1.5">{c.message}</label><textarea rows={4} className={`${INPUT} resize-none`} /></div>
-              <div className="flex items-start gap-3">
-                <input type="checkbox" id="consent" required className="mt-0.5" />
-                <label htmlFor="consent" className="text-xs text-ca-muted">{c.consent} <a href="/legal/privacy" className="text-ca-blue hover:underline">{c.privacyLabel}</a>.</label>
-              </div>
-              <button type="submit" className="w-full py-3.5 rounded-xl bg-ca-blue text-white font-semibold text-sm hover:brightness-110 transition-all duration-200 hover:shadow-[0_0_24px_rgba(91,140,255,0.4)]">{c.sendBtn}</button>
-            </form>
+            <Script src="https://js.hsforms.net/forms/embed/50989483.js" strategy="afterInteractive" />
+            <div className="hs-form-frame" data-region="na1" data-form-id="0bfd8d5e-b87e-42d3-9428-058b7e9b2170" data-portal-id="50989483" />
           </div>
           <div className="space-y-6">
             {c.offices.map(o => (
