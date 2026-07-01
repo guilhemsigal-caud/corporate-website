@@ -2,10 +2,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { GALLERY_ITEMS } from "@/content/gallery";
+import { GALLERY_ITEMS, type GalleryItem } from "@/content/gallery";
 import { useLang } from "@/lib/i18n";
-
-const INDUSTRIES = GALLERY_ITEMS.filter((i) => i.category === "industries");
 
 const NAMES: Record<string, { en: string; fr: string }> = {
   automobile: { en: "Automobile", fr: "Automobile" },
@@ -22,14 +20,20 @@ const COPY = {
   fr: { seeCreatives: "Voir les créatives", demos: "démo", demosPlural: "démos" },
 };
 
-export function GalleryGrid() {
+interface Props {
+  items?: GalleryItem[];
+}
+
+export function GalleryGrid({ items }: Props) {
   const { lang } = useLang();
   const c = COPY[lang];
+  const industries = (items ?? GALLERY_ITEMS).filter((i) => i.category === "industries");
+
   return (
     <section className="bg-ca-dark py-12 pb-24">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {INDUSTRIES.map((item, i) => (
+          {industries.map((item, i) => (
             <motion.div key={item.slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07, duration: 0.4 }}>
               <Link href={`/gallery/${item.slug}`} className="group relative flex flex-col h-full rounded-2xl border overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1"
                 style={{ borderColor: `${item.accent}45`, background: `linear-gradient(145deg, ${item.accent}18 0%, #eef0fb 100%)`, boxShadow: "0 2px 16px rgba(0,0,40,0.07), 0 1px 3px rgba(0,0,40,0.05)" }}>
