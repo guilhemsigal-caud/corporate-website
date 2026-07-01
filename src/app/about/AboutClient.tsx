@@ -114,7 +114,7 @@ export function AboutClient({ members }: { members: Member[] }) {
             return (
               <div key={group} className="mb-16">
                 <h3 className="text-xs font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.groups[group]}</h3>
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-4 gap-y-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-8">
                   {groupMembers.map((m) => (
                     <div key={m._id} className="flex flex-col items-center text-center gap-3">
                       <div className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-ca-blue to-ca-mint flex items-center justify-center flex-shrink-0 ring-2 ring-ca-border">
