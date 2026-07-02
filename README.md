@@ -7,9 +7,9 @@ This repository contains the Collective Audience marketing website, built with *
 ## Architecture Overview
 
 ```
-site-caud/
-├── site-caud/                    → Next.js application (the public website)
-└── studio-collective-audience/   → Sanity Studio (the CMS admin interface)
+corporate-website/
+├── (root)    → Next.js application (the public website)
+└── studio/   → Sanity Studio (the CMS admin interface)
 ```
 
 The public website fetches its content from Sanity via an API. Editing an article or a team member in Studio → the site updates automatically within a minute.
@@ -20,12 +20,20 @@ The public website fetches its content from Sanity via an API. Editing an articl
 
 ### Prerequisites
 - Node.js 18+
-- Access to the Sanity project (projectId: `2svafw8h`)
+- Be invited to the Sanity project — ask Guilhem to add you on [sanity.io/manage](https://sanity.io/manage)
+- Get the `.env.local` file from Guilhem (contains the API keys, not stored in the repo)
+
+### Clone the repo
+
+```bash
+git clone https://github.com/BeOpinion/corporate-website.git
+cd corporate-website
+```
 
 ### Start the website (Next.js)
 
 ```bash
-cd site-caud
+# Place the .env.local file at the root of corporate-website/ first
 npm install        # only once
 npm run dev        # → http://localhost:3000
 ```
@@ -33,7 +41,7 @@ npm run dev        # → http://localhost:3000
 ### Start Sanity Studio
 
 ```bash
-cd studio-collective-audience
+cd studio
 npm install        # only once
 npm run dev        # → http://localhost:3333
 ```
