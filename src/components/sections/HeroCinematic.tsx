@@ -181,7 +181,7 @@ export function HeroCinematic() {
           }}
         />
 
-        {/* Glow blob 1 — pink/magenta */}
+        {/* Glow blob 1 — pink/blue */}
         <div
           className="absolute pointer-events-none"
           style={{
@@ -191,12 +191,12 @@ export function HeroCinematic() {
             height: "120%",
             background:
               "radial-gradient(ellipse at center, rgba(199,81,192,0.50) 0%, rgba(65,88,208,0.22) 40%, transparent 68%)",
-            animation: "heroGlowMove1 5s ease-in-out infinite",
+            animation: "heroGlowMove1 6s ease-in-out infinite",
             willChange: "transform, opacity",
           }}
         />
 
-        {/* Glow blob 2 — gold/blue */}
+        {/* Glow blob 2 — pink/blue, different path */}
         <div
           className="absolute pointer-events-none"
           style={{
@@ -205,8 +205,8 @@ export function HeroCinematic() {
             width: "55%",
             height: "110%",
             background:
-              "radial-gradient(ellipse at center, rgba(255,203,112,0.38) 0%, rgba(199,81,192,0.22) 42%, transparent 68%)",
-            animation: "heroGlowMove2 3.5s ease-in-out infinite",
+              "radial-gradient(ellipse at center, rgba(199,81,192,0.42) 0%, rgba(65,88,208,0.20) 42%, transparent 68%)",
+            animation: "heroGlowMove2 4.2s ease-in-out infinite",
             willChange: "transform, opacity",
           }}
         />
@@ -229,7 +229,7 @@ export function HeroCinematic() {
           <div className="flex-1 flex flex-col justify-center">
             {/* Eyebrow */}
             <motion.p
-              className="text-white text-sm tracking-wide mb-8 text-center"
+              className="text-white text-sm tracking-wide mb-8 text-left"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
