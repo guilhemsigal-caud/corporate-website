@@ -199,7 +199,7 @@ export function HeroCinematic() {
           <div className="flex-1 flex flex-col justify-center">
             {/* Eyebrow */}
             <motion.p
-              className="text-white/65 text-sm tracking-wide mb-8"
+              className="text-white text-sm tracking-wide mb-8 text-center"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -209,12 +209,12 @@ export function HeroCinematic() {
 
             {/* Title */}
             <h2
-              className="font-bold text-white tracking-tight max-w-4xl"
-              style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)" }}
+              className="text-white tracking-tight text-center"
+              style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)", fontWeight: 400 }}
             >
               <RevealLine inView={isInView} delay={0.2}>Interactive experiences that</RevealLine>
               <RevealLine inView={isInView} delay={0.34}>connect audiences</RevealLine>
-              <RevealLine inView={isInView} delay={0.48}>everywhere—turn attention into</RevealLine>
+              <RevealLine inView={isInView} delay={0.48}>everywhere, turn attention into</RevealLine>
               <RevealLine inView={isInView} delay={0.62}>outcomes.</RevealLine>
             </h2>
 
