@@ -102,7 +102,7 @@ export function HeroCinematic() {
             height: "120%",
             background:
               "radial-gradient(ellipse at center, rgba(199,81,192,0.50) 0%, rgba(65,88,208,0.22) 40%, transparent 68%)",
-            animation: "heroGlowMove1 6s ease-in-out infinite",
+            animation: "heroGlowMove1 7.2s ease-in-out infinite",
             willChange: "transform, opacity",
           }}
         />
@@ -117,7 +117,7 @@ export function HeroCinematic() {
             height: "110%",
             background:
               "radial-gradient(ellipse at center, rgba(199,81,192,0.42) 0%, rgba(65,88,208,0.20) 42%, transparent 68%)",
-            animation: "heroGlowMove2 4.2s ease-in-out infinite",
+            animation: "heroGlowMove2 5s ease-in-out infinite",
             willChange: "transform, opacity",
           }}
         />
@@ -138,36 +138,39 @@ export function HeroCinematic() {
 
           {/* Headline — vertically centered */}
           <div className="flex-1 flex flex-col justify-center">
-            {/* Eyebrow */}
-            <motion.p
-              className="text-white text-sm tracking-wide mb-8 text-left"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              Interactive Experiences. Actionable Intelligence. Measurable Results.
-            </motion.p>
+            {/* Shared container — eyebrow + title share the same left edge */}
+            <div style={{ width: "fit-content", margin: "0 auto" }}>
+              {/* Eyebrow */}
+              <motion.p
+                className="text-white text-sm tracking-wide mb-8"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                Interactive Experiences. Actionable Intelligence. Measurable Results.
+              </motion.p>
 
-            {/* Title */}
-            <h2
-              className="text-white tracking-tight text-left mx-auto"
-              style={{ fontSize: "clamp(2rem, 3.8vw, 3.8rem)", fontWeight: 700 }}
-            >
-              <RevealLine inView={isInView} delay={0.2}>Interactive experiences that</RevealLine>
-              <RevealLine inView={isInView} delay={0.34}>connect audiences</RevealLine>
-              <RevealLine inView={isInView} delay={0.48}>everywhere, turn attention into</RevealLine>
-              <RevealLine inView={isInView} delay={0.62}>outcomes.</RevealLine>
-            </h2>
+              {/* Title */}
+              <h2
+                className="text-white tracking-tight"
+                style={{ fontSize: "clamp(2rem, 3.8vw, 3.8rem)", fontWeight: 700 }}
+              >
+                <RevealLine inView={isInView} delay={0.2}>Interactive experiences that</RevealLine>
+                <RevealLine inView={isInView} delay={0.34}>connect audiences</RevealLine>
+                <RevealLine inView={isInView} delay={0.48}>everywhere, turn attention into</RevealLine>
+                <RevealLine inView={isInView} delay={0.62}>outcomes.</RevealLine>
+              </h2>
 
-            {/* Dot indicator */}
-            <motion.div
-              className="mt-10"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
-            </motion.div>
+              {/* Dot indicator */}
+              <motion.div
+                className="mt-10"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
+              </motion.div>
+            </div>
           </div>
 
           {/* BeOp creative */}
