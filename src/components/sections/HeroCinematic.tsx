@@ -34,6 +34,7 @@ const CARDS = [
     rotate: "-3deg",
     bottom: "16px",
     left: "0%",
+    width: "22%",
     delay: 0.45,
   },
   {
@@ -41,8 +42,9 @@ const CARDS = [
     brand: "BMW",
     type: "Quiz",
     rotate: "1.5deg",
-    bottom: "42px",
-    left: "26%",
+    bottom: "44px",
+    left: "25%",
+    width: "22%",
     delay: 0.55,
   },
   {
@@ -51,7 +53,8 @@ const CARDS = [
     type: "Visual choice",
     rotate: "-1.5deg",
     bottom: "10px",
-    right: "26%",
+    left: "51%",
+    width: "17%",
     delay: 0.65,
   },
   {
@@ -59,8 +62,9 @@ const CARDS = [
     brand: "Burberry",
     type: "Swipe",
     rotate: "2.5deg",
-    bottom: "30px",
-    right: "0%",
+    bottom: "10px",
+    left: "71%",
+    width: "17%",
     delay: 0.75,
   },
 ];
@@ -176,57 +180,31 @@ export function HeroCinematic() {
             </div>
           </div>
 
-          {/* Creative cards */}
-          <div className="flex-none relative w-full" style={{ height: "260px" }}>
+          {/* Creative cards — full image, natural aspect ratio */}
+          <div className="flex-none relative w-full" style={{ height: "320px" }}>
             {CARDS.map((card) => (
               <motion.div
                 key={card.brand}
                 className="absolute rounded-2xl overflow-hidden"
                 style={{
-                  width: "22%",
-                  maxWidth: "230px",
-                  height: "240px",
+                  width: card.width,
                   bottom: card.bottom,
                   left: card.left,
-                  right: card.right,
                   transform: `rotate(${card.rotate})`,
+                  transformOrigin: "bottom center",
                   boxShadow: "0 24px 60px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.4)",
                   border: "1px solid rgba(255,255,255,0.12)",
                 }}
-                initial={{ opacity: 0, y: 50, rotate: card.rotate }}
-                animate={isInView ? { opacity: 1, y: 0, rotate: card.rotate } : { opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.8, delay: card.delay, ease: [0.22, 1, 0.36, 1] }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={card.src}
                   alt={card.brand}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "top center",
-                    display: "block",
-                  }}
+                  style={{ width: "100%", height: "auto", display: "block" }}
                 />
-                {/* Brand label */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: "20px 12px 10px",
-                    background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%)",
-                  }}
-                >
-                  <p style={{ color: "#fff", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", marginBottom: "1px" }}>
-                    {card.brand}
-                  </p>
-                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "9px", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                    {card.type}
-                  </p>
-                </div>
               </motion.div>
             ))}
           </div>
