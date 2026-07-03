@@ -1,17 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-declare global {
-  interface Window {
-    beOpAsyncInit?: () => void;
-    BeOpSDK?: {
-      init: (opts: Record<string, unknown>) => void;
-      watch: () => void;
-    };
-  }
-}
 
 function RevealLine({
   children,
@@ -36,34 +26,48 @@ function RevealLine({
   );
 }
 
+const CARDS = [
+  {
+    src: "/creatives/creative-1.png",
+    brand: "Rolex",
+    type: "Configurator",
+    rotate: "-3deg",
+    bottom: "16px",
+    left: "0%",
+    delay: 0.45,
+  },
+  {
+    src: "/creatives/creative-2.png",
+    brand: "BMW",
+    type: "Quiz",
+    rotate: "1.5deg",
+    bottom: "42px",
+    left: "26%",
+    delay: 0.55,
+  },
+  {
+    src: "/creatives/creative-3.png",
+    brand: "Hermès",
+    type: "Visual choice",
+    rotate: "-1.5deg",
+    bottom: "10px",
+    right: "26%",
+    delay: 0.65,
+  },
+  {
+    src: "/creatives/creative-4.png",
+    brand: "Burberry",
+    type: "Swipe",
+    rotate: "2.5deg",
+    bottom: "30px",
+    right: "0%",
+    delay: 0.75,
+  },
+];
+
 export function HeroCinematic() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
-
-  useEffect(() => {
-    const init = () => {
-      window.BeOpSDK!.init({
-        account: "5aa9175a46e0fb00011583af",
-        pageUrl: null,
-        prebidVersion: null,
-      });
-      window.BeOpSDK!.watch();
-    };
-
-    if (window.BeOpSDK) {
-      init();
-      return;
-    }
-
-    window.beOpAsyncInit = init;
-
-    if (!document.querySelector('script[src="https://widget.collectiveaudience.co/sdk.js"]')) {
-      const s = document.createElement("script");
-      s.src = "https://widget.collectiveaudience.co/sdk.js";
-      s.async = true;
-      document.body.appendChild(s);
-    }
-  }, []);
 
   return (
     <section ref={sectionRef} className="px-4 md:px-5 py-4">
@@ -88,7 +92,7 @@ export function HeroCinematic() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.6) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.7) 100%)",
           }}
         />
 
@@ -138,7 +142,6 @@ export function HeroCinematic() {
 
           {/* Headline — vertically centered */}
           <div className="flex-1 flex flex-col justify-center">
-            {/* Shared container — eyebrow + title share the same left edge */}
             <div style={{ width: "fit-content", margin: "0 auto" }}>
               {/* Eyebrow */}
               <motion.p
@@ -173,20 +176,61 @@ export function HeroCinematic() {
             </div>
           </div>
 
-          {/* BeOp creative */}
-          <motion.div
-            className="flex-none flex justify-center pb-2"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div
-              className="BeOpWidget"
-              data-engage="6a477175e917370001a88b98"
-              data-mode="engage"
-              data-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ1cDIzS2xQbjliQW01eEVXc1JxZiIsImNvbnRlbnQiOiI2NWNiMzU1NTkwNDRkYTQyZDY1ZTRkMWMifQ.eYseBbS6JvSI1-8FI2qFdbukq9eYA245l3iSgzi98eM"
-            />
-          </motion.div>
+          {/* Creative cards */}
+          <div className="flex-none relative w-full" style={{ height: "260px" }}>
+            {CARDS.map((card) => (
+              <motion.div
+                key={card.brand}
+                className="absolute rounded-2xl overflow-hidden"
+                style={{
+                  width: "22%",
+                  maxWidth: "230px",
+                  height: "240px",
+                  bottom: card.bottom,
+                  left: card.left,
+                  right: card.right,
+                  transform: `rotate(${card.rotate})`,
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.4)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                }}
+                initial={{ opacity: 0, y: 50, rotate: card.rotate }}
+                animate={isInView ? { opacity: 1, y: 0, rotate: card.rotate } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: card.delay, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={card.src}
+                  alt={card.brand}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                    display: "block",
+                  }}
+                />
+                {/* Brand label */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "20px 12px 10px",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%)",
+                  }}
+                >
+                  <p style={{ color: "#fff", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", marginBottom: "1px" }}>
+                    {card.brand}
+                  </p>
+                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "9px", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                    {card.type}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
