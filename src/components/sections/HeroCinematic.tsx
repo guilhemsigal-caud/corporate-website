@@ -209,8 +209,8 @@ export function HeroCinematic() {
 
             {/* Title */}
             <h2
-              className="text-white tracking-tight text-center"
-              style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)", fontWeight: 400 }}
+              className="text-white tracking-tight text-left mx-auto"
+              style={{ fontSize: "clamp(2rem, 3.8vw, 3.8rem)", fontWeight: 500 }}
             >
               <RevealLine inView={isInView} delay={0.2}>Interactive experiences that</RevealLine>
               <RevealLine inView={isInView} delay={0.34}>connect audiences</RevealLine>
