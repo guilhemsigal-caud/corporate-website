@@ -27,46 +27,10 @@ function RevealLine({
 }
 
 const CARDS = [
-  {
-    src: "/creatives/creative-1.png",
-    brand: "Rolex",
-    type: "Configurator",
-    rotate: "-7deg",
-    bottom: "12px",
-    left: "1%",
-    width: "22%",
-    delay: 0.45,
-  },
-  {
-    src: "/creatives/creative-2.png",
-    brand: "BMW",
-    type: "Quiz",
-    rotate: "4deg",
-    bottom: "52px",
-    left: "24%",
-    width: "22%",
-    delay: 0.55,
-  },
-  {
-    src: "/creatives/creative-3.png",
-    brand: "Hermès",
-    type: "Visual choice",
-    rotate: "-5deg",
-    bottom: "8px",
-    left: "52%",
-    width: "17%",
-    delay: 0.65,
-  },
-  {
-    src: "/creatives/creative-4.png",
-    brand: "Burberry",
-    type: "Swipe",
-    rotate: "6deg",
-    bottom: "36px",
-    left: "73%",
-    width: "17%",
-    delay: 0.75,
-  },
+  { src: "/creatives/creative-1.png", brand: "Rolex",   rotate: -8,  rotateX: 14, bottom: "12px", left: "1%",  width: "22%", delay: 0.45 },
+  { src: "/creatives/creative-2.png", brand: "BMW",     rotate:  5,  rotateX: 10, bottom: "52px", left: "24%", width: "22%", delay: 0.55 },
+  { src: "/creatives/creative-3.png", brand: "Hermès",  rotate: -6,  rotateX: 13, bottom: "8px",  left: "52%", width: "17%", delay: 0.65 },
+  { src: "/creatives/creative-4.png", brand: "Burberry",rotate:  7,  rotateX: 11, bottom: "36px", left: "73%", width: "17%", delay: 0.75 },
 ];
 
 export function HeroCinematic() {
@@ -168,20 +132,11 @@ export function HeroCinematic() {
                 <RevealLine inView={isInView} delay={0.62}>outcomes.</RevealLine>
               </h2>
 
-              {/* Dot indicator */}
-              <motion.div
-                className="mt-10"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
-              </motion.div>
             </div>
           </div>
 
           {/* Creative cards — full image, natural aspect ratio */}
-          <div className="flex-none relative w-full" style={{ height: "320px" }}>
+          <div className="flex-none relative w-full" style={{ height: "320px", perspective: "1200px" }}>
             {CARDS.map((card) => (
               <motion.div
                 key={card.brand}
@@ -190,7 +145,8 @@ export function HeroCinematic() {
                   width: card.width,
                   bottom: card.bottom,
                   left: card.left,
-                  transform: `rotate(${card.rotate})`,
+                  rotate: card.rotate,
+                  rotateX: card.rotateX,
                   transformOrigin: "bottom center",
                   boxShadow: "0 24px 60px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.4)",
                   border: "1px solid rgba(255,255,255,0.12)",
