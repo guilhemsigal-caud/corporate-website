@@ -8,7 +8,8 @@ function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?
       <motion.span
         className="block"
         initial={{ y: "110%" }}
-        animate={{ y: "0%" }}
+        whileInView={{ y: "0%" }}
+        viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
@@ -173,24 +174,26 @@ export function HeroCinematic() {
         {/* ── Inner content ── */}
         <div className="relative z-10 flex flex-col flex-1 px-10 md:px-14 lg:px-16 pt-10 pb-10">
 
-          {/* Logo top-left */}
+          {/* Logo top-left — flex-none so it doesn't steal space from centered section */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="flex items-center gap-3 mb-auto"
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex-none flex items-center gap-3"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.svg" alt="Collective Audience" className="h-8 w-auto" />
           </motion.div>
 
-          {/* ── Headline — vertically centered ── */}
+          {/* ── Headline — vertically centered in remaining space ── */}
           <div className="flex-1 flex flex-col justify-center py-16">
             {/* Eyebrow */}
             <motion.p
               className="text-white/65 text-sm tracking-wide mb-8"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               Interactive Experiences. Actionable Intelligence. Measurable Results.
@@ -211,8 +214,9 @@ export function HeroCinematic() {
             <motion.div
               className="mt-10"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
             </motion.div>
@@ -220,11 +224,12 @@ export function HeroCinematic() {
 
           {/* ── Floating ad cards ── */}
           <motion.div
-            className="relative w-full"
+            className="flex-none relative w-full"
             style={{ height: "260px" }}
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Lexus — far left */}
             <div className="absolute" style={{ left: "0%", bottom: "10px" }}>
