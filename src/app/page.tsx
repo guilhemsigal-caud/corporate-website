@@ -6,6 +6,7 @@ import { PowerGrid } from "@/components/sections/PowerGrid";
 import { SplitFeature, PublishersVisual, AdvertisersVisual } from "@/components/sections/SplitFeature";
 import { LogoCloud } from "@/components/sections/LogoCloud";
 import { CTABanner } from "@/components/sections/CTABanner";
+import { HeroCinematic } from "@/components/sections/HeroCinematic";
 import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { useLang } from "@/lib/i18n";
 
@@ -32,6 +33,7 @@ export default function Home() {
       <SplitFeature eyebrow={s.adv.eyebrow} headline={s.adv.headline} description={s.adv.description} bullets={s.adv.bullets} cta={{ label: s.adv.cta, href: "/advertisers" }} accent="#07e2dc" reverse visual={<AdvertisersVisual />} />
       <PowerGrid />
       <LogoCloud />
+      <HeroCinematic />
       <WhoWeHelp />
       <CTABanner />
     </main>
