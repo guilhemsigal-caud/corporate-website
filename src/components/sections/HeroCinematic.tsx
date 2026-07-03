@@ -1,7 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+
+declare global {
+  interface Window {
+    beOpAsyncInit?: () => void;
+    BeOpSDK?: {
+      init: (opts: Record<string, unknown>) => void;
+      watch: () => void;
+    };
+  }
+}
 
 function RevealLine({
   children,
@@ -26,133 +36,34 @@ function RevealLine({
   );
 }
 
-function LexusCard() {
-  return (
-    <div className="w-44 rounded-xl overflow-hidden shadow-2xl bg-[#1a1a2e] border border-white/10 text-white text-[10px] select-none">
-      <div className="bg-[#0d0d1a] px-3 py-2 border-b border-white/10 flex justify-between items-center">
-        <span className="text-white/40 text-[8px] uppercase tracking-wider">Lexus NX</span>
-        <span className="text-[8px] bg-blue-500/30 text-blue-300 px-1.5 py-0.5 rounded">Démo</span>
-      </div>
-      <div className="px-3 py-2.5">
-        <p className="text-white/80 leading-tight mb-2.5">The NX 2021 model includes which new design features?</p>
-        <div className="space-y-1.5">
-          {["LED Headlamps", "Panoramic Sunroof", "Rain-sensing wipers"].map((opt) => (
-            <div key={opt} className="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 border border-white/10">
-              <div className="w-2.5 h-2.5 rounded border border-white/30 flex-shrink-0" />
-              <span className="text-white/70">{opt}</span>
-            </div>
-          ))}
-        </div>
-        <button className="mt-2.5 w-full bg-blue-600 text-white text-[9px] py-1.5 rounded font-medium">Pick at least 1 choice</button>
-      </div>
-    </div>
-  );
-}
-
-function RolexCard() {
-  return (
-    <div className="w-52 rounded-xl overflow-hidden shadow-2xl bg-white text-[10px] select-none">
-      <div className="bg-gray-50 px-3 py-2 border-b border-gray-200 flex justify-between items-center">
-        <span className="text-gray-400 text-[8px] uppercase tracking-widest font-light">ROLEX</span>
-        <span className="text-[8px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">Démo</span>
-      </div>
-      <div className="px-3 py-3">
-        <p className="font-semibold text-gray-900 mb-0.5">CONFIGURE YOUR DAY-DATE 40</p>
-        <p className="text-gray-500 mb-3">CHOOSE YOUR MATERIAL</p>
-        <div className="flex gap-2">
-          {[
-            { label: "YELLOW GOLD", color: "#c9a84c" },
-            { label: "WHITE GOLD", color: "#d6d6d6" },
-            { label: "ROSE GOLD", color: "#c58f7a" },
-          ].map((item) => (
-            <div key={item.label} className="flex flex-col items-center gap-1">
-              <div className="w-10 h-10 rounded-full border-2 border-gray-200" style={{ background: `radial-gradient(circle at 35% 35%, ${item.color}ee, ${item.color}88)` }} />
-              <span className="text-[7px] text-gray-400 text-center leading-tight">{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function NarsCard() {
-  return (
-    <div className="w-48 rounded-xl overflow-hidden shadow-2xl text-white select-none" style={{ background: "linear-gradient(160deg, #8b1a1a 0%, #c0392b 50%, #e67e22 100%)" }}>
-      <div className="px-3 py-2 border-b border-white/20 flex justify-between items-center">
-        <span className="text-white/80 text-[8px] tracking-widest font-light">NARS</span>
-        <span className="text-[8px] bg-white/20 text-white px-1.5 py-0.5 rounded">Démo</span>
-      </div>
-      <div className="px-3 py-3">
-        <p className="text-[10px] text-white/90 leading-tight mb-2">Find your NARS Orgasm Collection set</p>
-        <p className="text-[9px] text-white/60 mb-3">Choose from the following:</p>
-        <div className="flex gap-1.5 justify-center">
-          {["#1a0808", "#4a0e0e", "#8b1a1a"].map((c, i) => (
-            <div key={i} className="w-8 h-8 rounded-full border-2 border-white/30" style={{ background: c }} />
-          ))}
-        </div>
-        <div className="mt-3 text-center">
-          <span className="text-[20px] font-bold tracking-widest opacity-25 text-white">NARS</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function IkeaCard() {
-  return (
-    <div className="w-44 rounded-xl overflow-hidden shadow-2xl bg-white text-[10px] select-none">
-      <div className="bg-[#0051A8] px-3 py-1.5 flex justify-between items-center">
-        <span className="text-white font-bold text-[11px]">IKEA</span>
-        <span className="text-[7px] bg-white/20 text-white px-1 py-0.5 rounded">Démo</span>
-      </div>
-      <div className="px-3 py-2.5">
-        <p className="font-semibold text-gray-800 leading-tight mb-0.5">Top start to student life!</p>
-        <p className="text-gray-500 mb-2">Which item is missing from your room?</p>
-        <div className="grid grid-cols-2 gap-1.5">
-          {[
-            { name: "The ALEX desk", desc: "Essential for working in good conditions.", color: "#e8f4f8" },
-            { name: "The NATTBAD speaker", desc: "To listen to your podcasts or your favorite music.", color: "#f0ece8" },
-          ].map((item) => (
-            <div key={item.name} className="rounded-lg p-2 border border-gray-200 flex flex-col gap-1" style={{ background: item.color }}>
-              <div className="w-full h-10 bg-gray-300/50 rounded flex items-center justify-center">
-                <div className="w-8 h-6 bg-gray-400/40 rounded" />
-              </div>
-              <p className="text-[8px] font-semibold text-gray-700">{item.name}</p>
-              <p className="text-[7px] text-gray-500 leading-tight">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ClarinsCard() {
-  return (
-    <div className="w-36 rounded-xl overflow-hidden shadow-2xl bg-white text-[10px] select-none">
-      <div className="h-20 relative" style={{ background: "linear-gradient(135deg, #c0392b, #922b21)" }}>
-        <div className="absolute inset-0 flex items-center justify-center opacity-60">
-          <div className="w-16 h-12 rounded" style={{ background: "linear-gradient(135deg, #e74c3c88, #c0392b88)" }} />
-        </div>
-        <div className="absolute top-1.5 right-2 text-[7px] bg-white/20 text-white px-1 py-0.5 rounded">Démo</div>
-      </div>
-      <div className="px-2.5 py-2">
-        <span className="text-[8px] uppercase tracking-widest text-gray-400 font-light">CLARINS</span>
-        <p className="text-[9px] text-gray-700 leading-tight mt-1">Which shade would you wear for new year&apos;s eve?</p>
-        <div className="flex gap-1 mt-2">
-          {["#8b0000", "#c41e3a", "#e8735a"].map((c, i) => (
-            <div key={i} className="w-5 h-5 rounded-full border border-gray-200" style={{ background: c }} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function HeroCinematic() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+
+  useEffect(() => {
+    const init = () => {
+      window.BeOpSDK!.init({
+        account: "5aa9175a46e0fb00011583af",
+        pageUrl: null,
+        prebidVersion: null,
+      });
+      window.BeOpSDK!.watch();
+    };
+
+    if (window.BeOpSDK) {
+      init();
+      return;
+    }
+
+    window.beOpAsyncInit = init;
+
+    if (!document.querySelector('script[src="https://widget.collectiveaudience.co/sdk.js"]')) {
+      const s = document.createElement("script");
+      s.src = "https://widget.collectiveaudience.co/sdk.js";
+      s.async = true;
+      document.body.appendChild(s);
+    }
+  }, []);
 
   return (
     <section ref={sectionRef} className="px-4 md:px-5 py-4">
@@ -259,29 +170,19 @@ export function HeroCinematic() {
             </motion.div>
           </div>
 
-          {/* Floating ad cards */}
+          {/* BeOp creative */}
           <motion.div
-            className="flex-none relative w-full"
-            style={{ height: "260px" }}
+            className="flex-none flex justify-center pb-2"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="absolute" style={{ left: "0%", bottom: "10px" }}>
-              <LexusCard />
-            </div>
-            <div className="absolute" style={{ left: "17%", bottom: "30px" }}>
-              <RolexCard />
-            </div>
-            <div className="absolute" style={{ left: "50%", transform: "translateX(-50%)", bottom: "20px" }}>
-              <NarsCard />
-            </div>
-            <div className="absolute" style={{ right: "20%", bottom: "0px" }}>
-              <ClarinsCard />
-            </div>
-            <div className="absolute" style={{ right: "0%", bottom: "15px" }}>
-              <IkeaCard />
-            </div>
+            <div
+              className="BeOpWidget"
+              data-engage="6a477175e917370001a88b98"
+              data-mode="engage"
+              data-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ1cDIzS2xQbjliQW01eEVXc1JxZiIsImNvbnRlbnQiOiI2NWNiMzU1NTkwNDRkYTQyZDY1ZTRkMWMifQ.eYseBbS6JvSI1-8FI2qFdbukq9eYA245l3iSgzi98eM"
+            />
           </motion.div>
         </div>
       </div>
