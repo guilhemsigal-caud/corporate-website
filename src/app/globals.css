@@ -88,6 +88,44 @@ body {
 }
 
 /* WhoWeHelp moving glows */
+@keyframes heroGlowMove1 {
+  0%   { transform: translate(0%,    0%);   opacity: 0.70; }
+  8%   { transform: translate(60%,  -15%);  opacity: 0.85; }
+  15%  { transform: translate(80%,   50%);  opacity: 0.05; }
+  18%  { transform: translate(80%,   50%);  opacity: 0; }
+  22%  { transform: translate(10%,   70%);  opacity: 0.75; }
+  31%  { transform: translate(55%,   80%);  opacity: 0.85; }
+  40%  { transform: translate(90%,   20%);  opacity: 0.05; }
+  43%  { transform: translate(90%,   20%);  opacity: 0; }
+  48%  { transform: translate(-5%,   40%);  opacity: 0.70; }
+  57%  { transform: translate(40%,  -10%);  opacity: 0.80; }
+  66%  { transform: translate(70%,   60%);  opacity: 0.05; }
+  69%  { transform: translate(70%,   60%);  opacity: 0; }
+  74%  { transform: translate(20%,   85%);  opacity: 0.75; }
+  83%  { transform: translate(85%,   10%);  opacity: 0.80; }
+  91%  { transform: translate(30%,   30%);  opacity: 0.65; }
+  100% { transform: translate(0%,    0%);   opacity: 0.70; }
+}
+
+@keyframes heroGlowMove2 {
+  0%   { transform: translate(70%,   50%);  opacity: 0.65; }
+  7%   { transform: translate(10%,   75%);  opacity: 0.80; }
+  13%  { transform: translate(-15%,  30%);  opacity: 0.05; }
+  17%  { transform: translate(-15%,  30%);  opacity: 0; }
+  21%  { transform: translate(50%,  -20%);  opacity: 0.70; }
+  29%  { transform: translate(95%,   40%);  opacity: 0.80; }
+  37%  { transform: translate(35%,   80%);  opacity: 0.05; }
+  41%  { transform: translate(35%,   80%);  opacity: 0; }
+  46%  { transform: translate(75%,   -5%);  opacity: 0.65; }
+  54%  { transform: translate(5%,    55%);  opacity: 0.75; }
+  62%  { transform: translate(60%,   90%);  opacity: 0.05; }
+  66%  { transform: translate(60%,   90%);  opacity: 0; }
+  71%  { transform: translate(-10%,  10%);  opacity: 0.70; }
+  80%  { transform: translate(45%,  -15%);  opacity: 0.80; }
+  90%  { transform: translate(85%,   65%);  opacity: 0.65; }
+  100% { transform: translate(70%,   50%);  opacity: 0.65; }
+}
+
 @keyframes whoGlowMove {
   0%   { transform: translate(0%,    10%);  opacity: 0.65; }
   18%  { transform: translate(50%,  -8%);   opacity: 0.80; }

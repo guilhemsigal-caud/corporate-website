@@ -181,6 +181,36 @@ export function HeroCinematic() {
           }}
         />
 
+        {/* Glow blob 1 — pink/magenta */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "-30%",
+            left: "-15%",
+            width: "60%",
+            height: "120%",
+            background:
+              "radial-gradient(ellipse at center, rgba(199,81,192,0.50) 0%, rgba(65,88,208,0.22) 40%, transparent 68%)",
+            animation: "heroGlowMove1 5s ease-in-out infinite",
+            willChange: "transform, opacity",
+          }}
+        />
+
+        {/* Glow blob 2 — gold/blue */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "-20%",
+            left: "15%",
+            width: "55%",
+            height: "110%",
+            background:
+              "radial-gradient(ellipse at center, rgba(255,203,112,0.38) 0%, rgba(199,81,192,0.22) 42%, transparent 68%)",
+            animation: "heroGlowMove2 3.5s ease-in-out infinite",
+            willChange: "transform, opacity",
+          }}
+        />
+
         {/* Inner content */}
         <div className="relative z-10 flex flex-col flex-1 px-10 md:px-14 lg:px-16 pt-10 pb-10">
 
@@ -210,7 +240,7 @@ export function HeroCinematic() {
             {/* Title */}
             <h2
               className="text-white tracking-tight text-left mx-auto"
-              style={{ fontSize: "clamp(2rem, 3.8vw, 3.8rem)", fontWeight: 500 }}
+              style={{ fontSize: "clamp(2rem, 3.8vw, 3.8rem)", fontWeight: 700 }}
             >
               <RevealLine inView={isInView} delay={0.2}>Interactive experiences that</RevealLine>
               <RevealLine inView={isInView} delay={0.34}>connect audiences</RevealLine>
