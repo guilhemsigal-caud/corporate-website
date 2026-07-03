@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
-    <span className="block overflow-hidden leading-[1.12]">
+    <span className="block overflow-hidden" style={{ lineHeight: 1.1 }}>
       <motion.span
         className="block"
         initial={{ y: "110%" }}
@@ -20,9 +20,9 @@ function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?
 function LexusCard() {
   return (
     <div className="w-44 rounded-xl overflow-hidden shadow-2xl bg-[#1a1a2e] border border-white/10 text-white text-[10px] select-none">
-      <div className="bg-[#0d0d1a] px-3 py-2 border-b border-white/10">
+      <div className="bg-[#0d0d1a] px-3 py-2 border-b border-white/10 flex justify-between items-center">
         <span className="text-white/40 text-[8px] uppercase tracking-wider">Lexus NX</span>
-        <span className="float-right text-[8px] bg-blue-500/30 text-blue-300 px-1.5 py-0.5 rounded">Démo</span>
+        <span className="text-[8px] bg-blue-500/30 text-blue-300 px-1.5 py-0.5 rounded">Démo</span>
       </div>
       <div className="px-3 py-2.5">
         <p className="text-white/80 leading-tight mb-2.5">The NX 2021 model includes which new design features?</p>
@@ -57,9 +57,7 @@ function RolexCard() {
             { label: "ROSE GOLD", color: "#c58f7a" },
           ].map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-1">
-              <div className="w-10 h-10 rounded-full border-2 border-gray-200 overflow-hidden flex items-center justify-center" style={{ background: item.color }}>
-                <div className="w-7 h-7 rounded-full border border-black/10" style={{ background: `radial-gradient(circle at 35% 35%, ${item.color}ee, ${item.color}88)` }} />
-              </div>
+              <div className="w-10 h-10 rounded-full border-2 border-gray-200" style={{ background: `radial-gradient(circle at 35% 35%, ${item.color}ee, ${item.color}88)` }} />
               <span className="text-[7px] text-gray-400 text-center leading-tight">{item.label}</span>
             </div>
           ))}
@@ -80,12 +78,12 @@ function NarsCard() {
         <p className="text-[10px] text-white/90 leading-tight mb-2">Find your NARS Orgasm Collection set</p>
         <p className="text-[9px] text-white/60 mb-3">Choose from the following:</p>
         <div className="flex gap-1.5 justify-center">
-          {["#1a0808", "#2d0a0a", "#8b1a1a"].map((c, i) => (
+          {["#1a0808", "#4a0e0e", "#8b1a1a"].map((c, i) => (
             <div key={i} className="w-8 h-8 rounded-full border-2 border-white/30" style={{ background: c }} />
           ))}
         </div>
         <div className="mt-3 text-center">
-          <span className="text-[20px] font-bold tracking-widest opacity-30 text-white">NARS</span>
+          <span className="text-[20px] font-bold tracking-widest opacity-25 text-white">NARS</span>
         </div>
       </div>
     </div>
@@ -124,19 +122,15 @@ function IkeaCard() {
 function ClarinsCard() {
   return (
     <div className="w-36 rounded-xl overflow-hidden shadow-2xl bg-white text-[10px] select-none">
-      <div className="h-20 overflow-hidden relative" style={{ background: "linear-gradient(135deg, #c0392b, #922b21)" }}>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-20 h-16 rounded-lg" style={{ background: "linear-gradient(135deg, #e74c3c, #c0392b)" }}>
-            <div className="w-full h-full flex items-end justify-center pb-1 opacity-70">
-              <div className="w-14 h-2 rounded-full" style={{ background: "#8b0000" }} />
-            </div>
-          </div>
+      <div className="h-20 relative" style={{ background: "linear-gradient(135deg, #c0392b, #922b21)" }}>
+        <div className="absolute inset-0 flex items-center justify-center opacity-60">
+          <div className="w-16 h-12 rounded" style={{ background: "linear-gradient(135deg, #e74c3c88, #c0392b88)" }} />
         </div>
         <div className="absolute top-1.5 right-2 text-[7px] bg-white/20 text-white px-1 py-0.5 rounded">Démo</div>
       </div>
       <div className="px-2.5 py-2">
         <span className="text-[8px] uppercase tracking-widest text-gray-400 font-light">CLARINS</span>
-        <p className="text-[9px] text-gray-700 leading-tight mt-1">Which shade would you wear for new year's eve?</p>
+        <p className="text-[9px] text-gray-700 leading-tight mt-1">Which shade would you wear for new year&apos;s eve?</p>
         <div className="flex gap-1 mt-2">
           {["#8b0000", "#c41e3a", "#e8735a"].map((c, i) => (
             <div key={i} className="w-5 h-5 rounded-full border border-gray-200" style={{ background: c }} />
@@ -149,93 +143,111 @@ function ClarinsCard() {
 
 export function HeroCinematic() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black">
-      {/* ── Video background ── */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "brightness(0.28) saturate(0.15)" }}
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
-
-      {/* ── Subtle dark gradient overlay ── */}
+    /* ── Outer shell: same padding pattern as WhoWeHelp ── */
+    <section className="px-4 md:px-5 py-4">
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.55) 100%)",
-        }}
-      />
-
-      {/* ── Content ── */}
-      <div className="relative z-10 flex flex-col min-h-screen px-8 md:px-14 lg:px-20 pt-24 pb-10">
-        {/* Eyebrow */}
-        <motion.p
-          className="text-white/75 text-sm tracking-wide"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.05 }}
+        className="relative overflow-hidden rounded-3xl w-full flex flex-col"
+        style={{ minHeight: "110vh", background: "#000" }}
+      >
+        {/* ── Video background (clipped by rounded-3xl) ── */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "brightness(0.28) saturate(0.15)" }}
         >
-          Interactive Experiences. Actionable Intelligence. Measurable Results.
-        </motion.p>
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
 
-        {/* ── Headline with line-by-line text reveal ── */}
-        <div className="flex-1 flex items-center">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-bold text-white tracking-tight max-w-5xl">
-            <RevealLine delay={0.18}>Interactive experiences that</RevealLine>
-            <RevealLine delay={0.32}>connect audiences</RevealLine>
-            <RevealLine delay={0.46}>everywhere—turn attention into</RevealLine>
-            <RevealLine delay={0.60}>outcomes.</RevealLine>
-          </h2>
+        {/* ── Gradient overlay ── */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.6) 100%)",
+          }}
+        />
+
+        {/* ── Inner content ── */}
+        <div className="relative z-10 flex flex-col flex-1 px-10 md:px-14 lg:px-16 pt-10 pb-10">
+
+          {/* Logo top-left */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="flex items-center gap-3 mb-auto"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Collective Audience" className="h-8 w-auto" />
+          </motion.div>
+
+          {/* ── Headline — vertically centered ── */}
+          <div className="flex-1 flex flex-col justify-center py-16">
+            {/* Eyebrow */}
+            <motion.p
+              className="text-white/65 text-sm tracking-wide mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              Interactive Experiences. Actionable Intelligence. Measurable Results.
+            </motion.p>
+
+            {/* Title */}
+            <h2
+              className="font-bold text-white tracking-tight max-w-4xl"
+              style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)" }}
+            >
+              <RevealLine delay={0.2}>Interactive experiences that</RevealLine>
+              <RevealLine delay={0.34}>connect audiences</RevealLine>
+              <RevealLine delay={0.48}>everywhere—turn attention into</RevealLine>
+              <RevealLine delay={0.62}>outcomes.</RevealLine>
+            </h2>
+
+            {/* Dot indicator */}
+            <motion.div
+              className="mt-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+            >
+              <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
+            </motion.div>
+          </div>
+
+          {/* ── Floating ad cards ── */}
+          <motion.div
+            className="relative w-full"
+            style={{ height: "260px" }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* Lexus — far left */}
+            <div className="absolute" style={{ left: "0%", bottom: "10px" }}>
+              <LexusCard />
+            </div>
+            {/* Rolex — left-center */}
+            <div className="absolute" style={{ left: "17%", bottom: "30px" }}>
+              <RolexCard />
+            </div>
+            {/* NARS — center */}
+            <div className="absolute" style={{ left: "50%", transform: "translateX(-50%)", bottom: "20px" }}>
+              <NarsCard />
+            </div>
+            {/* Clarins — center-right */}
+            <div className="absolute" style={{ right: "20%", bottom: "0px" }}>
+              <ClarinsCard />
+            </div>
+            {/* IKEA — right */}
+            <div className="absolute" style={{ right: "0%", bottom: "15px" }}>
+              <IkeaCard />
+            </div>
+          </motion.div>
         </div>
-
-        {/* ── Dot indicator ── */}
-        <motion.div
-          className="flex justify-center mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-        >
-          <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
-        </motion.div>
-
-        {/* ── Floating ad format cards ── */}
-        <motion.div
-          className="relative w-full"
-          style={{ height: "260px" }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {/* Lexus — far left */}
-          <div className="absolute" style={{ left: "2%", bottom: "10px" }}>
-            <LexusCard />
-          </div>
-
-          {/* Rolex — left-center */}
-          <div className="absolute" style={{ left: "18%", bottom: "30px" }}>
-            <RolexCard />
-          </div>
-
-          {/* NARS — center */}
-          <div className="absolute" style={{ left: "38%", bottom: "20px", transform: "translateX(-50%)" }}>
-            <NarsCard />
-          </div>
-
-          {/* Clarins — center-right */}
-          <div className="absolute" style={{ right: "22%", bottom: "0px" }}>
-            <ClarinsCard />
-          </div>
-
-          {/* IKEA — right */}
-          <div className="absolute" style={{ right: "2%", bottom: "15px" }}>
-            <IkeaCard />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
