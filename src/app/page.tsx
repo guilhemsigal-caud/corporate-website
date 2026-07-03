@@ -8,6 +8,7 @@ import { LogoCloud } from "@/components/sections/LogoCloud";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { HeroCinematic } from "@/components/sections/HeroCinematic";
 import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
+import { CreativeShowcase } from "@/components/sections/CreativeShowcase";
 import { useLang } from "@/lib/i18n";
 
 const SPLITS = {
@@ -35,6 +36,7 @@ export default function Home() {
       <LogoCloud />
       <HeroCinematic />
       <WhoWeHelp />
+      <CreativeShowcase />
       <CTABanner />
     </main>
   );
