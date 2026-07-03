@@ -1,15 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
-function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function RevealLine({
+  children,
+  delay = 0,
+  inView,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  inView: boolean;
+}) {
   return (
     <span className="block overflow-hidden" style={{ lineHeight: 1.1 }}>
       <motion.span
         className="block"
         initial={{ y: "110%" }}
-        whileInView={{ y: "0%" }}
-        viewport={{ once: true, margin: "-80px" }}
+        animate={inView ? { y: "0%" } : { y: "110%" }}
         transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
@@ -143,14 +151,16 @@ function ClarinsCard() {
 }
 
 export function HeroCinematic() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+
   return (
-    /* ── Outer shell: same padding pattern as WhoWeHelp ── */
-    <section className="px-4 md:px-5 py-4">
+    <section ref={sectionRef} className="px-4 md:px-5 py-4">
       <div
         className="relative overflow-hidden rounded-3xl w-full flex flex-col"
-        style={{ minHeight: "110vh", background: "#000" }}
+        style={{ height: "90vh", background: "#000" }}
       >
-        {/* ── Video background (clipped by rounded-3xl) ── */}
+        {/* Video background */}
         <video
           autoPlay
           muted
@@ -162,7 +172,7 @@ export function HeroCinematic() {
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
 
-        {/* ── Gradient overlay ── */}
+        {/* Gradient overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -171,14 +181,13 @@ export function HeroCinematic() {
           }}
         />
 
-        {/* ── Inner content ── */}
+        {/* Inner content */}
         <div className="relative z-10 flex flex-col flex-1 px-10 md:px-14 lg:px-16 pt-10 pb-10">
 
-          {/* Logo top-left — flex-none so it doesn't steal space from centered section */}
+          {/* Logo top-left */}
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6 }}
             className="flex-none flex items-center gap-3"
           >
@@ -186,14 +195,13 @@ export function HeroCinematic() {
             <img src="/logo.svg" alt="Collective Audience" className="h-8 w-auto" />
           </motion.div>
 
-          {/* ── Headline — vertically centered in remaining space ── */}
-          <div className="flex-1 flex flex-col justify-center py-16">
+          {/* Headline — vertically centered */}
+          <div className="flex-1 flex flex-col justify-center">
             {/* Eyebrow */}
             <motion.p
               className="text-white/65 text-sm tracking-wide mb-8"
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               Interactive Experiences. Actionable Intelligence. Measurable Results.
@@ -204,50 +212,43 @@ export function HeroCinematic() {
               className="font-bold text-white tracking-tight max-w-4xl"
               style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)" }}
             >
-              <RevealLine delay={0.2}>Interactive experiences that</RevealLine>
-              <RevealLine delay={0.34}>connect audiences</RevealLine>
-              <RevealLine delay={0.48}>everywhere—turn attention into</RevealLine>
-              <RevealLine delay={0.62}>outcomes.</RevealLine>
+              <RevealLine inView={isInView} delay={0.2}>Interactive experiences that</RevealLine>
+              <RevealLine inView={isInView} delay={0.34}>connect audiences</RevealLine>
+              <RevealLine inView={isInView} delay={0.48}>everywhere—turn attention into</RevealLine>
+              <RevealLine inView={isInView} delay={0.62}>outcomes.</RevealLine>
             </h2>
 
             {/* Dot indicator */}
             <motion.div
               className="mt-10"
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <div className="w-2 h-2 rounded-full" style={{ background: "#5b8cff" }} />
             </motion.div>
           </div>
 
-          {/* ── Floating ad cards ── */}
+          {/* Floating ad cards */}
           <motion.div
             className="flex-none relative w-full"
             style={{ height: "260px" }}
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Lexus — far left */}
             <div className="absolute" style={{ left: "0%", bottom: "10px" }}>
               <LexusCard />
             </div>
-            {/* Rolex — left-center */}
             <div className="absolute" style={{ left: "17%", bottom: "30px" }}>
               <RolexCard />
             </div>
-            {/* NARS — center */}
             <div className="absolute" style={{ left: "50%", transform: "translateX(-50%)", bottom: "20px" }}>
               <NarsCard />
             </div>
-            {/* Clarins — center-right */}
             <div className="absolute" style={{ right: "20%", bottom: "0px" }}>
               <ClarinsCard />
             </div>
-            {/* IKEA — right */}
             <div className="absolute" style={{ right: "0%", bottom: "15px" }}>
               <IkeaCard />
             </div>
