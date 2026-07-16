@@ -70,7 +70,7 @@ export function CTABanner() {
           }}
         />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-8 py-20 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 py-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,13 +82,13 @@ export function CTABanner() {
             </span>
 
             <h2
-              className="text-white font-bold tracking-tight mb-5 leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
+              className="text-white font-bold tracking-tight mb-5 leading-tight whitespace-nowrap"
+              style={{ fontSize: "clamp(1.1rem, 2.8vw, 1.9rem)" }}
             >
               {c.title}
             </h2>
 
-            <p className="text-white/50 text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+            <p className="text-white/50 text-lg max-w-sm mx-auto mb-10 leading-relaxed">
               {c.subtitle}
             </p>
 
@@ -110,7 +110,7 @@ export function CTABanner() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16 pt-10 border-t border-white/8"
+            className="mt-16"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <Mail className="w-4 h-4 text-ca-mint" />
