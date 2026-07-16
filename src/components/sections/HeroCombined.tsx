@@ -11,9 +11,8 @@ import { useLang } from "@/lib/i18n";
 const COPY = {
   en: {
     badge: "The Open Web Platform",
-    line1: "Elevated outcomes",
-    line2: "from branding",
-    line3: "to performance.",
+    line1: "Elevated outcomes from branding",
+    line2: "to performance.",
     subtitle:
       "Collective Audience unifies premium media, first-party audience data, and high-attention formats into one open platform, cookieless and built for the open web.",
     cta1: "Contact us",
@@ -22,9 +21,8 @@ const COPY = {
   },
   fr: {
     badge: "La plateforme du web ouvert",
-    line1: "Des résultats",
-    line2: "du branding",
-    line3: "à la performance.",
+    line1: "Des résultats du branding",
+    line2: "à la performance.",
     subtitle:
       "Collective Audience unifie médias premium, données d'audience first-party et formats haute attention en une plateforme ouverte, sans cookies, conçue pour le web ouvert.",
     cta1: "Nous contacter",
@@ -139,62 +137,61 @@ export function HeroCombined() {
   return (
     <section ref={sectionRef} className="px-4 md:px-5 py-4">
       <div
-        className="relative overflow-hidden rounded-3xl w-full flex flex-col"
-        style={{ height: "90vh", background: "#000" }}
+        className="relative rounded-3xl w-full flex flex-col"
+        style={{ background: "#000" }}
       >
-        {/* ── Video background (HeroCinematic) ── */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: "brightness(0.28) saturate(0.15)" }}
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* ── Background layer — clipped to rounded corners ── */}
+        <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ filter: "brightness(0.28) saturate(0.15)" }}
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
 
-        {/* ── Gradient overlay (HeroCinematic) ── */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.7) 100%)",
-          }}
-        />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.7) 100%)",
+            }}
+          />
 
-        {/* ── Glow blob 1 — pink/blue (HeroCinematic) ── */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: "-30%",
-            left: "-15%",
-            width: "60%",
-            height: "120%",
-            background:
-              "radial-gradient(ellipse at center, rgba(199,81,192,0.50) 0%, rgba(65,88,208,0.22) 40%, transparent 68%)",
-            animation: "heroGlowMove1 7.2s ease-in-out infinite",
-            willChange: "transform, opacity",
-          }}
-        />
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: "-30%",
+              left: "-15%",
+              width: "60%",
+              height: "120%",
+              background:
+                "radial-gradient(ellipse at center, rgba(199,81,192,0.50) 0%, rgba(65,88,208,0.22) 40%, transparent 68%)",
+              animation: "heroGlowMove1 7.2s ease-in-out infinite",
+              willChange: "transform, opacity",
+            }}
+          />
 
-        {/* ── Glow blob 2 — pink/blue, different path (HeroCinematic) ── */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: "-20%",
-            left: "15%",
-            width: "55%",
-            height: "110%",
-            background:
-              "radial-gradient(ellipse at center, rgba(199,81,192,0.42) 0%, rgba(65,88,208,0.20) 42%, transparent 68%)",
-            animation: "heroGlowMove2 5s ease-in-out infinite",
-            willChange: "transform, opacity",
-          }}
-        />
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: "-20%",
+              left: "15%",
+              width: "55%",
+              height: "110%",
+              background:
+                "radial-gradient(ellipse at center, rgba(199,81,192,0.42) 0%, rgba(65,88,208,0.20) 42%, transparent 68%)",
+              animation: "heroGlowMove2 5s ease-in-out infinite",
+              willChange: "transform, opacity",
+            }}
+          />
+        </div>
 
         {/* ── Inner content ── */}
-        <div className="relative z-10 flex flex-col flex-1 px-10 md:px-14 lg:px-16 pt-10 pb-10">
+        <div className="relative z-10 flex flex-col px-10 md:px-14 lg:px-16 pt-10" style={{ minHeight: "90vh" }}>
 
           {/* Logo top-left (HeroCinematic) */}
           <motion.div
@@ -208,7 +205,7 @@ export function HeroCombined() {
           </motion.div>
 
           {/* ── Headline block — centered (HeroSplit copy + HeroCinematic animation) ── */}
-          <div className="flex-1 flex flex-col justify-center items-center text-center">
+          <div className="flex-1 flex flex-col justify-center items-center text-center pb-8">
             <div style={{ width: "fit-content", margin: "0 auto" }}>
 
               {/* Badge (HeroSplit) */}
@@ -226,13 +223,12 @@ export function HeroCombined() {
                 <ChevronRight className="w-3.5 h-3.5 opacity-60" />
               </motion.div>
 
-              {/* Headline — three lines from HeroSplit, animated with RevealLine */}
+              {/* Headline — two lines */}
               <h1
                 className="text-white tracking-tight mb-6"
-                style={{ fontSize: "clamp(2rem, 4vw, 4rem)", fontWeight: 700 }}
+                style={{ fontSize: "clamp(2rem, 3.2vw, 3.5rem)", fontWeight: 700 }}
               >
                 <RevealLine inView={isInView} delay={0.18}>{c.line1}</RevealLine>
-                <RevealLine inView={isInView} delay={0.32}>{c.line2}</RevealLine>
                 <span className="block overflow-hidden" style={{ lineHeight: 1.1 }}>
                   <motion.span
                     className="block"
@@ -244,9 +240,9 @@ export function HeroCombined() {
                     }}
                     initial={{ y: "110%" }}
                     animate={isInView ? { y: "0%" } : { y: "110%" }}
-                    transition={{ duration: 1, delay: 0.46, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 1, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {c.line3}
+                    {c.line2}
                   </motion.span>
                 </span>
               </h1>
@@ -305,8 +301,8 @@ export function HeroCombined() {
 
           {/* ── Ad cards strip (HeroCinematic) ── */}
           <div
-            className="flex-none relative w-full"
-            style={{ height: "320px", perspective: "1200px" }}
+            className="relative w-full mt-auto"
+            style={{ height: "340px", perspective: "1200px", paddingBottom: "0" }}
           >
             {CARDS.map((card) => (
               <AdCard key={card.brand} card={card} inView={isInView} />
