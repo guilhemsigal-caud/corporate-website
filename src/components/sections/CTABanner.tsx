@@ -83,12 +83,12 @@ export function CTABanner() {
 
             <h2
               className="text-white font-bold tracking-tight mb-5 leading-tight whitespace-nowrap"
-              style={{ fontSize: "clamp(1.1rem, 2.8vw, 1.9rem)" }}
+              style={{ fontSize: "clamp(1.5rem, 3.2vw, 3.5rem)" }}
             >
               {c.title}
             </h2>
 
-            <p className="text-white/50 text-lg max-w-sm mx-auto mb-10 leading-relaxed">
+            <p className="text-white/50 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
               {c.subtitle}
             </p>
 
