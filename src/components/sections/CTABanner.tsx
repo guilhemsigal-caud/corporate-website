@@ -92,20 +92,13 @@ export function CTABanner() {
               {c.subtitle}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
                 style={{ background: "linear-gradient(135deg, #5b8cff, #7b3fff)" }}
               >
                 {c.cta1}
-                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/gallery"
-                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl border border-white/15 text-white/80 font-semibold transition-all duration-200 hover:border-white/30 hover:text-white active:scale-[0.98]"
-              >
-                {c.cta2}
                 <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
