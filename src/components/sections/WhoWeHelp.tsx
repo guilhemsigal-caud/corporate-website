@@ -12,18 +12,22 @@ const COPY = {
     learnMore: "Learn More",
     publishers: {
       heading: "for publishers",
+      description: "Maximize yield across your inventory without compromising editorial quality.",
       bullets: [
-        "Monetize attention, not just impressions",
-        "Higher yield through interactive formats",
-        "Privacy-safe data with full transparency",
+        "Yield optimization: +28% avg. eCPM uplift",
+        "First-party CRM & DMP audience collection",
+        "Inline editorial formats that don't interrupt reading",
+        "GDPR-compliant data layer, full transparency",
       ],
     },
     advertisers: {
       heading: "for advertisers",
+      description: "Run high-attention formats on 200+ premium publishers, cookieless.",
       bullets: [
-        "Measure performance beyond impressions",
-        "Engagement that drives decisions",
-        "Real-time intent signals",
+        "Self-serve platform + managed service option",
+        "Cookieless contextual & semantic targeting",
+        "Brand lift, attention, and ROI measurement",
+        "Creative studio, no assets required",
       ],
     },
     stats: [
@@ -38,18 +42,22 @@ const COPY = {
     learnMore: "En savoir plus",
     publishers: {
       heading: "pour les éditeurs",
+      description: "Maximisez le yield sur votre inventaire sans compromettre la qualité éditoriale.",
       bullets: [
-        "Monétisez l'attention, pas seulement les impressions",
-        "Yield plus élevé via des formats interactifs",
-        "Données privacy-safe avec totale transparence",
+        "Optimisation du yield : +28% d'eCPM moyen",
+        "Collecte d'audience CRM & DMP first-party",
+        "Formats éditoriaux inline qui n'interrompent pas la lecture",
+        "Couche de données RGPD-compliant, totale transparence",
       ],
     },
     advertisers: {
       heading: "pour les annonceurs",
+      description: "Diffusez des formats haute attention sur 200+ éditeurs premium, sans cookie.",
       bullets: [
-        "Mesurez la performance au-delà des impressions",
-        "Engagement qui influence les décisions",
-        "Signaux d'intention en temps réel",
+        "Plateforme self-serve + service managé",
+        "Ciblage contextuel & sémantique sans cookie",
+        "Mesure du lift de marque, de l'attention et du ROI",
+        "Studio créatif, aucune ressource requise",
       ],
     },
     stats: [
@@ -281,11 +289,18 @@ export function WhoWeHelp() {
             <div className="flex items-center">
               <div className="w-full">
                 <FadeText
-                  className="block font-black text-white mb-5"
+                  className="block font-black text-white mb-3"
                   style={{ fontSize: "1.75rem" }}
                   delay={0.1}
                 >
                   {c.publishers.heading}
+                </FadeText>
+                <FadeText
+                  className="block text-sm leading-relaxed mb-5"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                  delay={0.14}
+                >
+                  {c.publishers.description}
                 </FadeText>
                 <ul>
                   {c.publishers.bullets.map((b, i) => (
@@ -311,11 +326,18 @@ export function WhoWeHelp() {
             <div className="flex items-center">
               <div className="w-full">
                 <FadeText
-                  className="block font-black text-white mb-5"
+                  className="block font-black text-white mb-3"
                   style={{ fontSize: "1.75rem" }}
                   delay={0.15}
                 >
                   {c.advertisers.heading}
+                </FadeText>
+                <FadeText
+                  className="block text-sm leading-relaxed mb-5"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                  delay={0.19}
+                >
+                  {c.advertisers.description}
                 </FadeText>
                 <ul>
                   {c.advertisers.bullets.map((b, i) => (
