@@ -39,161 +39,114 @@ export function CTABanner() {
   const c = COPY[lang];
 
   return (
-    <section
-      className="relative py-28 overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #05060f 0%, #0b0d1f 45%, #0d0820 100%)" }}
-    >
-      {/* Rich background glow — much more visible than before */}
+    <section className="px-4 md:px-5 py-4 pb-6">
       <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 90% 70% at 50% 40%, rgba(91,80,255,0.18) 0%, rgba(91,140,255,0.10) 40%, transparent 72%)",
-        }}
-      />
+        className="relative rounded-3xl overflow-hidden"
+        style={{ background: "#07080f" }}
+      >
+        {/* Single, restrained accent glow — top center only */}
+        <div
+          aria-hidden
+          className="absolute pointer-events-none"
+          style={{
+            top: "-80px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "600px",
+            height: "300px",
+            background:
+              "radial-gradient(ellipse at center, rgba(91,140,255,0.13) 0%, transparent 70%)",
+            filter: "blur(20px)",
+          }}
+        />
 
-      {/* Top edge accent line */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-px"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, rgba(120,80,255,0.6) 30%, rgba(91,140,255,0.6) 70%, transparent)",
-        }}
-      />
+        {/* Top border accent */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-px"
+          style={{
+            background:
+              "linear-gradient(to right, transparent 10%, rgba(91,140,255,0.3) 40%, rgba(7,226,220,0.3) 60%, transparent 90%)",
+          }}
+        />
 
-      {/* Decorative glow orb behind the title area */}
-      <div
-        aria-hidden
-        className="absolute pointer-events-none"
-        style={{
-          top: "5%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 560,
-          height: 320,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse at center, rgba(100,60,255,0.22) 0%, rgba(91,140,255,0.12) 50%, transparent 75%)",
-          filter: "blur(40px)",
-        }}
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-8 text-center">
-        {/* Main heading block — staggered fade-up */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ca-mint mb-6 px-3 py-1 rounded-full border border-ca-mint/20 bg-ca-mint/8">
-            {c.badge}
-          </span>
-
-          {/* Title — larger, bright gradient (white → violet-blue) */}
-          <h2
-            className="font-bold tracking-tight mb-5 leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
+        <div className="relative z-10 max-w-3xl mx-auto px-8 py-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span
-              style={{
-                background: "linear-gradient(135deg, #ffffff 0%, #c4b5fd 40%, #818cf8 75%, #60a5fa 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ca-mint mb-6 px-3 py-1 rounded-full border border-ca-mint/20">
+              {c.badge}
+            </span>
+
+            <h2
+              className="text-white font-bold tracking-tight mb-5 leading-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
             >
               {c.title}
-            </span>
-          </h2>
+            </h2>
 
-          <p className="text-ca-muted text-lg max-w-xl mx-auto mb-10">{c.subtitle}</p>
+            <p className="text-white/50 text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+              {c.subtitle}
+            </p>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* Primary CTA — glow on hover + scale */}
-            <div className="relative group/primary">
-              {/* Persistent subtle glow ring behind the button */}
-              <div
-                aria-hidden
-                className="absolute inset-0 rounded-2xl opacity-50 group-hover/primary:opacity-90 transition-opacity duration-300"
-                style={{
-                  background: "radial-gradient(ellipse at center, rgba(91,140,255,0.5) 0%, transparent 70%)",
-                  filter: "blur(16px)",
-                  transform: "scale(1.15)",
-                }}
-              />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="relative inline-flex items-center justify-center gap-2.5 px-9 py-4 rounded-2xl text-white font-semibold text-[1.05rem] transition-all duration-200 active:scale-[0.97]"
-                style={{
-                  background: "linear-gradient(135deg, #5b6bff 0%, #7c3aed 100%)",
-                  boxShadow: "0 0 0 1px rgba(120,100,255,0.3)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 0 30px rgba(91,100,255,0.55), 0 0 60px rgba(124,58,237,0.25), 0 0 0 1px rgba(150,130,255,0.4)";
-                  (e.currentTarget as HTMLElement).style.transform = "scale(1.04)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 0 0 1px rgba(120,100,255,0.3)";
-                  (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-                }}
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
+                style={{ background: "linear-gradient(135deg, #5b8cff, #7b3fff)" }}
               >
                 {c.cta1}
-                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover/primary:translate-x-1" />
+                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/gallery"
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl border border-white/15 text-white/80 font-semibold transition-all duration-200 hover:border-white/30 hover:text-white active:scale-[0.98]"
+              >
+                {c.cta2}
+                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
+          </motion.div>
 
-            {/* Secondary CTA */}
-            <Link
-              href="/gallery"
-              className="group inline-flex items-center justify-center gap-2.5 px-9 py-4 rounded-2xl border border-ca-border bg-white/5 text-ca-text font-semibold text-[1.05rem] backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:border-ca-mint/40 hover:scale-[1.02] active:scale-[0.97]"
-            >
-              {c.cta2}
-              <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* Newsletter block — delayed fade-in */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-16 p-7 rounded-2xl border border-ca-border bg-ca-surface/60 backdrop-blur-sm"
-        >
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Mail className="w-4 h-4 text-ca-mint" />
-            <span className="text-sm font-semibold text-ca-text">{c.nlTitle}</span>
-          </div>
-          <p className="text-ca-muted text-sm mb-5">{c.nlSub}</p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder={c.nlPlaceholder}
-              className="flex-1 px-4 py-3 rounded-xl border border-ca-border bg-ca-dark text-ca-text placeholder:text-ca-muted text-sm focus:outline-none focus:border-ca-blue/50 focus:ring-1 focus:ring-ca-blue/30 transition-colors"
-              required
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-xl bg-ca-blue text-white font-semibold text-sm hover:brightness-110 hover:shadow-[0_0_20px_rgba(91,140,255,0.35)] hover:scale-[1.02] transition-all duration-200 whitespace-nowrap active:scale-[0.97]"
-            >
-              {c.nlBtn}
-            </button>
-          </form>
-          <p className="text-xs text-ca-muted mt-3">
-            {c.nlDisclaimer}{" "}
-            <Link href="/legal/privacy" className="underline hover:text-ca-text transition-colors">
-              {c.nlPrivacy}
-            </Link>
-            {c.nlUnsub}
-          </p>
-        </motion.div>
+          {/* Newsletter — minimal, integrated with the section */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-16 pt-10 border-t border-white/8"
+          >
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Mail className="w-4 h-4 text-ca-mint" />
+              <span className="text-sm font-medium text-white/70">{c.nlTitle}</span>
+            </div>
+            <p className="text-white/35 text-sm mb-6">{c.nlSub}</p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+              <input
+                type="email"
+                placeholder={c.nlPlaceholder}
+                className="flex-1 px-4 py-3 rounded-xl border border-white/12 bg-white/5 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-ca-blue/40 transition-colors"
+                required
+              />
+              <button
+                type="submit"
+                className="px-5 py-3 rounded-xl bg-white/10 border border-white/15 text-white font-medium text-sm hover:bg-white/15 transition-all duration-200 whitespace-nowrap"
+              >
+                {c.nlBtn}
+              </button>
+            </form>
+            <p className="text-xs text-white/25 mt-4">
+              {c.nlDisclaimer}{" "}
+              <Link href="/legal/privacy" className="underline hover:text-white/50 transition-colors">
+                {c.nlPrivacy}
+              </Link>
+              {c.nlUnsub}
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
