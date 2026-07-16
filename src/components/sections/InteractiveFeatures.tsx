@@ -12,7 +12,8 @@ const HREFS = ["/advertisers", "/advertisers/targeting", "/gallery", "/advertise
 const COPY = {
   en: {
     eyebrow: "Elevate your impact",
-    title: "Four pillars of audience performance",
+    title: "What we do",
+    intro: "We help publishers and advertisers collaborate through interactive formats, audience intelligence, and unified measurement.",
     subtitle: "From media access to creative impact and measurable ROI: a full-stack approach to digital advertising.",
     learnMore: "Learn more",
     items: [
@@ -24,7 +25,8 @@ const COPY = {
   },
   fr: {
     eyebrow: "Amplifiez votre impact",
-    title: "Quatre piliers de la performance audience",
+    title: "Ce que nous faisons",
+    intro: "Nous aidons les éditeurs et les annonceurs à collaborer via des formats interactifs, l'intelligence audience et une mesure unifiée.",
     subtitle: "De l'accès médias à l'impact créatif jusqu'au ROI mesurable: une approche full-stack de la publicité digitale.",
     learnMore: "En savoir plus",
     items: [
@@ -130,6 +132,7 @@ export function InteractiveFeatures() {
             style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
             {c.title}
           </h2>
+          <p className="text-ca-text text-xl font-medium max-w-2xl mx-auto mb-3 leading-snug">{c.intro}</p>
           <p className="text-ca-muted text-lg max-w-xl mx-auto">{c.subtitle}</p>
         </motion.div>
 

@@ -4,31 +4,27 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ExternalLink } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
 
 const NAV = {
   en: [
-    { label: "Publishers", href: "/publishers" },
-    { label: "Advertisers", href: "/advertisers" },
+    { label: "Solutions", href: "/solutions" },
     { label: "Platform", href: "/platform" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "About", href: "/about" },
   ],
   fr: [
-    { label: "Éditeurs", href: "/publishers" },
-    { label: "Annonceurs", href: "/advertisers" },
+    { label: "Solutions", href: "/solutions" },
     { label: "Plateforme", href: "/platform" },
-    { label: "Galerie", href: "/gallery" },
-    { label: "Blog", href: "/blog" },
+    { label: "Études de cas", href: "/case-studies" },
     { label: "À propos", href: "/about" },
   ],
 };
 
 const COPY = {
-  en: { signIn: "Sign in", contact: "Contact sales" },
-  fr: { signIn: "Se connecter", contact: "Nous contacter" },
+  en: { contact: "Get Started" },
+  fr: { contact: "Commencer" },
 };
 
 export function Header() {
@@ -96,14 +92,6 @@ export function Header() {
               ))}
             </div>
 
-            <a
-              href="https://desk.collectiveaudience.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-1.5 text-sm font-medium text-ca-muted hover:text-ca-text transition-colors"
-            >
-              {copy.signIn} <ExternalLink className="w-3.5 h-3.5" />
-            </a>
             <Link
               href="/contact"
               className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-ca-blue text-white text-sm font-semibold hover:brightness-110 transition-all hover:shadow-[0_0_20px_rgba(91,140,255,0.4)]"
@@ -144,9 +132,6 @@ export function Header() {
                 </Link>
               ))}
               <div className="pt-3 border-t border-ca-border flex flex-col gap-2">
-                <a href="https://desk.collectiveaudience.co" className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-ca-muted">
-                  {copy.signIn} <ExternalLink className="w-3.5 h-3.5" />
-                </a>
                 <Link href="/contact" className="flex items-center justify-center px-4 py-3 rounded-xl bg-ca-blue text-white text-sm font-semibold">
                   {copy.contact}
                 </Link>

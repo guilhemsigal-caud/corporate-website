@@ -61,6 +61,19 @@ const COPY = {
   },
 };
 
+const LOGOS = [
+  "Le Monde",
+  "Les Échos",
+  "L'Obs",
+  "Le Figaro",
+  "Libération",
+  "Audi",
+  "BMW",
+  "L'Oréal",
+  "Louis Vuitton",
+  "BNP Paribas",
+];
+
 /* ── Fast count-up number ── */
 function CountUp({
   numeric,
@@ -119,6 +132,74 @@ function FadeText({
   );
 }
 
+/* ── Logo Slider ── */
+function LogoSlider() {
+  // Duplicate the list so the seamless loop works:
+  // when the first copy scrolls fully out, the second copy is in place.
+  const doubled = [...LOGOS, ...LOGOS];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.6, delay: 0.15 }}
+      className="relative overflow-hidden"
+      style={{
+        marginBottom: "3rem",
+        maskImage:
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+      }}
+    >
+      {/* Keyframe defined inline — no globals.css needed */}
+      <style>{`
+        @keyframes logoScroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "1.25rem",
+          width: "max-content",
+          animation: "logoScroll 30s linear infinite",
+          willChange: "transform",
+        }}
+      >
+        {doubled.map((name, i) => (
+          <div
+            key={i}
+            style={{
+              width: 120,
+              height: 44,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 10,
+              border: "1px solid rgba(255,255,255,0.16)",
+              background: "rgba(255,255,255,0.05)",
+              color: "rgba(255,255,255,0.65)",
+              fontSize: "0.7rem",
+              fontWeight: 600,
+              letterSpacing: "0.05em",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+              backdropFilter: "blur(4px)",
+              userSelect: "none",
+            }}
+          >
+            {name}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 export function WhoWeHelp() {
   const { lang } = useLang();
   const c = COPY[lang];
@@ -163,36 +244,39 @@ export function WhoWeHelp() {
           className="relative z-10 flex flex-col"
           style={{ padding: "6rem 5rem 5rem", minHeight: "90vh" }}
         >
-          {/* Main 3-col grid */}
+          {/* Title + CTA row (was left column of 3-col grid) */}
+          <div className="flex items-end justify-between mb-10">
+            <FadeText
+              className="block font-extrabold text-white leading-none tracking-tight"
+              style={{ fontSize: "clamp(52px, 5.5vw, 86px)" }}
+              delay={0}
+            >
+              {c.title}
+            </FadeText>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-colors duration-200 hover:bg-white/90"
+                style={{ background: "#ffffff", color: "#07080f" }}
+              >
+                {c.learnMore} <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* ── Logo Slider ── */}
+          <LogoSlider />
+
+          {/* 2-col grid: Publishers + Advertisers */}
           <div
             className="grid flex-1"
-            style={{ gridTemplateColumns: "5fr 4fr 4fr", gap: "3.5rem", flex: 1 }}
+            style={{ gridTemplateColumns: "1fr 1fr", gap: "3.5rem", flex: 1 }}
           >
-            {/* Left: title + CTA */}
-            <div className="flex flex-col justify-between" style={{ minHeight: 400 }}>
-              <FadeText
-                className="block font-extrabold text-white leading-none tracking-tight"
-                style={{ fontSize: "clamp(52px, 5.5vw, 86px)" }}
-                delay={0}
-              >
-                {c.title}
-              </FadeText>
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-colors duration-200 hover:bg-white/90"
-                  style={{ background: "#ffffff", color: "#07080f" }}
-                >
-                  {c.learnMore} <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
-            </div>
-
             {/* Publishers */}
             <div className="flex items-center">
               <div className="w-full">
