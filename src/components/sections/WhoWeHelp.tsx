@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import { WHO_WE_HELP_PARTNERS, type Partner } from "@/content/partners";
 
 const COPY = {
   en: {
@@ -69,19 +70,6 @@ const COPY = {
   },
 };
 
-const LOGOS = [
-  "Le Monde",
-  "Les Échos",
-  "L'Obs",
-  "Le Figaro",
-  "Libération",
-  "Audi",
-  "BMW",
-  "L'Oréal",
-  "Louis Vuitton",
-  "BNP Paribas",
-];
-
 function CountUp({
   numeric,
   prefix,
@@ -138,8 +126,59 @@ function FadeText({
   );
 }
 
+function PartnerChip({ partner }: { partner: Partner }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  return (
+    <div
+      className="flex flex-col items-center justify-center gap-1.5 flex-shrink-0"
+      style={{
+        minWidth: 112,
+        height: 72,
+        padding: "8px 14px",
+        borderRadius: 10,
+        border: "1px solid rgba(255,255,255,0.16)",
+        background: "rgba(255,255,255,0.05)",
+        backdropFilter: "blur(4px)",
+        userSelect: "none",
+      }}
+    >
+      <div
+        className="flex items-center justify-center rounded-md"
+        style={{ width: 56, height: 28, background: "rgba(255,255,255,0.95)" }}
+      >
+        {!imgFailed ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={partner.logo}
+            alt=""
+            aria-hidden
+            className="h-5 w-auto max-w-[48px] object-contain"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          <span className="text-[10px] font-bold text-ca-text" aria-hidden>
+            {partner.name.charAt(0)}
+          </span>
+        )}
+      </div>
+      <span
+        style={{
+          color: "rgba(255,255,255,0.7)",
+          fontSize: "0.65rem",
+          fontWeight: 600,
+          letterSpacing: "0.04em",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {partner.name}
+      </span>
+    </div>
+  );
+}
+
 function LogoSlider() {
-  const doubled = [...LOGOS, ...LOGOS];
+  const doubled = [...WHO_WE_HELP_PARTNERS, ...WHO_WE_HELP_PARTNERS];
 
   return (
     <motion.div
@@ -152,7 +191,8 @@ function LogoSlider() {
         maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
         WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
       }}
-      aria-hidden
+      role="list"
+      aria-label="Partner logos"
     >
       <style>{`
         @keyframes logoScroll {
@@ -169,29 +209,9 @@ function LogoSlider() {
           willChange: "transform",
         }}
       >
-        {doubled.map((name, i) => (
-          <div
-            key={i}
-            style={{
-              width: 120,
-              height: 44,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 10,
-              border: "1px solid rgba(255,255,255,0.16)",
-              background: "rgba(255,255,255,0.05)",
-              color: "rgba(255,255,255,0.65)",
-              fontSize: "0.7rem",
-              fontWeight: 600,
-              letterSpacing: "0.05em",
-              whiteSpace: "nowrap",
-              flexShrink: 0,
-              backdropFilter: "blur(4px)",
-              userSelect: "none",
-            }}
-          >
-            {name}
+        {doubled.map((partner, i) => (
+          <div key={`${partner.slug}-${i}`} role="listitem">
+            <PartnerChip partner={partner} />
           </div>
         ))}
       </div>

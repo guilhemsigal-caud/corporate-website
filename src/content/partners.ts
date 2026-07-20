@@ -5,6 +5,20 @@ export type Partner = {
   logo: string;
 };
 
+/** Partners shown in homepage WhoWeHelp logo slider (logo + name). */
+export const WHO_WE_HELP_PARTNERS: Partner[] = [
+  { name: "Le Monde", slug: "le-monde", logo: "/partners/le-monde.png" },
+  { name: "Les Échos", slug: "les-echos", logo: "/partners/les-echos.svg" },
+  { name: "L'Obs", slug: "lobs", logo: "/partners/lobs.svg" },
+  { name: "Le Figaro", slug: "le-figaro", logo: "/partners/le-figaro.svg" },
+  { name: "Libération", slug: "liberation", logo: "/partners/liberation.svg" },
+  { name: "Audi", slug: "audi", logo: "/partners/audi.svg" },
+  { name: "BMW", slug: "bmw", logo: "/partners/bmw.svg" },
+  { name: "L'Oréal", slug: "loreal", logo: "/partners/loreal.png" },
+  { name: "Louis Vuitton", slug: "louis-vuitton", logo: "/partners/louis-vuitton.svg" },
+  { name: "BNP Paribas", slug: "bnp-paribas", logo: "/partners/bnp-paribas.png" },
+];
+
 /** Top 20 brand partners for credibility (logo + name). */
 export const BRAND_PARTNERS: Partner[] = [
   { name: "Audi", slug: "audi", logo: "/partners/audi.svg" },
