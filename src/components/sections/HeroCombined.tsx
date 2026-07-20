@@ -206,7 +206,7 @@ export function HeroCombined() {
 
           {/* ── Headline block — left-aligned ── */}
           <div className="flex-1 flex flex-col justify-center items-start text-left pb-8">
-            <div style={{ width: "100%", maxWidth: "42rem" }}>
+            <div style={{ width: "100%", maxWidth: "72rem" }}>
 
               {/* Badge (HeroSplit) */}
               <motion.div

@@ -289,7 +289,7 @@ export function WhoWeHelp() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 flex-1">
             <div className="flex items-start">
               <div className="w-full">
-                <FadeText className="block font-black text-white mb-3 text-2xl md:text-3xl" delay={0.1}>
+                <FadeText className="block font-black text-white mb-3 text-4xl md:text-5xl" delay={0.1}>
                   <Link href="/publishers" className="hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                     {c.publishers.heading}
                   </Link>
@@ -319,7 +319,7 @@ export function WhoWeHelp() {
 
             <div className="flex items-start">
               <div className="w-full">
-                <FadeText className="block font-black text-white mb-3 text-2xl md:text-3xl" delay={0.15}>
+                <FadeText className="block font-black text-white mb-3 text-4xl md:text-5xl" delay={0.15}>
                   <Link href="/advertisers" className="hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                     {c.advertisers.heading}
                   </Link>
