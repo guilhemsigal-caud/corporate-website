@@ -1,24 +1,71 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
 
-const NAV = {
+type NavChild = { label: string; href: string };
+type NavItem = { label: string; href: string; children?: NavChild[] };
+
+const NAV: Record<Lang, NavItem[]> = {
   en: [
-    { label: "Solutions", href: "/solutions" },
+    {
+      label: "Publishers",
+      href: "/publishers",
+      children: [
+        { label: "Overview", href: "/publishers" },
+        { label: "Monetization & Yield", href: "/publishers/monetization" },
+        { label: "Data & Insights", href: "/publishers/data" },
+        { label: "Editorial Tool", href: "/publishers/editorial" },
+        { label: "Media Partners", href: "/publishers/partners" },
+      ],
+    },
+    {
+      label: "Advertisers",
+      href: "/advertisers",
+      children: [
+        { label: "Overview", href: "/advertisers" },
+        { label: "Formats & Experiences", href: "/advertisers/formats" },
+        { label: "Targeting & Measurement", href: "/advertisers/targeting" },
+        { label: "Audience Services", href: "/advertisers/services" },
+        { label: "Creative Gallery", href: "/gallery" },
+      ],
+    },
     { label: "Platform", href: "/platform" },
-    { label: "Case Studies", href: "/case-studies" },
+    { label: "Gallery", href: "/gallery" },
     { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
   ],
   fr: [
-    { label: "Solutions", href: "/solutions" },
+    {
+      label: "Éditeurs",
+      href: "/publishers",
+      children: [
+        { label: "Vue d'ensemble", href: "/publishers" },
+        { label: "Monétisation & Yield", href: "/publishers/monetization" },
+        { label: "Données & Insights", href: "/publishers/data" },
+        { label: "Outil éditorial", href: "/publishers/editorial" },
+        { label: "Partenaires médias", href: "/publishers/partners" },
+      ],
+    },
+    {
+      label: "Annonceurs",
+      href: "/advertisers",
+      children: [
+        { label: "Vue d'ensemble", href: "/advertisers" },
+        { label: "Formats & Expériences", href: "/advertisers/formats" },
+        { label: "Ciblage & Mesure", href: "/advertisers/targeting" },
+        { label: "Services Audience", href: "/advertisers/services" },
+        { label: "Galerie créative", href: "/gallery" },
+      ],
+    },
     { label: "Plateforme", href: "/platform" },
-    { label: "Études de cas", href: "/case-studies" },
+    { label: "Galerie", href: "/gallery" },
     { label: "À propos", href: "/about" },
+    { label: "Blog", href: "/blog" },
   ],
 };
 
@@ -26,6 +73,128 @@ const COPY = {
   en: { contact: "Get Started" },
   fr: { contact: "Commencer" },
 };
+
+function DesktopDropdown({ item, pathname }: { item: NavItem; pathname: string }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const active = pathname.startsWith(item.href) && item.href !== "/";
+
+  useEffect(() => {
+    const onDoc = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, []);
+
+  if (!item.children) {
+    return (
+      <Link
+        href={item.href}
+        className="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ca-blue"
+        style={{ color: pathname.startsWith(item.href) && item.href !== "/" ? "#0e1025" : "#5a6480" }}
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ca-blue"
+        style={{ color: active ? "#0e1025" : "#5a6480" }}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((v) => !v)}
+      >
+        {item.label}
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? "rotate-180" : ""}`} aria-hidden />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 top-full pt-2 z-50"
+            role="menu"
+          >
+            <div className="min-w-[220px] rounded-xl border border-ca-border bg-white py-2 shadow-lg">
+              {item.children.map((child) => (
+                <Link
+                  key={child.href + child.label}
+                  href={child.href}
+                  role="menuitem"
+                  className="block px-4 py-2.5 text-sm text-ca-muted hover:text-ca-text hover:bg-ca-surface transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
+                  onClick={() => setOpen(false)}
+                >
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function MobileNavItem({ item }: { item: NavItem }) {
+  const [open, setOpen] = useState(false);
+
+  if (!item.children) {
+    return (
+      <Link
+        href={item.href}
+        className="flex items-center px-4 py-3 rounded-xl text-sm font-semibold text-ca-text hover:bg-black/5 transition-colors"
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  return (
+    <div>
+      <button
+        type="button"
+        className="flex w-full items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-ca-text hover:bg-black/5 transition-colors"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        {item.label}
+        <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} aria-hidden />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden pl-3"
+          >
+            {item.children.map((child) => (
+              <Link
+                key={child.href + child.label}
+                href={child.href}
+                className="flex items-center px-4 py-2.5 rounded-lg text-sm text-ca-muted hover:text-ca-text hover:bg-black/5"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export function Header() {
   const { lang, setLang } = useLang();
@@ -41,7 +210,9 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -58,34 +229,21 @@ export function Header() {
             <img src="/logo.svg" alt="Collective Audience" className="h-7 w-auto" />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
+          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center" aria-label="Main">
             {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150"
-                style={{ color: pathname.startsWith(item.href) && item.href !== "/" ? "#0e1025" : "#5a6480" }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#0e1025"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = pathname.startsWith(item.href) && item.href !== "/" ? "#0e1025" : "#5a6480"}
-              >
-                {item.label}
-              </Link>
+              <DesktopDropdown key={item.href + item.label} item={item} pathname={pathname} />
             ))}
           </nav>
 
           <div className="flex items-center gap-3 flex-shrink-0">
-            {/* Lang toggle */}
-            <div className="flex items-center rounded-full border border-ca-border overflow-hidden" style={{ background: "#f0f2fc" }}>
+            <div className="flex items-center rounded-full border border-ca-border overflow-hidden" style={{ background: "#f0f2fc" }} role="group" aria-label="Language">
               {(["en", "fr"] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className="px-2.5 py-1 text-xs font-bold uppercase transition-all duration-200"
-                  style={lang === l
-                    ? { background: "#5b8cff", color: "white" }
-                    : { color: "#5a6480" }
-                  }
+                  className="px-2.5 py-1 text-xs font-bold uppercase transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
+                  style={lang === l ? { background: "#5b8cff", color: "white" } : { color: "#5a6480" }}
+                  aria-pressed={lang === l}
                 >
                   {l}
                 </button>
@@ -100,9 +258,10 @@ export function Header() {
             </Link>
 
             <button
-              className="lg:hidden p-2 rounded-lg text-ca-muted hover:text-ca-text hover:bg-black/5 transition-colors"
+              className="lg:hidden p-2 rounded-lg text-ca-muted hover:text-ca-text hover:bg-black/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -110,7 +269,6 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -121,35 +279,29 @@ export function Header() {
             className="fixed top-16 left-0 right-0 z-40 border-b border-ca-border overflow-hidden"
             style={{ background: "rgba(250,251,255,0.97)", backdropFilter: "blur(16px)" }}
           >
-            <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
+            <nav className="max-w-7xl mx-auto px-6 py-4 space-y-1" aria-label="Mobile">
               {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center px-4 py-3 rounded-xl text-sm font-semibold text-ca-text hover:bg-black/5 transition-colors"
-                >
-                  {item.label}
-                </Link>
+                <MobileNavItem key={item.href + item.label} item={item} />
               ))}
               <div className="pt-3 border-t border-ca-border flex flex-col gap-2">
                 <Link href="/contact" className="flex items-center justify-center px-4 py-3 rounded-xl bg-ca-blue text-white text-sm font-semibold">
                   {copy.contact}
                 </Link>
-                {/* Mobile lang toggle */}
-                <div className="flex items-center gap-2 px-4 py-2">
+                <div className="flex items-center gap-2 px-4 py-2" role="group" aria-label="Language">
                   {(["en", "fr"] as Lang[]).map((l) => (
                     <button
                       key={l}
                       onClick={() => setLang(l)}
                       className="px-4 py-2 rounded-full text-sm font-bold uppercase transition-all"
                       style={lang === l ? { background: "#5b8cff", color: "white" } : { color: "#5a6480", border: "1px solid #d0d8f0" }}
+                      aria-pressed={lang === l}
                     >
                       {l.toUpperCase()}
                     </button>
                   ))}
                 </div>
               </div>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

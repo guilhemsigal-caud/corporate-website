@@ -21,5 +21,5 @@ const COPY = {
 export default function Page() {
   const { lang } = useLang();
   const c = COPY[lang];
-  return <SubPageTemplate hero={c.hero} featuresTitle={c.featuresTitle} features={c.features.map((f, i) => ({ ...f, description: f.desc, icon: ICONS[i] }))} />;
+  return <SubPageTemplate ctaVariant="publishers" hero={c.hero} featuresTitle={c.featuresTitle} features={c.features.map((f, i) => ({ ...f, description: f.desc, icon: ICONS[i] }))} />;
 }

@@ -5,12 +5,37 @@ import { ArrowRight, Mail } from "lucide-react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
+export type CTAVariant = "default" | "publishers" | "advertisers";
+
 const COPY = {
   en: {
-    badge: "Ready to grow?",
-    title: "Start building your audience today",
-    subtitle: "Join 200+ publishers and 150+ brands already using Collective Audience to grow, monetize, and connect with their audiences.",
-    cta1: "Contact our team", cta2: "Explore formats",
+    default: {
+      badge: "Ready to grow?",
+      title: "Start building your audience today",
+      subtitle: "Join 200+ publishers and 150+ brands already using Collective Audience to grow, monetize, and connect with their audiences.",
+      cta1: "Contact our team",
+      cta1Href: "/contact",
+      cta2: "Explore formats",
+      cta2Href: "/gallery",
+    },
+    publishers: {
+      badge: "For publishers",
+      title: "Grow yield without sacrificing reader trust",
+      subtitle: "Monetize attention with high-engagement formats, first-party data, and privacy-safe insights — built for premium media.",
+      cta1: "Talk to publisher sales",
+      cta1Href: "/contact",
+      cta2: "Explore monetization",
+      cta2Href: "/publishers/monetization",
+    },
+    advertisers: {
+      badge: "For advertisers",
+      title: "Reach readers who actually engage",
+      subtitle: "High-attention formats, cookieless targeting, and measurable brand outcomes across 200+ premium publishers.",
+      cta1: "Talk to advertiser sales",
+      cta1Href: "/contact",
+      cta2: "Browse creative gallery",
+      cta2Href: "/gallery",
+    },
     nlTitle: "Stay ahead of the open web",
     nlSub: "Industry insights, product updates, and adtech trends, straight to your inbox.",
     nlPlaceholder: "your@email.com",
@@ -20,10 +45,33 @@ const COPY = {
     nlUnsub: ". Unsubscribe anytime.",
   },
   fr: {
-    badge: "Prêt à grandir ?",
-    title: "Commencez à construire votre audience dès aujourd'hui",
-    subtitle: "Rejoignez 200+ éditeurs et 150+ marques qui utilisent déjà Collective Audience pour faire croître, monétiser et connecter leur audience.",
-    cta1: "Contacter notre équipe", cta2: "Explorer les formats",
+    default: {
+      badge: "Prêt à grandir ?",
+      title: "Commencez à construire votre audience dès aujourd'hui",
+      subtitle: "Rejoignez 200+ éditeurs et 150+ marques qui utilisent déjà Collective Audience pour faire croître, monétiser et connecter leur audience.",
+      cta1: "Contacter notre équipe",
+      cta1Href: "/contact",
+      cta2: "Explorer les formats",
+      cta2Href: "/gallery",
+    },
+    publishers: {
+      badge: "Pour les éditeurs",
+      title: "Augmentez le yield sans perdre la confiance des lecteurs",
+      subtitle: "Monétisez l'attention avec des formats engageants, de la data first-party et des insights privacy-safe — conçus pour les médias premium.",
+      cta1: "Parler à l'équipe éditeurs",
+      cta1Href: "/contact",
+      cta2: "Voir la monétisation",
+      cta2Href: "/publishers/monetization",
+    },
+    advertisers: {
+      badge: "Pour les annonceurs",
+      title: "Touchez des lecteurs qui s'engagent vraiment",
+      subtitle: "Formats haute attention, ciblage cookieless et résultats de marque mesurables sur 200+ éditeurs premium.",
+      cta1: "Parler à l'équipe annonceurs",
+      cta1Href: "/contact",
+      cta2: "Parcourir la galerie créative",
+      cta2Href: "/gallery",
+    },
     nlTitle: "Restez en avance sur le web ouvert",
     nlSub: "Insights secteur, mises à jour produit et tendances adtech, directement dans votre boîte mail.",
     nlPlaceholder: "votre@email.com",
@@ -34,17 +82,14 @@ const COPY = {
   },
 };
 
-export function CTABanner() {
+export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
   const { lang } = useLang();
-  const c = COPY[lang];
+  const base = COPY[lang];
+  const c = base[variant];
 
   return (
-    <section className="px-4 md:px-5 py-4 pb-6">
-      <div
-        className="relative rounded-3xl overflow-hidden"
-        style={{ background: "#07080f" }}
-      >
-        {/* Single, restrained accent glow — top center only */}
+    <section className="px-4 md:px-5 py-4 pb-8" aria-labelledby="cta-heading">
+      <div className="relative rounded-3xl overflow-hidden" style={{ background: "#07080f" }}>
         <div
           aria-hidden
           className="absolute pointer-events-none"
@@ -54,23 +99,19 @@ export function CTABanner() {
             transform: "translateX(-50%)",
             width: "600px",
             height: "300px",
-            background:
-              "radial-gradient(ellipse at center, rgba(91,140,255,0.13) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(91,140,255,0.13) 0%, transparent 70%)",
             filter: "blur(20px)",
           }}
         />
-
-        {/* Top border accent */}
         <div
           aria-hidden
           className="absolute inset-x-0 top-0 h-px"
           style={{
-            background:
-              "linear-gradient(to right, transparent 10%, rgba(91,140,255,0.3) 40%, rgba(7,226,220,0.3) 60%, transparent 90%)",
+            background: "linear-gradient(to right, transparent 10%, rgba(91,140,255,0.3) 40%, rgba(7,226,220,0.3) 60%, transparent 90%)",
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 py-20 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 py-20 md:py-24 text-left">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,29 +123,36 @@ export function CTABanner() {
             </span>
 
             <h2
-              className="text-white font-bold tracking-tight mb-5 leading-tight whitespace-nowrap"
+              id="cta-heading"
+              className="text-white font-bold tracking-tight mb-5 leading-tight"
               style={{ fontSize: "clamp(1.5rem, 3.2vw, 3.5rem)" }}
             >
               {c.title}
             </h2>
 
-            <p className="text-white/50 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-white/50 text-lg max-w-2xl mb-10 leading-relaxed">
               {c.subtitle}
             </p>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
+                href={c.cta1Href}
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-200 hover:brightness-110 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 style={{ background: "linear-gradient(135deg, #5b8cff, #7b3fff)" }}
               >
                 {c.cta1}
-                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
+                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
+              </Link>
+              <Link
+                href={c.cta2Href}
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl border border-white/15 bg-white/5 text-white font-semibold transition-all duration-200 hover:bg-white/10 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                {c.cta2}
+                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
               </Link>
             </div>
           </motion.div>
 
-          {/* Newsletter — minimal, integrated with the section */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,31 +160,33 @@ export function CTABanner() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16"
           >
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Mail className="w-4 h-4 text-ca-mint" />
-              <span className="text-sm font-medium text-white/70">{c.nlTitle}</span>
+            <div className="flex items-center gap-2 mb-2">
+              <Mail className="w-4 h-4 text-ca-mint" aria-hidden />
+              <span className="text-base font-medium text-white/70">{base.nlTitle}</span>
             </div>
-            <p className="text-white/35 text-sm mb-6">{c.nlSub}</p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+            <p className="text-white/35 text-sm mb-6">{base.nlSub}</p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md">
+              <label className="sr-only" htmlFor="cta-newsletter-email">{base.nlPlaceholder}</label>
               <input
+                id="cta-newsletter-email"
                 type="email"
-                placeholder={c.nlPlaceholder}
-                className="flex-1 px-4 py-3 rounded-xl border border-white/12 bg-white/5 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-ca-blue/40 transition-colors"
+                placeholder={base.nlPlaceholder}
+                className="flex-1 px-4 py-3 rounded-xl border border-white/12 bg-white/5 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-ca-blue/40 focus:ring-2 focus:ring-ca-blue/30 transition-colors"
                 required
               />
               <button
                 type="submit"
                 className="px-5 py-3 rounded-xl bg-white/10 border border-white/15 text-white font-medium text-sm hover:bg-white/15 transition-all duration-200 whitespace-nowrap"
               >
-                {c.nlBtn}
+                {base.nlBtn}
               </button>
             </form>
-            <p className="text-xs text-white/25 mt-4">
-              {c.nlDisclaimer}{" "}
-              <Link href="/legal/privacy" className="underline hover:text-white/50 transition-colors">
-                {c.nlPrivacy}
+            <p className="text-sm text-white/35 mt-4">
+              {base.nlDisclaimer}{" "}
+              <Link href="/legal/privacy" className="underline hover:text-white/50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                {base.nlPrivacy}
               </Link>
-              {c.nlUnsub}
+              {base.nlUnsub}
             </p>
           </motion.div>
         </div>

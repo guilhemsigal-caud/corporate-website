@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
 const ACCENTS = ["#5b8cff", "#07e2dc", "#7b3fff", "#5b8cff"];
-const HREFS = ["/advertisers", "/advertisers/targeting", "/gallery", "/advertisers/results"];
+const HREFS = ["/advertisers", "/advertisers/targeting", "/gallery", "/gallery"];
 
 const COPY = {
   en: {
@@ -123,7 +123,7 @@ export function InteractiveFeatures() {
   return (
     <section className="bg-ca-dark py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-left mb-14">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full border"
             style={{ color: "#07e2dc", borderColor: "rgba(7,226,220,0.2)", background: "rgba(7,226,220,0.06)" }}>
             {c.eyebrow}
@@ -132,8 +132,8 @@ export function InteractiveFeatures() {
             style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
             {c.title}
           </h2>
-          <p className="text-ca-text text-xl font-medium max-w-2xl mx-auto mb-3 leading-snug">{c.intro}</p>
-          <p className="text-ca-muted text-lg max-w-xl mx-auto">{c.subtitle}</p>
+          <p className="text-ca-text text-xl font-medium max-w-2xl mb-3 leading-snug">{c.intro}</p>
+          <p className="text-ca-muted text-lg max-w-xl">{c.subtitle}</p>
         </motion.div>
 
         {/* Tabs with progress fill + character reveal + pause button */}

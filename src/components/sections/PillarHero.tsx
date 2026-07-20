@@ -38,9 +38,9 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-left">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold tracking-widest uppercase mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm font-semibold tracking-widest uppercase mb-8"
           style={{ color: accent, borderColor: `${accent}30`, background: `${accent}0a` }}
         >
           {eyebrow}
@@ -54,14 +54,14 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto text-lg text-ca-muted leading-relaxed mb-10"
+          className="max-w-2xl text-lg md:text-xl text-ca-muted leading-relaxed mb-10"
         >
           {subtitle}
         </motion.p>
 
         {(ctaPrimary || ctaSecondary) && (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
+            className="flex flex-col sm:flex-row gap-4 mb-14"
           >
             {ctaPrimary && (
               <Link href={ctaPrimary.href}
@@ -88,7 +88,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
 
         {stats && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-wrap justify-center gap-3"
+            className="flex flex-wrap gap-3"
           >
             {stats.map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.07 }}

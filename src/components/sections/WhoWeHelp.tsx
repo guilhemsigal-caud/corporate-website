@@ -32,9 +32,9 @@ const COPY = {
     },
     stats: [
       { numeric: 200, prefix: "", suffix: "%", label: "Engagement and Attention Lift" },
-      { numeric: 2.9,  prefix: "", suffix: "X",  label: "More Brand Recognition" },
-      { numeric: 34,   prefix: "", suffix: "S",  label: "Average Time Spent per Format" },
-      { numeric: 30,   prefix: "+", suffix: "%", label: "Time Spent on Advertiser's Site" },
+      { numeric: 2.9, prefix: "", suffix: "X", label: "More Brand Recognition" },
+      { numeric: 34, prefix: "", suffix: "S", label: "Average Time Spent per Format" },
+      { numeric: 30, prefix: "+", suffix: "%", label: "Time Spent on Advertiser's Site" },
     ],
   },
   fr: {
@@ -62,9 +62,9 @@ const COPY = {
     },
     stats: [
       { numeric: 200, prefix: "", suffix: "%", label: "Lift d'engagement et d'attention" },
-      { numeric: 2.9,  prefix: "", suffix: "X",  label: "Meilleure reconnaissance de marque" },
-      { numeric: 34,   prefix: "", suffix: "S",  label: "Temps moyen passé par format" },
-      { numeric: 30,   prefix: "+", suffix: "%", label: "Temps passé sur le site annonceur" },
+      { numeric: 2.9, prefix: "", suffix: "X", label: "Meilleure reconnaissance de marque" },
+      { numeric: 34, prefix: "", suffix: "S", label: "Temps moyen passé par format" },
+      { numeric: 30, prefix: "+", suffix: "%", label: "Temps passé sur le site annonceur" },
     ],
   },
 };
@@ -82,7 +82,6 @@ const LOGOS = [
   "BNP Paribas",
 ];
 
-/* ── Fast count-up number ── */
 function CountUp({
   numeric,
   prefix,
@@ -106,7 +105,7 @@ function CountUp({
   }, [isInView, spring, numeric]);
 
   return (
-    <span ref={ref} className="font-bold leading-none tabular-nums" style={{ color: "#5b8cff", fontSize: "clamp(40px, 5vw, 72px)" }}>
+    <span ref={ref} className="font-bold leading-none tabular-nums text-[clamp(2rem,6vw,4.5rem)]" style={{ color: "#5b8cff" }}>
       {prefix}
       <motion.span>{display}</motion.span>
       {suffix}
@@ -114,7 +113,6 @@ function CountUp({
   );
 }
 
-/* ── Animated text line (transparent → opaque sweep) ── */
 function FadeText({
   children,
   delay = 0,
@@ -140,10 +138,7 @@ function FadeText({
   );
 }
 
-/* ── Logo Slider ── */
 function LogoSlider() {
-  // Duplicate the list so the seamless loop works:
-  // when the first copy scrolls fully out, the second copy is in place.
   const doubled = [...LOGOS, ...LOGOS];
 
   return (
@@ -152,23 +147,19 @@ function LogoSlider() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.6, delay: 0.15 }}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden mb-8 md:mb-12"
       style={{
-        marginBottom: "3rem",
-        maskImage:
-          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
       }}
+      aria-hidden
     >
-      {/* Keyframe defined inline — no globals.css needed */}
       <style>{`
         @keyframes logoScroll {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
         }
       `}</style>
-
       <div
         style={{
           display: "flex",
@@ -213,14 +204,14 @@ export function WhoWeHelp() {
   const c = COPY[lang];
 
   return (
-    <section className="px-4 md:px-5 py-4">
+    <section className="px-4 md:px-5 py-4" aria-labelledby="who-we-help-title">
       <div
-        className="relative overflow-hidden rounded-3xl w-full"
-        style={{ background: "#07080f", minHeight: "90vh" }}
+        className="relative overflow-hidden rounded-3xl w-full min-h-0 md:min-h-[90vh]"
+        style={{ background: "#07080f" }}
       >
-        {/* Glow blob 1 — white */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none hidden md:block"
+          aria-hidden
           style={{
             top: "-30%",
             left: "-20%",
@@ -232,10 +223,9 @@ export function WhoWeHelp() {
             willChange: "transform, opacity",
           }}
         />
-
-        {/* Glow blob 2 — blue/violet, different path & speed */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none hidden md:block"
+          aria-hidden
           style={{
             top: "-25%",
             left: "10%",
@@ -248,18 +238,13 @@ export function WhoWeHelp() {
           }}
         />
 
-        <div
-          className="relative z-10 flex flex-col"
-          style={{ padding: "6rem 5rem 5rem", minHeight: "90vh" }}
-        >
-          {/* Title + CTA row (was left column of 3-col grid) */}
-          <div className="flex items-end justify-between mb-10">
+        <div className="relative z-10 flex flex-col px-6 py-12 md:px-12 md:py-20 lg:px-20 lg:py-24">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8 md:mb-10">
             <FadeText
-              className="block font-extrabold text-white leading-none tracking-tight"
-              style={{ fontSize: "clamp(52px, 5.5vw, 86px)" }}
+              className="block font-extrabold text-white leading-none tracking-tight text-[clamp(2.25rem,8vw,5.25rem)]"
               delay={0}
             >
-              {c.title}
+              <span id="who-we-help-title">{c.title}</span>
             </FadeText>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -269,34 +254,24 @@ export function WhoWeHelp() {
             >
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-colors duration-200 hover:bg-white/90"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-colors duration-200 hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 style={{ background: "#ffffff", color: "#07080f" }}
               >
-                {c.learnMore} <ArrowRight className="w-4 h-4" />
+                {c.learnMore} <ArrowRight className="w-4 h-4" aria-hidden />
               </Link>
             </motion.div>
           </div>
 
-          {/* ── Logo Slider ── */}
           <LogoSlider />
 
-          {/* 2-col grid: Publishers + Advertisers */}
-          <div
-            className="grid flex-1"
-            style={{ gridTemplateColumns: "1fr 1fr", gap: "3.5rem", flex: 1 }}
-          >
-            {/* Publishers */}
-            <div className="flex items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 flex-1">
+            <div className="flex items-start">
               <div className="w-full">
-                <FadeText
-                  className="block font-black text-white mb-3"
-                  style={{ fontSize: "1.75rem" }}
-                  delay={0.1}
-                >
+                <FadeText className="block font-black text-white mb-3 text-xl md:text-2xl" delay={0.1}>
                   {c.publishers.heading}
                 </FadeText>
                 <FadeText
-                  className="block text-sm leading-relaxed mb-5"
+                  className="block text-sm md:text-base leading-relaxed mb-5"
                   style={{ color: "rgba(255,255,255,0.5)" }}
                   delay={0.14}
                 >
@@ -306,14 +281,10 @@ export function WhoWeHelp() {
                   {c.publishers.bullets.map((b, i) => (
                     <li
                       key={i}
-                      className="border-b py-4 text-sm leading-relaxed overflow-hidden"
+                      className="border-b py-4 text-base leading-relaxed overflow-hidden"
                       style={{ borderColor: "rgba(255,255,255,0.12)" }}
                     >
-                      <FadeText
-                        className="block"
-                        style={{ color: "rgba(255,255,255,0.6)" }}
-                        delay={0.18 + i * 0.13}
-                      >
+                      <FadeText className="block" style={{ color: "rgba(255,255,255,0.72)" }} delay={0.18 + i * 0.13}>
                         {b}
                       </FadeText>
                     </li>
@@ -322,18 +293,13 @@ export function WhoWeHelp() {
               </div>
             </div>
 
-            {/* Advertisers */}
-            <div className="flex items-center">
+            <div className="flex items-start">
               <div className="w-full">
-                <FadeText
-                  className="block font-black text-white mb-3"
-                  style={{ fontSize: "1.75rem" }}
-                  delay={0.15}
-                >
+                <FadeText className="block font-black text-white mb-3 text-xl md:text-2xl" delay={0.15}>
                   {c.advertisers.heading}
                 </FadeText>
                 <FadeText
-                  className="block text-sm leading-relaxed mb-5"
+                  className="block text-sm md:text-base leading-relaxed mb-5"
                   style={{ color: "rgba(255,255,255,0.5)" }}
                   delay={0.19}
                 >
@@ -343,14 +309,10 @@ export function WhoWeHelp() {
                   {c.advertisers.bullets.map((b, i) => (
                     <li
                       key={i}
-                      className="border-b py-4 text-sm leading-relaxed overflow-hidden"
+                      className="border-b py-4 text-base leading-relaxed overflow-hidden"
                       style={{ borderColor: "rgba(255,255,255,0.12)" }}
                     >
-                      <FadeText
-                        className="block"
-                        style={{ color: "rgba(255,255,255,0.6)" }}
-                        delay={0.22 + i * 0.13}
-                      >
+                      <FadeText className="block" style={{ color: "rgba(255,255,255,0.72)" }} delay={0.22 + i * 0.13}>
                         {b}
                       </FadeText>
                     </li>
@@ -360,8 +322,7 @@ export function WhoWeHelp() {
             </div>
           </div>
 
-          {/* Stats row — count-up numbers */}
-          <div className="grid grid-cols-4 gap-6 mt-14">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12 md:mt-14">
             {c.stats.map((s, i) => (
               <motion.div
                 key={i}
@@ -371,10 +332,7 @@ export function WhoWeHelp() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <CountUp numeric={s.numeric} prefix={s.prefix} suffix={s.suffix} />
-                <div
-                  className="text-sm leading-snug mt-2"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
+                <div className="text-sm md:text-base leading-snug mt-2" style={{ color: "rgba(255,255,255,0.55)" }}>
                   {s.label}
                 </div>
               </motion.div>

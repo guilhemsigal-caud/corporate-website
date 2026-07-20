@@ -33,7 +33,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <CTABanner />
+      <CTABanner variant="publishers" />
     </main>
   );
 }

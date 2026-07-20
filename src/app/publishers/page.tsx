@@ -108,15 +108,15 @@ export default function PublishersPage() {
           <div className="absolute bottom-[-5%] right-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 5s" }} />
         </div>
         <div aria-hidden className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: "linear-gradient(to right,#c4d0f0 1px,transparent 1px),linear-gradient(to bottom,#c4d0f0 1px,transparent 1px)", backgroundSize: "72px 72px", maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,#000 50%,transparent 100%)" }} />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-blue/30 bg-ca-blue/8 text-xs font-semibold tracking-widest uppercase text-ca-blue mb-8">{c.badge}</div>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-blue/30 bg-ca-blue/8 text-sm font-semibold tracking-widest uppercase text-ca-blue mb-8">{c.badge}</div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
-          <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mx-auto mb-10">{c.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ca-blue text-white font-semibold hover:brightness-110 transition-all hover:shadow-[0_0_30px_rgba(91,140,255,0.4)]">{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
             <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">{c.stats.map(s => <Stat key={s.l} value={s.v} label={s.l} />)}</div>
+          <div className="flex flex-wrap gap-x-12 gap-y-6">{c.stats.map(s => <Stat key={s.l} value={s.v} label={s.l} />)}</div>
         </div>
       </section>
 
@@ -221,7 +221,7 @@ export default function PublishersPage() {
 
       <section className="bg-ca-surface border-t border-ca-border py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-xl font-bold text-center text-ca-text mb-10">{c.gridTitle}</h2>
+          <h2 className="text-xl font-bold text-left text-ca-text mb-10">{c.gridTitle}</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {c.grid.map(([title, sub]) => <div key={title as string} className="rounded-xl border border-ca-border bg-ca-dark p-4" style={{ boxShadow: "0 1px 6px rgba(0,0,40,0.05)" }}><div className="text-sm font-semibold text-ca-text mb-0.5">{title as string}</div><div className="text-xs text-ca-muted">{sub as string}</div></div>)}
           </div>
@@ -230,14 +230,14 @@ export default function PublishersPage() {
 
       <section className="bg-ca-dark py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-xl font-bold text-center text-ca-text mb-10">{c.testiTitle}</h2>
+          <h2 className="text-xl font-bold text-left text-ca-text mb-10">{c.testiTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {c.testimonials.map(t => <div key={t.company} className="rounded-2xl border border-ca-border bg-ca-surface p-6" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><p className="text-sm text-ca-muted leading-relaxed mb-5 italic">"{t.quote}"</p><div><div className="text-xs font-semibold text-ca-text">{t.author}</div><div className="text-xs text-ca-blue">{t.company}</div></div></div>)}
           </div>
         </div>
       </section>
 
-      <CTABanner />
+      <CTABanner variant="publishers" />
     </main>
   );
 }

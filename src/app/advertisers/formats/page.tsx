@@ -40,7 +40,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <CTABanner />
+      <CTABanner variant="advertisers" />
     </main>
   );
 }

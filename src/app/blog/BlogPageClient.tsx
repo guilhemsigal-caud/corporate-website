@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
@@ -30,115 +29,69 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
   return (
     <main>
       <section className="py-12 px-6 md:px-8" style={{ background: "linear-gradient(160deg, #eef1ff 0%, #f5f7ff 50%, #e8f0fe 100%)" }}>
-        <div className="w-full max-w-5xl mx-auto">
-          {/* Header */}
-          <div className="mb-10">
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ca-blue mb-4">{c.badge}</span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3"
-              style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+        <div className="w-full max-w-3xl mx-auto">
+          <div className="mb-8">
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ca-muted mb-3">{c.badge}</span>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-ca-text">
               {c.headline}
             </h1>
-            <p className="text-ca-muted text-lg max-w-xl">{c.subtitle}</p>
+            <p className="text-ca-muted text-base max-w-xl">{c.subtitle}</p>
           </div>
 
-          {/* Articles */}
-          <div className="rounded-2xl border border-ca-border p-8 md:p-10" style={{ background: "rgba(255,255,255,0.7)", backdropFilter: "blur(8px)" }}>
-
-          {/* Featured article */}
-          <Link href={`/blog/${featured.slug}`} className="group block mb-14">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Image */}
-              <div className="relative rounded-2xl overflow-hidden bg-ca-surface"
-                style={{ aspectRatio: "16/10", border: `1px solid ${featured.accent}25` }}>
-                {featured.coverImage ? (
-                  <Image src={featured.coverImage} alt={featured.coverImageAlt ?? featuredTitle} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" sizes="(max-width: 768px) 100vw, 50vw" />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center"
-                    style={{ background: `linear-gradient(135deg, ${featured.accent}15, ${featured.accent}05)` }}>
-                    <div className="w-12 h-12 rounded-full opacity-20" style={{ background: featured.accent }} />
-                  </div>
-                )}
-                <div className="absolute top-3 left-3">
-                  <span className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full backdrop-blur-sm"
-                    style={{ color: featured.accent, background: "rgba(255,255,255,0.9)", border: `1px solid ${featured.accent}30` }}>
-                    {featured.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Text */}
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs text-ca-muted">{formatDate(featured.date, dateLocale)}</span>
-                  <span className="text-ca-border">·</span>
-                  <span className="text-xs text-ca-muted">{featuredReadTime}</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-ca-text mb-3 leading-snug group-hover:opacity-70 transition-opacity">
-                  {featuredTitle}
-                </h2>
-                <p className="text-ca-muted leading-relaxed mb-5 text-sm">{featuredExcerpt}</p>
-                {featured.author && (
-                  <p className="text-xs text-ca-muted mb-5">{c.by} <span className="text-ca-text font-medium">{featured.author}</span></p>
-                )}
-                <span className="inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3" style={{ color: featured.accent }}>
-                  {c.read} <ArrowRight className="w-4 h-4" />
+          <div className="rounded-xl border border-ca-border bg-white/80 p-6 md:p-8">
+            <Link href={`/blog/${featured.slug}`} className="group block mb-10 pb-10 border-b border-ca-border">
+              <div className="flex items-center gap-3 mb-3 flex-wrap">
+                <span className="text-xs font-semibold tracking-widest uppercase px-2 py-0.5 rounded-full border" style={{ color: featured.accent, borderColor: `${featured.accent}40` }}>
+                  {featured.category}
                 </span>
+                <span className="text-sm text-ca-muted">{formatDate(featured.date, dateLocale)}</span>
+                <span className="text-ca-border">·</span>
+                <span className="text-sm text-ca-muted">{featuredReadTime}</span>
               </div>
-            </div>
-          </Link>
+              <h2 className="text-xl md:text-2xl font-bold text-ca-text mb-2 leading-snug group-hover:opacity-70 transition-opacity">
+                {featuredTitle}
+              </h2>
+              <p className="text-ca-muted leading-relaxed mb-4 text-sm">{featuredExcerpt}</p>
+              {featured.author && (
+                <p className="text-sm text-ca-muted mb-4">{c.by} <span className="text-ca-text font-medium">{featured.author}</span></p>
+              )}
+              <span className="inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3" style={{ color: featured.accent }}>
+                {c.read} <ArrowRight className="w-4 h-4" aria-hidden />
+              </span>
+            </Link>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {rest.map(post => {
-              const postTitle = lang === "fr" && post.fr ? post.fr.title : post.title;
-              const postExcerpt = lang === "fr" && post.fr ? post.fr.excerpt : post.excerpt;
-              const postReadTime = lang === "fr" && post.fr ? post.fr.readTime : post.readTime;
+            <ul className="space-y-6">
+              {rest.map((post) => {
+                const postTitle = lang === "fr" && post.fr ? post.fr.title : post.title;
+                const postExcerpt = lang === "fr" && post.fr ? post.fr.excerpt : post.excerpt;
+                const postReadTime = lang === "fr" && post.fr ? post.fr.readTime : post.readTime;
 
-              return (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col">
-                  {/* Image */}
-                  <div className="relative rounded-xl overflow-hidden mb-4 bg-ca-surface"
-                    style={{ aspectRatio: "16/10", border: `1px solid ${post.accent}20` }}>
-                    {post.coverImage ? (
-                      <Image src={post.coverImage} alt={post.coverImageAlt ?? postTitle} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 33vw" />
-                    ) : (
-                      <div className="absolute inset-0"
-                        style={{ background: `linear-gradient(135deg, ${post.accent}12 0%, #eef0fb 100%)` }} />
-                    )}
-                    <div className="absolute top-2.5 left-2.5">
-                      <span className="text-[10px] font-semibold tracking-widest uppercase px-2 py-0.5 rounded-full backdrop-blur-sm"
-                        style={{ color: post.accent, background: "rgba(255,255,255,0.9)", border: `1px solid ${post.accent}25` }}>
-                        {post.category}
+                return (
+                  <li key={post.slug}>
+                    <Link href={`/blog/${post.slug}`} className="group block">
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: post.accent }}>
+                          {post.category}
+                        </span>
+                        <span className="text-sm text-ca-muted">{formatDate(post.date, dateLocale)}</span>
+                        <span className="text-ca-border text-xs">·</span>
+                        <span className="text-sm text-ca-muted">{postReadTime}</span>
+                      </div>
+                      <h3 className="text-base font-bold text-ca-text mb-1 leading-snug group-hover:opacity-70 transition-opacity">
+                        {postTitle}
+                      </h3>
+                      <p className="text-sm text-ca-muted leading-relaxed line-clamp-2 mb-2">{postExcerpt}</p>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: post.accent }}>
+                        {c.readShort} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
                       </span>
-                    </div>
-                  </div>
-
-                  {/* Text */}
-                  <div className="flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[11px] text-ca-muted">{formatDate(post.date, dateLocale)}</span>
-                      <span className="text-ca-border text-[10px]">·</span>
-                      <span className="text-[11px] text-ca-muted">{postReadTime}</span>
-                    </div>
-                    <h3 className="text-base font-bold text-ca-text mb-2 leading-snug group-hover:opacity-70 transition-opacity flex-1">
-                      {postTitle}
-                    </h3>
-                    <p className="text-xs text-ca-muted leading-relaxed mb-3 line-clamp-2">{postExcerpt}</p>
-                    {post.author && (
-                      <p className="text-[11px] text-ca-muted mb-3">{c.by} <span className="text-ca-text font-medium">{post.author}</span></p>
-                    )}
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all group-hover:gap-2.5" style={{ color: post.accent }}>
-                      {c.readShort} <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          </div>{/* end articles card */}
         </div>
       </section>
-
 
       <CTABanner />
     </main>

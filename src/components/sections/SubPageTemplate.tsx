@@ -1,6 +1,6 @@
 import { PillarHero } from "./PillarHero";
 import { FeatureGrid, Feature } from "./FeatureGrid";
-import { CTABanner } from "./CTABanner";
+import { CTABanner, type CTAVariant } from "./CTABanner";
 import { SplitFeature } from "./SplitFeature";
 
 interface Stat { value: string; label: string }
@@ -17,10 +17,11 @@ interface SubPageTemplateProps {
   featureCols?: 2 | 3 | 4;
   splits?: SplitSection[];
   accent?: string;
+  ctaVariant?: CTAVariant;
   children?: React.ReactNode;
 }
 
-export function SubPageTemplate({ hero, featuresTitle, features, featureCols = 3, splits, accent, children }: SubPageTemplateProps) {
+export function SubPageTemplate({ hero, featuresTitle, features, featureCols = 3, splits, accent, ctaVariant = "default", children }: SubPageTemplateProps) {
   return (
     <main>
       <PillarHero {...hero} />
@@ -29,7 +30,7 @@ export function SubPageTemplate({ hero, featuresTitle, features, featureCols = 3
         <section className="bg-ca-dark py-20">
           <div className="max-w-6xl mx-auto px-6 md:px-8">
             {featuresTitle && (
-              <h2 className="text-2xl md:text-3xl font-bold text-ca-text text-center mb-12"
+              <h2 className="text-2xl md:text-3xl font-bold text-ca-text text-left mb-12"
                 style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
               >
                 {featuresTitle}
@@ -44,7 +45,7 @@ export function SubPageTemplate({ hero, featuresTitle, features, featureCols = 3
 
       {children}
 
-      <CTABanner />
+      <CTABanner variant={ctaVariant} />
     </main>
   );
 }

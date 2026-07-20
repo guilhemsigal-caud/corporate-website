@@ -11,9 +11,10 @@
   --color-ca-violet: #7b3fff;
   --color-ca-dark: #fafbff;
   --color-ca-surface: #f0f2fc;
+  --color-ca-footer: #d4d9ea;
   --color-ca-border: #d0d8f0;
   --color-ca-text: #0e1025;
-  --color-ca-muted: #5a6480;
+  --color-ca-muted: #4a5568;
 
   --animate-blob: blob 10s ease-in-out infinite;
   --animate-blob-delay: blob 10s ease-in-out infinite 3s;

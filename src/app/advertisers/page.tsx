@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
+import { BRAND_PARTNERS } from "@/content/partners";
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
@@ -19,8 +20,6 @@ function FeatureLine({ text }: { text: string }) {
     </li>
   );
 }
-
-const BRANDS = ["Audi","BMW","L'Oréal","Carrefour","Nestlé","Samsung","Coca-Cola","Orange","SFR","BNP Paribas","Renault","LVMH","Sanofi","Total","Boursorama","Fnac"];
 
 const COPY = {
   en: {
@@ -105,11 +104,11 @@ export default function AdvertisersPage() {
           <div className="absolute top-[-10%] right-[5%] w-[700px] h-[700px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(91,140,255,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 6s" }} />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-mint/30 bg-ca-mint/8 text-xs font-semibold tracking-widest uppercase text-ca-mint mb-8">{c.badge}</div>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-mint/30 bg-ca-mint/8 text-sm font-semibold tracking-widest uppercase text-ca-mint mb-8">{c.badge}</div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
-          <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mx-auto mb-10">{c.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ca-mint text-[#0e1025] font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]">{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
             <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
           </div>
@@ -118,14 +117,22 @@ export default function AdvertisersPage() {
 
       <section className="bg-ca-surface border-y border-ca-border py-12 overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <p className="text-center text-xs font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.brandsLabel}</p>
-          <div className="flex flex-wrap justify-center gap-3">{BRANDS.map(b => <div key={b} className="px-5 py-2 rounded-xl border border-ca-border bg-ca-dark text-sm font-medium text-ca-muted">{b}</div>)}</div>
+          <p className="text-left text-sm font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.brandsLabel}</p>
+          <div className="flex flex-wrap gap-3">
+            {BRAND_PARTNERS.slice(0, 16).map((b) => (
+              <div key={b.slug} className="inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl border border-ca-border bg-ca-dark min-w-[96px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={b.logo} alt="" aria-hidden className="h-7 w-auto max-w-[56px] object-contain" />
+                <span className="text-xs font-medium text-ca-text">{b.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="bg-ca-dark py-24">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-14" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.compTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-left mb-14" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.compTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="rounded-2xl border border-ca-border bg-ca-surface p-7" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
               <div className="text-sm font-semibold text-ca-muted uppercase tracking-widest mb-5">{c.oldLabel}</div>
@@ -201,14 +208,14 @@ export default function AdvertisersPage() {
 
       <section className="bg-ca-dark py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-xl font-bold text-center text-ca-text mb-10">{c.testiTitle}</h2>
+          <h2 className="text-xl font-bold text-left text-ca-text mb-10">{c.testiTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {c.testimonials.map(t => <div key={t.company} className="rounded-2xl border border-ca-border bg-ca-surface p-6" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><p className="text-sm text-ca-muted leading-relaxed mb-5 italic">"{t.quote}"</p><div><div className="text-xs font-semibold text-ca-text">{t.author}</div><div className="text-xs text-ca-mint">{t.company}</div></div></div>)}
           </div>
         </div>
       </section>
 
-      <CTABanner />
+      <CTABanner variant="advertisers" />
     </main>
   );
 }
