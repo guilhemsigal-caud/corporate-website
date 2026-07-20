@@ -36,7 +36,7 @@ export function ImpactMetrics() {
 
   return (
     <section className="bg-ca-surface border-y border-ca-border py-20 md:py-24 overflow-hidden" aria-labelledby="proven-performance">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
         <motion.p
           id="proven-performance"
           initial={{ opacity: 0 }}

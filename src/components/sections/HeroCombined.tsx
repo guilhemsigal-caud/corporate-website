@@ -191,7 +191,7 @@ export function HeroCombined() {
         </div>
 
         {/* ── Inner content ── */}
-        <div className="relative z-10 flex flex-col px-10 md:px-14 lg:px-16 pt-10" style={{ minHeight: "90vh" }}>
+        <div className="relative z-10 flex flex-col px-6 md:px-12 lg:px-20 pt-10" style={{ minHeight: "90vh" }}>
 
           {/* Logo top-left (HeroCinematic) */}
           <motion.div

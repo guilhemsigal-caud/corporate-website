@@ -122,7 +122,7 @@ export function InteractiveFeatures() {
 
   return (
     <section className="bg-ca-dark py-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-left mb-14">
           <span className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full border"
             style={{ color: "#07e2dc", borderColor: "rgba(7,226,220,0.2)", background: "rgba(7,226,220,0.06)" }}>

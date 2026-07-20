@@ -111,7 +111,7 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 py-20 md:py-24 text-left">
+        <div className="relative z-10 px-6 md:px-12 lg:px-20 py-20 md:py-24 text-left">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

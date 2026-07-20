@@ -24,7 +24,7 @@ export function WhyCollectiveAudience() {
 
   return (
     <section className="bg-ca-dark py-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 text-left">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export function WhyCollectiveAudience() {
       </div>
 
       {/* Bottom separator */}
-      <div className="max-w-6xl mx-auto px-6 md:px-8 mt-16">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] mt-16">
         <div
           className="h-px w-full"
           style={{

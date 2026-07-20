@@ -28,7 +28,7 @@ export function SplitFeature({
 }: SplitFeatureProps) {
   return (
     <section className="bg-ca-dark py-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
         <div
           className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
             reverse ? "lg:grid-flow-dense" : ""

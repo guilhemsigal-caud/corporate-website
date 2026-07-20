@@ -28,7 +28,7 @@ export function SubPageTemplate({ hero, featuresTitle, features, featureCols = 3
 
       {(features && features.length > 0) && (
         <section className="bg-ca-dark py-20">
-          <div className="max-w-6xl mx-auto px-6 md:px-8">
+          <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
             {featuresTitle && (
               <h2 className="text-2xl md:text-3xl font-bold text-ca-text text-left mb-12"
                 style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
