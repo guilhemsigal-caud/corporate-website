@@ -167,7 +167,7 @@ export function InteractiveFeatures() {
                   {/* White text revealed over filled area */}
                   <span
                     key={`t-${switchCount}`}
-                    className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none text-sm font-semibold select-none"
+                    className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none text-base font-semibold select-none"
                     style={{
                       color: "white",
                       animation: `tabTextReveal ${DURATION}ms linear forwards`,
