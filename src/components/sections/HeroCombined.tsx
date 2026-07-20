@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
@@ -10,7 +10,6 @@ import { useLang } from "@/lib/i18n";
 
 const COPY = {
   en: {
-    badge: "The Open Web Platform",
     line1: "Elevated outcomes from branding",
     line2: "to performance.",
     subtitle:
@@ -20,7 +19,6 @@ const COPY = {
     trust: ["200+ publishers", "150+ brands", "NY · Paris"],
   },
   fr: {
-    badge: "La plateforme du web ouvert",
     line1: "Des résultats du branding",
     line2: "à la performance.",
     subtitle:
@@ -207,21 +205,6 @@ export function HeroCombined() {
           {/* ── Headline block — left-aligned ── */}
           <div className="flex-1 flex flex-col justify-center items-start text-left pb-8">
             <div style={{ width: "100%", maxWidth: "72rem" }}>
-
-              {/* Badge (HeroSplit) */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                transition={{ duration: 0.5, delay: 0.05 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/8 text-white/70 text-sm font-medium mb-8"
-              >
-                <span
-                  className="w-1.5 h-1.5 rounded-full bg-[#07e2dc]"
-                  style={{ animation: "pulse-ring 2s ease-in-out infinite" }}
-                />
-                {c.badge}
-                <ChevronRight className="w-3.5 h-3.5 opacity-60" />
-              </motion.div>
 
               {/* Headline — two lines */}
               <h1
