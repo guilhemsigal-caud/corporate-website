@@ -16,7 +16,7 @@ const COPY = {
     legal: [{ label: "Privacy Policy", href: "/legal/privacy" }, { label: "Terms of Use", href: "/legal/terms" }, { label: "Cookie Policy", href: "/legal/cookies" }, { label: "Accessibility", href: "/legal/accessibility" }],
   },
   fr: {
-    tagline: "La plateforme du web ouvert, pour unifier médias, données et publicité pour l'ère sans cookies.",
+    tagline: "La plateforme de l'open web, pour unifier médias, données et publicité pour l'ère sans cookies.",
     copyright: `© ${new Date().getFullYear()} Collective Audience. Tous droits réservés.`,
     cols: [
       { heading: "Solutions", links: [{ label: "Éditeurs", href: "/publishers" }, { label: "Annonceurs", href: "/advertisers" }, { label: "Plateforme", href: "/platform" }, { label: "Galerie créative", href: "/gallery" }] },

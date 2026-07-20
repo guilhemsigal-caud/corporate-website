@@ -12,7 +12,7 @@ const COPY = {
   },
   fr: {
     eyebrow: "Pourquoi Collective Audience",
-    title: "Conçu pour le Web Ouvert",
+    title: "Conçu pour l'Open Web",
     subtitle:
       "Collective Audience connecte la création, l'intelligence audience, l'activation et la mesure en un seul moteur de croissance continu.",
   },

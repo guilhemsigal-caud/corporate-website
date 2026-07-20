@@ -24,7 +24,7 @@ const JOBS = {
 
 const COPY = {
   en: { badge: "Careers", headline: "Build the open web with us.", subtitle: "We're a team of adtech veterans and engineers in New York and Paris, building infrastructure for a better internet. Come join us.", noRole: "Don't see your role?", sendCv: "Send us your CV", noRoleSuffix: ": we hire for talent first." },
-  fr: { badge: "Carrières", headline: "Construisons le web ouvert ensemble.", subtitle: "Nous sommes une équipe de vétérans de l'adtech et d'ingénieurs à New York et Paris, construisant l'infrastructure d'un internet meilleur. Rejoignez-nous.", noRole: "Vous ne trouvez pas votre poste ?", sendCv: "Envoyez-nous votre CV", noRoleSuffix: ": nous recrutons avant tout les talents." },
+  fr: { badge: "Carrières", headline: "Construisons l'open web ensemble.", subtitle: "Nous sommes une équipe de vétérans de l'adtech et d'ingénieurs à New York et Paris, construisant l'infrastructure d'un internet meilleur. Rejoignez-nous.", noRole: "Vous ne trouvez pas votre poste ?", sendCv: "Envoyez-nous votre CV", noRoleSuffix: ": nous recrutons avant tout les talents." },
 };
 
 export default function CareersPage() {

@@ -128,7 +128,7 @@ The shift to attention metrics is not just academic. It changes how budgets shou
     date: "2025-05-15",
     readTime: "5 min read",
     accent: "#7b3fff",
-    fr: { title: "Lancement d'AudienceCloud : la plateforme du web ouvert", excerpt: "Nous lançons officiellement AudienceCloud, l'OS unifié connectant 200+ éditeurs et 150+ marques en une seule plateforme ouverte.", readTime: "5 min de lecture" },
+    fr: { title: "Lancement d'AudienceCloud : la plateforme de l'open web", excerpt: "Nous lançons officiellement AudienceCloud, l'OS unifié connectant 200+ éditeurs et 150+ marques en une seule plateforme ouverte.", readTime: "5 min de lecture" },
     content: `Today marks a significant milestone for Collective Audience and for the open web ecosystem we're building. We're officially launching **AudienceCloud**, our unified platform connecting publishers, advertisers, and audience data into one modular, open OS.
 
 **Why we built AudienceCloud**
@@ -169,7 +169,7 @@ For publishers and advertisers who want early access, reach out to our team at h
     date: "2025-04-20",
     readTime: "7 min read",
     accent: "#5b8cff",
-    fr: { title: "De BeOp & NYIAX à Collective Audience", excerpt: "L'histoire de la fusion de deux entreprises pionnières pour construire la plateforme du web ouvert que l'industrie attendait.", readTime: "7 min de lecture" },
+    fr: { title: "De BeOp & NYIAX à Collective Audience", excerpt: "L'histoire de la fusion de deux entreprises pionnières pour construire la plateforme de l'open web que l'industrie attendait.", readTime: "7 min de lecture" },
     content: `Every significant company is the result of timing, people, and a clear-eyed view of where an industry is going. Collective Audience is no different. Our story starts with two companies that each saw part of the picture.
 
 **BeOp: The publisher side**

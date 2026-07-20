@@ -14,7 +14,7 @@ const COPY = {
     placeholder: "your@company.com",
   },
   fr: {
-    badge: "Newsletter", headline: "Restez en avance sur le web ouvert.",
+    badge: "Newsletter", headline: "Restez en avance sur l'open web.",
     subtitle: "Insights secteur, mises à jour produit et tendances adtech, sélectionnés chaque semaine par l'équipe Collective Audience. Pas de spam. Désinscription à tout moment.",
     emailLabel: "Email", roleLabel: "Je suis...",
     roles: ["Éditeur", "Annonceur / Agence", "Professionnel adtech", "Autre"],

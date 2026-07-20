@@ -19,7 +19,7 @@ const COPY = {
   },
   fr: {
     badge: "Études & Recherche", headline: "La recherche qui fait avancer l'industrie.",
-    subtitle: "Livres blancs, méta-analyses et benchmarks pour aider éditeurs et annonceurs à naviguer sur le web ouvert.",
+    subtitle: "Livres blancs, méta-analyses et benchmarks pour aider éditeurs et annonceurs à naviguer sur l'open web.",
     downloadPdf: "Télécharger le PDF",
     studies: [
       { title: "Étude S.T.A.M.P. Attention 2024", desc: "Analyse complète des métriques d'attention sur 50+ campagnes et 200+ environnements éditeurs.", type: "Livre blanc", accent: "#5b8cff" },
@@ -27,7 +27,7 @@ const COPY = {
       { title: "Méta-analyse Brand Lift", desc: "Données agrégées de brand lift sur 100+ campagnes, benchmarks par secteur, format et taille d'audience.", type: "Rapport de recherche", accent: "#7b3fff" },
       { title: "Indice de Monétisation Éditeurs 2024", desc: "Rapport annuel de benchmark sur l'eCPM, les taux de remplissage et le revenu par session.", type: "Rapport annuel", accent: "#5b8cff" },
       { title: "L'Économie de l'Attention", desc: "Pourquoi le temps d'attention est le meilleur proxy de valeur publicitaire: un plaidoyer pour réformer le CPM.", type: "Thought Leadership", accent: "#07e2dc" },
-      { title: "Étude Audience Web Ouvert 2024", desc: "Insights audience, patterns d'engagement et tendances de consommation de contenu de 200+ éditeurs.", type: "Rapport de recherche", accent: "#7b3fff" },
+      { title: "Étude Audience Open Web 2024", desc: "Insights audience, patterns d'engagement et tendances de consommation de contenu de 200+ éditeurs.", type: "Rapport de recherche", accent: "#7b3fff" },
     ],
   },
 };

@@ -33,7 +33,7 @@ const COPY = {
     groups: { global: "Global team", europe: "Europe team", us: "US team" },
   },
   fr: {
-    badge: "Notre mission", headline: "Construit pour le web ouvert.",
+    badge: "Notre mission", headline: "Construit pour l'open web.",
     body1: "Collective Audience est né de la fusion de BeOp (leader français de l'adtech conversationnelle) et de NYIAX (la marketplace d'audience premium new-yorkaise). Ensemble, nous construisons l'infrastructure d'un web meilleur, plus équitable et sans cookies.",
     body2: "Notre mission : donner aux éditeurs le pouvoir de posséder leurs audiences, et offrir aux annonceurs un accès direct à ces audiences, sans surveillance, sans complexité, sans boîtes noires.",
     cta2: "Nous rejoindre",
@@ -47,7 +47,7 @@ const COPY = {
     ],
     teamBadge: "Équipe & Conseillers",
     teamHeadline: "Les personnes derrière la plateforme.",
-    teamSubtitle: "Vétérans de l'adtech, ingénieurs et défenseurs du web ouvert, à New York et Paris.",
+    teamSubtitle: "Vétérans de l'adtech, ingénieurs et défenseurs de l'open web, à New York et Paris.",
     groups: { global: "Équipe globale", europe: "Équipe Europe", us: "Équipe US" },
   },
 };

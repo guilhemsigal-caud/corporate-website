@@ -22,11 +22,11 @@ const COPY = {
     attnTime: "Attention time", discover: "Discover", learnMore: "Learn more",
   },
   fr: {
-    badge: "La plateforme du web ouvert",
+    badge: "La plateforme de l'open web",
     line1: "Des résultats",
     line2: "du branding",
     line3: "à la performance.",
-    subtitle: "Collective Audience unifie médias premium, données d'audience first-party et formats haute attention en une plateforme ouverte, sans cookies, conçue pour le web ouvert.",
+    subtitle: "Collective Audience unifie médias premium, données d'audience first-party et formats haute attention en une plateforme ouverte, sans cookies, conçue pour l'open web.",
     cta1: "Nous contacter", cta2: "Explorer les formats",
     trust: ["200+ éditeurs", "150+ marques", "NY · Paris"],
     badge1: "+40%", badge1Label: "Lift de marque",

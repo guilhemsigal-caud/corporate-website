@@ -72,7 +72,7 @@ const COPY = {
       cta2: "Parcourir la galerie créative",
       cta2Href: "/gallery",
     },
-    nlTitle: "Restez en avance sur le web ouvert",
+    nlTitle: "Restez en avance sur l'open web",
     nlSub: "Insights secteur, mises à jour produit et tendances adtech, directement dans votre boîte mail.",
     nlPlaceholder: "votre@email.com",
     nlBtn: "S'abonner",

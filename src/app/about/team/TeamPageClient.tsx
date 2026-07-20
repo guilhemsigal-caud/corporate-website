@@ -22,7 +22,7 @@ const COPY = {
   fr: {
     badge: "Équipe & Conseillers",
     headline: "Les personnes derrière la plateforme.",
-    subtitle: "Vétérans de l'adtech, ingénieurs et défenseurs du web ouvert, à New York et Paris.",
+    subtitle: "Vétérans de l'adtech, ingénieurs et défenseurs de l'open web, à New York et Paris.",
     groups: { global: "Équipe globale", europe: "Équipe Europe", us: "Équipe US" },
   },
 };

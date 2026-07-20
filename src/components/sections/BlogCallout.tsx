@@ -16,7 +16,7 @@ const ARTICLES = {
   fr: [
     { tag: "Vision", title: "Pourquoi l'attention remplace la viewability comme nouveau standard", readTime: "5 min", href: "/blog" },
     { tag: "Étude de cas", title: "Comment un grand retailer a généré 3× de lift de marque avec des formats interactifs", readTime: "4 min", href: "/blog" },
-    { tag: "Recherche", title: "L'état du web ouvert : l'intelligence audience à l'ère du sans-cookie", readTime: "6 min", href: "/blog" },
+    { tag: "Recherche", title: "L'état de l'open web : l'intelligence audience à l'ère du sans-cookie", readTime: "6 min", href: "/blog" },
   ],
 };
 
@@ -31,7 +31,7 @@ const COPY = {
   fr: {
     eyebrow: "Sur le blog",
     title: "Insights & ressources",
-    subtitle: "Les dernières réflexions sur l'intelligence audience, la publicité programmatique et le web ouvert.",
+    subtitle: "Les dernières réflexions sur l'intelligence audience, la publicité programmatique et l'open web.",
     readMore: "Lire la suite",
     cta: "Voir tous les articles",
   },

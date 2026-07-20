@@ -7,7 +7,7 @@ import type { BlogPost } from "@/content/blog";
 
 const COPY = {
   en: { badge: "Blog & Insights", headline: "The Open Web Digest", subtitle: "Research, product news, and adtech thinking from the Collective Audience team.", read: "Read article", readShort: "Read", by: "By" },
-  fr: { badge: "Blog & Insights", headline: "Le Digest du Web Ouvert", subtitle: "Recherche, actualités produit et réflexions adtech par l'équipe Collective Audience.", read: "Lire l'article", readShort: "Lire", by: "Par" },
+  fr: { badge: "Blog & Insights", headline: "Le Digest de l'Open Web", subtitle: "Recherche, actualités produit et réflexions adtech par l'équipe Collective Audience.", read: "Lire l'article", readShort: "Lire", by: "Par" },
 };
 
 function formatDate(date: string, locale: string) {

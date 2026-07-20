@@ -45,7 +45,7 @@ const COPY = {
   },
   fr: {
     badge: "Plateforme",
-    h1: "AudienceCloud:\nL'OS du web ouvert.",
+    h1: "AudienceCloud:\nL'OS de l'open web.",
     subtitle: "Une plateforme ouverte et modulaire connectant éditeurs et annonceurs. Quatre modules intégrés. Une couche de données unifiée. Zéro cookie requis.",
     cta1: "Demander une démo", cta2: "Lire la documentation →",
     modulesLabel: "Quatre modules intégrés",

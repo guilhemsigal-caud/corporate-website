@@ -22,7 +22,7 @@ const COPY = {
     line1: "Des résultats du branding",
     line2: "à la performance.",
     subtitle:
-      "Collective Audience unifie médias premium, données d'audience first-party et formats haute attention en une plateforme ouverte, sans cookies, conçue pour le web ouvert.",
+      "Collective Audience unifie médias premium, données d'audience first-party et formats haute attention en une plateforme ouverte, sans cookies, conçue pour l'open web.",
     cta1: "Nous contacter",
     cta2: "Explorer les formats",
     trust: ["200+ éditeurs", "150+ marques", "NY · Paris"],
