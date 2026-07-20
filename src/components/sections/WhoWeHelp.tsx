@@ -131,44 +131,46 @@ function PartnerChip({ partner }: { partner: Partner }) {
 
   return (
     <div
-      className="flex flex-col items-center justify-center gap-1.5 flex-shrink-0"
+      className="flex flex-col items-center justify-center gap-2 flex-shrink-0"
       style={{
-        minWidth: 112,
-        height: 72,
-        padding: "8px 14px",
-        borderRadius: 10,
-        border: "1px solid rgba(255,255,255,0.16)",
-        background: "rgba(255,255,255,0.05)",
+        width: 128,
+        height: 88,
+        padding: "10px 12px",
+        borderRadius: 12,
+        border: "1px solid rgba(255,255,255,0.14)",
+        background: "rgba(255,255,255,0.06)",
         backdropFilter: "blur(4px)",
         userSelect: "none",
       }}
     >
       <div
-        className="flex items-center justify-center rounded-md"
-        style={{ width: 56, height: 28, background: "rgba(255,255,255,0.95)" }}
+        className="flex items-center justify-center rounded-lg overflow-hidden"
+        style={{ width: 104, height: 44, background: "#ffffff", padding: "6px 8px" }}
       >
         {!imgFailed ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={partner.logo}
-            alt=""
-            aria-hidden
-            className="h-5 w-auto max-w-[48px] object-contain"
+            alt={partner.name}
+            className="h-full w-full object-contain"
             onError={() => setImgFailed(true)}
           />
         ) : (
-          <span className="text-[10px] font-bold text-ca-text" aria-hidden>
+          <span className="text-xs font-bold text-ca-text" aria-hidden>
             {partner.name.charAt(0)}
           </span>
         )}
       </div>
       <span
         style={{
-          color: "rgba(255,255,255,0.7)",
-          fontSize: "0.65rem",
+          color: "rgba(255,255,255,0.75)",
+          fontSize: "0.7rem",
           fontWeight: 600,
-          letterSpacing: "0.04em",
+          letterSpacing: "0.03em",
           whiteSpace: "nowrap",
+          maxWidth: 112,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
         }}
       >
         {partner.name}

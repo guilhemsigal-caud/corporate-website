@@ -8,14 +8,14 @@ export type Partner = {
 /** Partners shown in homepage WhoWeHelp logo slider (logo + name). */
 export const WHO_WE_HELP_PARTNERS: Partner[] = [
   { name: "Le Monde", slug: "le-monde", logo: "/partners/le-monde.png" },
-  { name: "Les Échos", slug: "les-echos", logo: "/partners/les-echos.svg" },
-  { name: "L'Obs", slug: "lobs", logo: "/partners/lobs.svg" },
-  { name: "Le Figaro", slug: "le-figaro", logo: "/partners/le-figaro.svg" },
-  { name: "Libération", slug: "liberation", logo: "/partners/liberation.svg" },
+  { name: "Les Échos", slug: "les-echos", logo: "/partners/les-echos.png" },
+  { name: "L'Obs", slug: "lobs", logo: "/partners/lobs.png" },
+  { name: "Le Figaro", slug: "le-figaro", logo: "/partners/le-figaro.png" },
+  { name: "Libération", slug: "liberation", logo: "/partners/liberation.png" },
   { name: "Audi", slug: "audi", logo: "/partners/audi.svg" },
   { name: "BMW", slug: "bmw", logo: "/partners/bmw.svg" },
   { name: "L'Oréal", slug: "loreal", logo: "/partners/loreal.png" },
-  { name: "Louis Vuitton", slug: "louis-vuitton", logo: "/partners/louis-vuitton.svg" },
+  { name: "Louis Vuitton", slug: "louis-vuitton", logo: "/partners/louis-vuitton.png" },
   { name: "BNP Paribas", slug: "bnp-paribas", logo: "/partners/bnp-paribas.png" },
 ];
 
@@ -46,13 +46,13 @@ export const BRAND_PARTNERS: Partner[] = [
 /** Curated media partners (shorter list for credibility). */
 export const MEDIA_PARTNERS: Partner[] = [
   { name: "Le Monde", slug: "le-monde", logo: "/partners/le-monde.png" },
-  { name: "Les Échos", slug: "les-echos", logo: "/partners/les-echos.svg" },
+  { name: "Les Échos", slug: "les-echos", logo: "/partners/les-echos.png" },
   { name: "Forbes", slug: "forbes", logo: "/partners/forbes.svg" },
-  { name: "L'Obs", slug: "lobs", logo: "/partners/lobs.svg" },
-  { name: "Libération", slug: "liberation", logo: "/partners/liberation.svg" },
+  { name: "L'Obs", slug: "lobs", logo: "/partners/lobs.png" },
+  { name: "Libération", slug: "liberation", logo: "/partners/liberation.png" },
   { name: "HuffPost", slug: "huffpost", logo: "/partners/huffpost.svg" },
   { name: "Télérama", slug: "telerama", logo: "/partners/telerama.svg" },
   { name: "L'Express", slug: "lexpress", logo: "/partners/lexpress.svg" },
-  { name: "Le Figaro", slug: "le-figaro", logo: "/partners/le-figaro.svg" },
+  { name: "Le Figaro", slug: "le-figaro", logo: "/partners/le-figaro.png" },
   { name: "20 Minutes", slug: "20-minutes", logo: "/partners/20-minutes.svg" },
 ];
