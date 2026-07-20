@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
+import { BrandLogoCarousel } from "@/components/sections/BrandLogoCarousel";
 import { useLang } from "@/lib/i18n";
 import { BRAND_PARTNERS } from "@/content/partners";
 
@@ -118,16 +119,8 @@ export default function AdvertisersPage() {
       <section className="bg-ca-surface border-y border-ca-border py-12 overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
           <p className="text-left text-sm font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.brandsLabel}</p>
-          <div className="flex flex-wrap gap-3">
-            {BRAND_PARTNERS.slice(0, 16).map((b) => (
-              <div key={b.slug} className="inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl border border-ca-border bg-ca-dark min-w-[110px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={b.logo} alt="" aria-hidden className="h-8 w-auto max-w-[90px] object-contain" />
-                <span className="text-xs font-medium text-ca-text">{b.name}</span>
-              </div>
-            ))}
-          </div>
         </div>
+        <BrandLogoCarousel partners={BRAND_PARTNERS} />
       </section>
 
       <section className="bg-ca-dark py-24">

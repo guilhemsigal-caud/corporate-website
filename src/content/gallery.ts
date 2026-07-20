@@ -90,7 +90,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     slug: "finance", category: "industries", name: "Finance Perso",
     description: "Trust-building formats for fintech and banking brands driving sign-up intent.",
     kpis: [{ label: "Sign-up intent", value: "+35%" }, { label: "Completion rate", value: "72%" }, { label: "CTR", value: "2.1%" }],
-    accent: "#07e2dc", tags: ["Boursorama", "BNP", "Fortuneo"],
+    accent: "#07e2dc", tags: ["BoursoBank", "BNP", "Fortuneo"],
     fr: { description: "Formats inspirant confiance pour les marques fintech et bancaires, stimulant l'intention d'inscription.", kpis: [{ label: "Intention d'inscription", value: "+35%" }, { label: "Taux de complétion", value: "72%" }, { label: "CTR", value: "2,1%" }] },
   },
   {
