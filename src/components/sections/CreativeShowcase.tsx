@@ -94,7 +94,7 @@ export function CreativeShowcase() {
         style={{ position: "sticky", top: 0, height: "100vh", background: "#fafbff" }}
       >
         {/* Header */}
-        <div className="flex-none px-10 md:px-14 lg:px-16 pt-16 pb-10">
+        <div className="flex-none px-6 md:px-[68px] lg:px-[100px] pt-16 pb-10">
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
