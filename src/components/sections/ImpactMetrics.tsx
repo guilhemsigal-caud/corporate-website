@@ -43,7 +43,7 @@ export function ImpactMetrics() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-left text-sm font-semibold tracking-widest uppercase text-ca-muted mb-10 md:mb-12"
+          className="text-left text-base font-semibold tracking-widest uppercase text-ca-muted mb-10 md:mb-12"
         >
           {c.eyebrow}
         </motion.p>

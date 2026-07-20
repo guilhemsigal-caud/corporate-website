@@ -9,13 +9,13 @@ function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
       <span className="text-4xl font-bold gradient-text-blue-mint">{value}</span>
-      <span className="text-sm text-ca-muted mt-1">{label}</span>
+      <span className="text-base text-ca-muted mt-1">{label}</span>
     </div>
   );
 }
 function FeatureLine({ text }: { text: string }) {
   return (
-    <li className="flex items-start gap-3 text-sm text-ca-muted">
+    <li className="flex items-start gap-3 text-base text-ca-muted">
       <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-ca-mint" />{text}
     </li>
   );
@@ -208,7 +208,7 @@ export default function AdvertisersPage() {
 
       <section className="bg-ca-dark py-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-xl font-bold text-left text-ca-text mb-10">{c.testiTitle}</h2>
+          <h2 className="text-2xl font-bold text-left text-ca-text mb-10">{c.testiTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {c.testimonials.map(t => <div key={t.company} className="rounded-2xl border border-ca-border bg-ca-surface p-6" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><p className="text-sm text-ca-muted leading-relaxed mb-5 italic">"{t.quote}"</p><div><div className="text-xs font-semibold text-ca-text">{t.author}</div><div className="text-xs text-ca-mint">{t.company}</div></div></div>)}
           </div>

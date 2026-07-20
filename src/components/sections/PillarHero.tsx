@@ -40,7 +40,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-left">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm font-semibold tracking-widest uppercase mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm md:text-base font-semibold tracking-widest uppercase mb-8"
           style={{ color: accent, borderColor: `${accent}30`, background: `${accent}0a` }}
         >
           {eyebrow}
@@ -54,7 +54,7 @@ export function PillarHero({ eyebrow, headline, subtitle, accent, ctaPrimary, ct
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl text-lg md:text-xl text-ca-muted leading-relaxed mb-10"
+          className="max-w-2xl text-xl md:text-2xl text-ca-muted leading-relaxed mb-10"
         >
           {subtitle}
         </motion.p>

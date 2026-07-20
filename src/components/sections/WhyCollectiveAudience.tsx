@@ -24,7 +24,7 @@ export function WhyCollectiveAudience() {
 
   return (
     <section className="bg-ca-dark py-24 overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 text-left">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export function WhyCollectiveAudience() {
         >
           {/* Eyebrow */}
           <span
-            className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-3 py-1 rounded-full border"
+            className="inline-block text-sm font-semibold tracking-widest uppercase mb-6 px-3 py-1 rounded-full border"
             style={{
               color: "#5b8cff",
               borderColor: "rgba(91,140,255,0.2)",
@@ -57,7 +57,7 @@ export function WhyCollectiveAudience() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mx-auto">
+          <p className="text-ca-muted text-xl md:text-2xl leading-relaxed max-w-2xl">
             {c.subtitle}
           </p>
         </motion.div>

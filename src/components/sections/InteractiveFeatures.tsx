@@ -124,7 +124,7 @@ export function InteractiveFeatures() {
     <section className="bg-ca-dark py-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-left mb-14">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full border"
+          <span className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full border"
             style={{ color: "#07e2dc", borderColor: "rgba(7,226,220,0.2)", background: "rgba(7,226,220,0.06)" }}>
             {c.eyebrow}
           </span>
@@ -137,12 +137,12 @@ export function InteractiveFeatures() {
         </motion.div>
 
         {/* Tabs with progress fill + character reveal + pause button */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-10">
+        <div className="flex flex-wrap items-center gap-2 mb-10">
           {c.items.map((f, i) => (
             <button
               key={f.tab}
               onClick={() => handleTabClick(i)}
-              className="relative px-5 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-shadow duration-300"
+              className="relative px-5 py-2.5 rounded-full text-base font-semibold overflow-hidden transition-shadow duration-300"
               style={active === i
                 ? { border: `1px solid ${ACCENTS[i]}60`, boxShadow: `0 0 20px ${ACCENTS[i]}35`, minWidth: 110 }
                 : { border: "1px solid rgba(0,0,30,0.1)", minWidth: 110 }}

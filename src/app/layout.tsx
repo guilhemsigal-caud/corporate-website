@@ -32,9 +32,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-ca-dark text-ca-text">
         <LanguageProvider>
+          <a href="#main-content" className="skip-to-content">
+            Skip to content
+          </a>
           <DraftModeBanner />
           <Header />
-          <div className="flex-1 pt-16">{children}</div>
+          <div id="main-content" className="flex-1 pt-16" tabIndex={-1}>{children}</div>
           <Footer />
         </LanguageProvider>
         {isEnabled && <VisualEditing />}

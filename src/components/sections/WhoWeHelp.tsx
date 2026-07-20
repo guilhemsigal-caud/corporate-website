@@ -12,7 +12,7 @@ const COPY = {
     title: "Who we help",
     learnMore: "Learn More",
     publishers: {
-      heading: "for publishers",
+      heading: "Publishers",
       description: "Maximize yield across your inventory without compromising editorial quality.",
       bullets: [
         "Yield optimization: +28% avg. eCPM uplift",
@@ -22,7 +22,7 @@ const COPY = {
       ],
     },
     advertisers: {
-      heading: "for advertisers",
+      heading: "Advertisers",
       description: "Run high-attention formats on 200+ premium publishers, cookieless.",
       bullets: [
         "Self-serve platform + managed service option",
@@ -42,7 +42,7 @@ const COPY = {
     title: "Qui nous aidons",
     learnMore: "En savoir plus",
     publishers: {
-      heading: "pour les éditeurs",
+      heading: "Éditeurs",
       description: "Maximisez le yield sur votre inventaire sans compromettre la qualité éditoriale.",
       bullets: [
         "Optimisation du yield : +28% d'eCPM moyen",
@@ -52,7 +52,7 @@ const COPY = {
       ],
     },
     advertisers: {
-      heading: "pour les annonceurs",
+      heading: "Annonceurs",
       description: "Diffusez des formats haute attention sur 200+ éditeurs premium, sans cookie.",
       bullets: [
         "Plateforme self-serve + service managé",
@@ -289,8 +289,10 @@ export function WhoWeHelp() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 flex-1">
             <div className="flex items-start">
               <div className="w-full">
-                <FadeText className="block font-black text-white mb-3 text-xl md:text-2xl" delay={0.1}>
-                  {c.publishers.heading}
+                <FadeText className="block font-black text-white mb-3 text-2xl md:text-3xl" delay={0.1}>
+                  <Link href="/publishers" className="hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                    {c.publishers.heading}
+                  </Link>
                 </FadeText>
                 <FadeText
                   className="block text-sm md:text-base leading-relaxed mb-5"
@@ -317,8 +319,10 @@ export function WhoWeHelp() {
 
             <div className="flex items-start">
               <div className="w-full">
-                <FadeText className="block font-black text-white mb-3 text-xl md:text-2xl" delay={0.15}>
-                  {c.advertisers.heading}
+                <FadeText className="block font-black text-white mb-3 text-2xl md:text-3xl" delay={0.15}>
+                  <Link href="/advertisers" className="hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                    {c.advertisers.heading}
+                  </Link>
                 </FadeText>
                 <FadeText
                   className="block text-sm md:text-base leading-relaxed mb-5"

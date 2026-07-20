@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.sanity.io" },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/publishers/monetization", destination: "/publishers", permanent: true },
+      { source: "/publishers/data", destination: "/publishers", permanent: true },
+      { source: "/publishers/editorial", destination: "/publishers", permanent: true },
+      { source: "/publishers/partners", destination: "/publishers", permanent: true },
+      { source: "/advertisers/formats", destination: "/advertisers", permanent: true },
+      { source: "/advertisers/targeting", destination: "/advertisers", permanent: true },
+      { source: "/advertisers/services", destination: "/advertisers", permanent: true },
+      { source: "/advertisers/results", destination: "/advertisers", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
