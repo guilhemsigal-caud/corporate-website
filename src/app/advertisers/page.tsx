@@ -120,9 +120,9 @@ export default function AdvertisersPage() {
           <p className="text-left text-sm font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.brandsLabel}</p>
           <div className="flex flex-wrap gap-3">
             {BRAND_PARTNERS.slice(0, 16).map((b) => (
-              <div key={b.slug} className="inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl border border-ca-border bg-ca-dark min-w-[96px]">
+              <div key={b.slug} className="inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl border border-ca-border bg-ca-dark min-w-[110px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={b.logo} alt="" aria-hidden className="h-7 w-auto max-w-[56px] object-contain" />
+                <img src={b.logo} alt="" aria-hidden className="h-8 w-auto max-w-[90px] object-contain" />
                 <span className="text-xs font-medium text-ca-text">{b.name}</span>
               </div>
             ))}
