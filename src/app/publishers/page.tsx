@@ -4,6 +4,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
 
+const ACCENTS = ["#5b8cff", "#07e2dc", "#7b3fff"];
+
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
@@ -108,12 +110,12 @@ export default function PublishersPage() {
           <div className="absolute bottom-[-5%] right-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 5s" }} />
         </div>
         <div aria-hidden className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: "linear-gradient(to right,#c4d0f0 1px,transparent 1px),linear-gradient(to bottom,#c4d0f0 1px,transparent 1px)", backgroundSize: "72px 72px", maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,#000 50%,transparent 100%)" }} />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-left">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-blue/30 bg-ca-blue/8 text-sm font-semibold tracking-widest uppercase text-ca-blue mb-8">{c.badge}</div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
           <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ca-blue text-white font-semibold hover:brightness-110 transition-all hover:shadow-[0_0_30px_rgba(91,140,255,0.4)]">{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
+            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-semibold hover:brightness-110 transition-all hover:shadow-[0_0_30px_rgba(91,140,255,0.4)]" style={{ background: "linear-gradient(135deg, #5b8cff, #7b3fff)" }}>{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
             <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
           </div>
           <div className="flex flex-wrap gap-x-12 gap-y-6">{c.stats.map(s => <Stat key={s.l} value={s.v} label={s.l} />)}</div>
@@ -121,7 +123,7 @@ export default function PublishersPage() {
       </section>
 
       <section className="bg-ca-surface border-y border-ca-border py-16">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {c.pillars.map(p => (
               <div key={p.title} className="rounded-2xl border p-7 text-center" style={{ borderColor: `${p.color}35`, background: `linear-gradient(145deg, ${p.color}15 0%, #eef0fb 100%)`, boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
@@ -136,10 +138,10 @@ export default function PublishersPage() {
       </section>
 
       <section className="bg-ca-dark py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="h-px w-12 bg-ca-blue mb-6 rounded-full" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-ca-blue block mb-3">{c.monoLabel}</span>
+            <span className="text-sm font-semibold tracking-widest uppercase text-ca-blue block mb-3">{c.monoLabel}</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.monoTitle}</h2>
             <p className="text-ca-muted leading-relaxed mb-6">{c.monoDesc}</p>
             <ul className="space-y-3 mb-8">{c.monoFeatures.map(f => <FeatureLine key={f} text={f} />)}</ul>
@@ -167,7 +169,7 @@ export default function PublishersPage() {
       </section>
 
       <section className="bg-ca-surface border-t border-ca-border py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl border border-ca-border bg-ca-dark overflow-hidden lg:order-1 order-2" style={{ boxShadow: "0 2px 20px rgba(0,0,40,0.08)" }}>
             <div className="px-5 py-3 border-b border-ca-border flex items-center gap-3">
               <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-500/40" /><div className="w-3 h-3 rounded-full bg-yellow-500/40" /><div className="w-3 h-3 rounded-full bg-green-500/40" /></div>
@@ -182,7 +184,7 @@ export default function PublishersPage() {
           </div>
           <div className="lg:order-2 order-1">
             <div className="h-px w-12 bg-ca-mint mb-6 rounded-full" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-ca-mint block mb-3">{c.dataLabel}</span>
+            <span className="text-sm font-semibold tracking-widest uppercase text-ca-mint block mb-3">{c.dataLabel}</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.dataTitle}</h2>
             <p className="text-ca-muted leading-relaxed mb-6">{c.dataDesc}</p>
             <ul className="space-y-3 mb-8">{c.dataFeatures.map(f => <FeatureLine key={f} text={f} />)}</ul>
@@ -192,10 +194,10 @@ export default function PublishersPage() {
       </section>
 
       <section className="bg-ca-dark py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="h-px w-12 bg-ca-violet mb-6 rounded-full" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-ca-violet block mb-3">{c.editLabel}</span>
+            <span className="text-sm font-semibold tracking-widest uppercase text-ca-violet block mb-3">{c.editLabel}</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.editTitle}</h2>
             <p className="text-ca-muted leading-relaxed mb-6">{c.editDesc}</p>
             <ul className="space-y-3 mb-8">{c.editFeatures.map(f => <FeatureLine key={f} text={f} />)}</ul>
@@ -220,19 +222,37 @@ export default function PublishersPage() {
       </section>
 
       <section className="bg-ca-surface border-t border-ca-border py-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-2xl font-bold text-left text-ca-text mb-10">{c.gridTitle}</h2>
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
+          <h2 className="text-2xl font-bold text-left mb-10" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.gridTitle}</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {c.grid.map(([title, sub]) => <div key={title as string} className="rounded-xl border border-ca-border bg-ca-dark p-4" style={{ boxShadow: "0 1px 6px rgba(0,0,40,0.05)" }}><div className="text-sm font-semibold text-ca-text mb-0.5">{title as string}</div><div className="text-xs text-ca-muted">{sub as string}</div></div>)}
+            {c.grid.map(([title, sub], i) => {
+              const accent = ACCENTS[i % 3];
+              return (
+                <div key={title as string} className="group relative rounded-xl border p-4 overflow-hidden transition-all duration-300 hover:-translate-y-1" style={{ borderColor: `${accent}45`, background: `linear-gradient(145deg, ${accent}18 0%, #eef0fb 100%)`, boxShadow: "0 1px 6px rgba(0,0,40,0.05)" }}>
+                  <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(to right, transparent 5%, ${accent} 40%, ${accent} 60%, transparent 95%)` }} aria-hidden />
+                  <div className="text-sm font-semibold text-ca-text mb-0.5">{title as string}</div>
+                  <div className="text-xs text-ca-muted">{sub as string}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       <section className="bg-ca-dark py-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-2xl font-bold text-left text-ca-text mb-10">{c.testiTitle}</h2>
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
+          <h2 className="text-2xl font-bold text-left mb-10" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.testiTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {c.testimonials.map(t => <div key={t.company} className="rounded-2xl border border-ca-border bg-ca-surface p-6" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><p className="text-sm text-ca-muted leading-relaxed mb-5 italic">"{t.quote}"</p><div><div className="text-xs font-semibold text-ca-text">{t.author}</div><div className="text-xs text-ca-blue">{t.company}</div></div></div>)}
+            {c.testimonials.map((t, i) => {
+              const accent = ACCENTS[i % 3];
+              return (
+                <div key={t.company} className="group relative rounded-2xl border p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1" style={{ borderColor: `${accent}45`, background: `linear-gradient(145deg, ${accent}18 0%, #eef0fb 100%)`, boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
+                  <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(to right, transparent 5%, ${accent} 40%, ${accent} 60%, transparent 95%)` }} aria-hidden />
+                  <p className="text-sm text-ca-muted leading-relaxed mb-5 italic">"{t.quote}"</p>
+                  <div><div className="text-xs font-semibold text-ca-text">{t.author}</div><div className="text-xs text-ca-blue">{t.company}</div></div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -105,26 +105,26 @@ export default function AdvertisersPage() {
           <div className="absolute top-[-10%] right-[5%] w-[700px] h-[700px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(91,140,255,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 6s" }} />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 text-left">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-mint/30 bg-ca-mint/8 text-sm font-semibold tracking-widest uppercase text-ca-mint mb-8">{c.badge}</div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
           <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ca-mint text-[#0e1025] font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]">{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
+            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]" style={{ background: "linear-gradient(135deg, #07e2dc, #5b8cff)", color: "#0e1025" }}>{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
             <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
           </div>
         </div>
       </section>
 
       <section className="bg-ca-surface border-y border-ca-border py-12 overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
           <p className="text-left text-sm font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.brandsLabel}</p>
         </div>
         <BrandLogoCarousel partners={BRAND_PARTNERS} />
       </section>
 
       <section className="bg-ca-dark py-24">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
           <h2 className="text-3xl md:text-4xl font-bold text-left mb-14" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.compTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="rounded-2xl border border-ca-border bg-ca-surface p-7" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
@@ -144,7 +144,7 @@ export default function AdvertisersPage() {
       </section>
 
       <section className="bg-ca-surface border-t border-ca-border py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="rounded-2xl border border-ca-border bg-ca-dark overflow-hidden" style={{ boxShadow: "0 2px 20px rgba(0,0,40,0.08)" }}>
             <div className="px-5 py-3 border-b border-ca-border"><span className="text-xs text-ca-muted">AudienceDesk: Campaign Manager</span></div>
             <div className="p-6">
@@ -160,7 +160,7 @@ export default function AdvertisersPage() {
           </div>
           <div>
             <div className="h-px w-12 bg-ca-mint mb-6 rounded-full" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-ca-mint block mb-3">{c.ssLabel}</span>
+            <span className="text-sm font-semibold tracking-widest uppercase text-ca-mint block mb-3">{c.ssLabel}</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.ssTitle}</h2>
             <p className="text-ca-muted leading-relaxed mb-6">{c.ssDesc}</p>
             <ul className="space-y-3 mb-8">{c.ssFeatures.map(f => <FeatureLine key={f} text={f} />)}</ul>
@@ -169,10 +169,10 @@ export default function AdvertisersPage() {
       </section>
 
       <section className="bg-ca-dark py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="h-px w-12 bg-ca-blue mb-6 rounded-full" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-ca-blue block mb-3">{c.ckLabel}</span>
+            <span className="text-sm font-semibold tracking-widest uppercase text-ca-blue block mb-3">{c.ckLabel}</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.ckTitle}</h2>
             <p className="text-ca-muted leading-relaxed mb-6">{c.ckDesc}</p>
             <ul className="space-y-3 mb-8">{c.ckFeatures.map(f => <FeatureLine key={f} text={f} />)}</ul>
@@ -188,22 +188,57 @@ export default function AdvertisersPage() {
       </section>
 
       <section className="bg-ca-surface border-t border-ca-border py-24">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 text-center">
-          <span className="text-xs font-semibold tracking-widest uppercase text-ca-violet block mb-3">{c.fmtLabel}</span>
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-center">
+          <span className="text-sm font-semibold tracking-widest uppercase text-ca-violet block mb-3">{c.fmtLabel}</span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.fmtTitle}</h2>
           <p className="text-ca-muted mb-10 max-w-xl mx-auto">{c.fmtDesc}</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-            {c.formats.map(([n,d,col]) => <Link key={n as string} href="/gallery" className="group rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5" style={{ borderColor: `${col as string}35`, background: `${col as string}0a`, boxShadow: "0 2px 8px rgba(0,0,40,0.05)" }}><div className="text-sm font-bold mb-1" style={{ color: col as string }}>{n as string}</div><div className="text-xs text-ca-muted">{d as string}</div></Link>)}
+            {c.formats.map(([n,d,col]) => (
+              <Link
+                key={n as string}
+                href="/gallery"
+                className="group relative rounded-2xl border overflow-hidden p-5 text-left transition-all duration-200 hover:-translate-y-1"
+                style={{
+                  borderColor: `${col as string}45`,
+                  background: `linear-gradient(145deg, ${col as string}18 0%, #eef0fb 100%)`,
+                  boxShadow: "0 2px 8px rgba(0,0,40,0.05)",
+                }}
+              >
+                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(to right, transparent 5%, ${col as string} 40%, ${col as string} 60%, transparent 95%)` }} aria-hidden />
+                <div className="text-sm font-bold mb-1" style={{ color: col as string }}>{n as string}</div>
+                <div className="text-xs text-ca-muted">{d as string}</div>
+              </Link>
+            ))}
           </div>
-          <Link href="/gallery" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-ca-violet text-white font-semibold text-sm hover:brightness-110 transition-all">{c.fmtCta} <ArrowRight className="w-4 h-4" /></Link>
+          <Link href="/gallery" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm hover:brightness-110 transition-all" style={{ background: "linear-gradient(135deg, #7b3fff, #5b8cff)" }}>{c.fmtCta} <ArrowRight className="w-4 h-4" /></Link>
         </div>
       </section>
 
       <section className="bg-ca-dark py-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <h2 className="text-2xl font-bold text-left text-ca-text mb-10">{c.testiTitle}</h2>
+        <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
+          <h2 className="text-2xl font-bold text-left mb-10" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.testiTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {c.testimonials.map(t => <div key={t.company} className="rounded-2xl border border-ca-border bg-ca-surface p-6" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><p className="text-sm text-ca-muted leading-relaxed mb-5 italic">"{t.quote}"</p><div><div className="text-xs font-semibold text-ca-text">{t.author}</div><div className="text-xs text-ca-mint">{t.company}</div></div></div>)}
+            {c.testimonials.map((t, i) => {
+              const accent = ["#5b8cff", "#07e2dc", "#7b3fff"][i % 3];
+              return (
+                <div
+                  key={t.company}
+                  className="group relative rounded-2xl border overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    borderColor: `${accent}45`,
+                    background: `linear-gradient(145deg, ${accent}18 0%, #eef0fb 100%)`,
+                    boxShadow: "0 2px 12px rgba(0,0,40,0.06)",
+                  }}
+                >
+                  <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(to right, transparent 5%, ${accent} 40%, ${accent} 60%, transparent 95%)` }} aria-hidden />
+                  <p className="text-sm text-ca-muted leading-relaxed mb-5 italic">&quot;{t.quote}&quot;</p>
+                  <div>
+                    <div className="text-xs font-semibold text-ca-text">{t.author}</div>
+                    <div className="text-xs" style={{ color: accent }}>{t.company}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

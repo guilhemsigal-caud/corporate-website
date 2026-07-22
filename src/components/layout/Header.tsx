@@ -89,7 +89,7 @@ export function Header() {
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className="px-2.5 py-1 text-sm font-bold uppercase transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
+                  className="min-w-[40px] min-h-[40px] px-2.5 py-1 text-sm font-bold uppercase transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
                   style={lang === l ? { background: "#5b8cff", color: "white" } : { color: "#3a455c" }}
                   aria-pressed={lang === l}
                 >
@@ -106,7 +106,7 @@ export function Header() {
             </Link>
 
             <button
-              className="lg:hidden p-2 rounded-lg text-ca-muted hover:text-ca-text hover:bg-black/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
+              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-ca-muted hover:text-ca-text hover:bg-black/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ca-blue"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -146,7 +146,7 @@ export function Header() {
                     <button
                       key={l}
                       onClick={() => setLang(l)}
-                      className="px-4 py-2 rounded-full text-sm font-bold uppercase transition-all"
+                      className="min-h-[40px] px-4 py-2 rounded-full text-sm font-bold uppercase transition-all"
                       style={lang === l ? { background: "#5b8cff", color: "white" } : { color: "#3a455c", border: "1px solid #d0d8f0" }}
                       aria-pressed={lang === l}
                     >

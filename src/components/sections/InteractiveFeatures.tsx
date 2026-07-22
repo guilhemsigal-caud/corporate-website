@@ -189,7 +189,7 @@ export function InteractiveFeatures() {
           {/* Pause / Play button */}
           <button
             onClick={handlePauseToggle}
-            className="w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 hover:border-ca-blue/40 hover:text-ca-blue"
+            className="w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-200 hover:border-ca-blue/40 hover:text-ca-blue"
             style={{ borderColor: "rgba(0,0,30,0.12)", color: "#5a6480" }}
             aria-label={paused ? (lang === "fr" ? "Reprendre" : "Resume") : (lang === "fr" ? "Pause" : "Pause")}
             title={paused ? (lang === "fr" ? "Reprendre" : "Resume") : (lang === "fr" ? "Mettre en pause" : "Pause")}

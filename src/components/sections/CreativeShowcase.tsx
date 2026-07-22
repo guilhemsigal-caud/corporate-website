@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
-const CARD_H = 360;
 const GAP = 32;
 
 /* ── Row 1: BMW → text → Rolex → text ── */
@@ -31,10 +30,9 @@ const ROW2 = [...ITEMS_ROW2, ...ITEMS_ROW2, ...ITEMS_ROW2];
 function CreativeCard({ src, brand, w }: { src: string; brand: string; w: number }) {
   return (
     <div
-      className="relative rounded-2xl overflow-hidden flex-none"
+      className="relative rounded-2xl overflow-hidden flex-none h-[180px] sm:h-[240px] md:h-[300px] lg:h-[360px]"
       style={{
         width: w,
-        height: CARD_H,
         boxShadow: "0 4px 24px rgba(14,16,37,0.10), 0 1px 4px rgba(14,16,37,0.06)",
       }}
     >
@@ -62,8 +60,8 @@ function CreativeCard({ src, brand, w }: { src: string; brand: string; w: number
 function CategoryText({ headline, desc, w }: { headline: string; desc: string; w: number }) {
   return (
     <div
-      className="flex-none flex flex-col justify-center"
-      style={{ width: w, height: CARD_H, paddingLeft: 8, paddingRight: 8 }}
+      className="flex-none flex flex-col justify-center h-[180px] sm:h-[240px] md:h-[300px] lg:h-[360px]"
+      style={{ width: w, paddingLeft: 8, paddingRight: 8 }}
     >
       <p
         className="font-semibold leading-snug mb-3"
@@ -94,7 +92,7 @@ export function CreativeShowcase() {
         style={{ position: "sticky", top: 0, height: "100vh", background: "#fafbff" }}
       >
         {/* Header */}
-        <div className="flex-none px-6 md:px-[68px] lg:px-[100px] pt-16 pb-10">
+        <div className="flex-none px-6 md:px-[68px] lg:px-[100px] pt-8 pb-6 md:pt-16 md:pb-10">
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
