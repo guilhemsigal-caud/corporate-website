@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Monitor, MessageSquare, Link2, Lock } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
 
@@ -20,10 +20,10 @@ const COPY = {
     cta1: "Request a demo", cta2: "Read the docs →",
     modulesLabel: "Four integrated modules",
     modules: [
-      { name: "AudienceDesk", href: "/platform/desk", desc: "Self-serve & managed trading desk for omnichannel media buying.", accent: "#7b3fff", icon: "🖥️" },
-      { name: "AudienceAds", href: "/platform/ads", desc: "Conversational & high-attention ad format engine.", accent: "#5b8cff", icon: "💬" },
-      { name: "AudienceConnect", href: "/platform/connect", desc: "Omnichannel distribution: display, video, social, email, push.", accent: "#07e2dc", icon: "🔗" },
-      { name: "AudienceMatching", href: "/platform/matching", desc: "Cookieless identity matching via first-party signals and AI.", accent: "#7b3fff", icon: "🔒" },
+      { name: "AudienceDesk", href: "/platform/desk", desc: "Self-serve & managed trading desk for omnichannel media buying.", accent: "#7b3fff", icon: Monitor },
+      { name: "AudienceAds", href: "/platform/ads", desc: "Conversational & high-attention ad format engine.", accent: "#5b8cff", icon: MessageSquare },
+      { name: "AudienceConnect", href: "/platform/connect", desc: "Omnichannel distribution: display, video, social, email, push.", accent: "#07e2dc", icon: Link2 },
+      { name: "AudienceMatching", href: "/platform/matching", desc: "Cookieless identity matching via first-party signals and AI.", accent: "#7b3fff", icon: Lock },
     ],
     modLearnMore: "Learn more",
     deskTitle: "Your media buying command center.",
@@ -50,10 +50,10 @@ const COPY = {
     cta1: "Demander une démo", cta2: "Lire la documentation →",
     modulesLabel: "Quatre modules intégrés",
     modules: [
-      { name: "AudienceDesk", href: "/platform/desk", desc: "Trading desk self-serve & managé pour l'achat média omnicanal.", accent: "#7b3fff", icon: "🖥️" },
-      { name: "AudienceAds", href: "/platform/ads", desc: "Moteur de formats haute attention et conversationnels.", accent: "#5b8cff", icon: "💬" },
-      { name: "AudienceConnect", href: "/platform/connect", desc: "Distribution omnicanale : display, vidéo, social, email, push.", accent: "#07e2dc", icon: "🔗" },
-      { name: "AudienceMatching", href: "/platform/matching", desc: "Matching d'identité sans cookie via signaux first-party et IA.", accent: "#7b3fff", icon: "🔒" },
+      { name: "AudienceDesk", href: "/platform/desk", desc: "Trading desk self-serve & managé pour l'achat média omnicanal.", accent: "#7b3fff", icon: Monitor },
+      { name: "AudienceAds", href: "/platform/ads", desc: "Moteur de formats haute attention et conversationnels.", accent: "#5b8cff", icon: MessageSquare },
+      { name: "AudienceConnect", href: "/platform/connect", desc: "Distribution omnicanale : display, vidéo, social, email, push.", accent: "#07e2dc", icon: Link2 },
+      { name: "AudienceMatching", href: "/platform/matching", desc: "Matching d'identité sans cookie via signaux first-party et IA.", accent: "#7b3fff", icon: Lock },
     ],
     modLearnMore: "En savoir plus",
     deskTitle: "Votre centre de commande d'achat média.",
@@ -100,7 +100,7 @@ export default function PlatformPage() {
         <div className="max-w-5xl mx-auto px-6 md:px-8">
           <p className="text-center text-xs font-semibold tracking-widest uppercase text-ca-muted mb-8">{c.modulesLabel}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {c.modules.map(m => <Link key={m.name} href={m.href} className="group rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1" style={{ borderColor: `${m.accent}35`, background: `linear-gradient(145deg, ${m.accent}12 0%, #eef0fb 100%)`, boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><div className="text-2xl mb-3">{m.icon}</div><div className="text-base font-bold mb-2" style={{ color: m.accent }}>{m.name}</div><p className="text-xs text-ca-muted leading-relaxed mb-3">{m.desc}</p><div className="text-xs font-semibold flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: m.accent }}>{c.modLearnMore} <ArrowRight className="w-3.5 h-3.5" /></div></Link>)}
+            {c.modules.map(m => <Link key={m.name} href={m.href} className="group rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1" style={{ borderColor: `${m.accent}35`, background: `linear-gradient(145deg, ${m.accent}12 0%, #eef0fb 100%)`, boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}><div className="mb-3"><m.icon className="w-6 h-6" style={{ color: m.accent }} /></div><div className="text-base font-bold mb-2" style={{ color: m.accent }}>{m.name}</div><p className="text-xs text-ca-muted leading-relaxed mb-3">{m.desc}</p><div className="text-xs font-semibold flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: m.accent }}>{c.modLearnMore} <ArrowRight className="w-3.5 h-3.5" /></div></Link>)}
           </div>
         </div>
       </section>

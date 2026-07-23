@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, DollarSign, BarChart3, MessageSquare } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
 
@@ -30,9 +30,9 @@ const COPY = {
     cta1: "Become a partner", cta2: "See ad formats",
     stats: [{ v: "+40%", l: "Brand lift on our formats" }, { v: "34s", l: "Avg. attention per ad unit" }, { v: ">1%", l: "Interaction rate" }, { v: "200+", l: "Publisher partners" }],
     pillars: [
-      { icon: "💰", title: "Sell", subtitle: "Monetize every impression", desc: "Header bidding, direct deals, programmatic: one unified platform to maximise your ad revenue without complexity.", color: "#5b8cff" },
-      { icon: "📊", title: "Collect", subtitle: "Own your audience data", desc: "Build a first-party CRM/DMP from every article read. Cookieless, GDPR-compliant, 100% owned by you.", color: "#07e2dc" },
-      { icon: "💬", title: "Engage", subtitle: "Activate your readers", desc: "Inline conversational and editorial formats that turn passive readers into engaged audiences.", color: "#7b3fff" },
+      { icon: DollarSign, title: "Sell", subtitle: "Monetize every impression", desc: "Header bidding, direct deals, programmatic: one unified platform to maximise your ad revenue without complexity.", color: "#5b8cff" },
+      { icon: BarChart3, title: "Collect", subtitle: "Own your audience data", desc: "Build a first-party CRM/DMP from every article read. Cookieless, GDPR-compliant, 100% owned by you.", color: "#07e2dc" },
+      { icon: MessageSquare, title: "Engage", subtitle: "Activate your readers", desc: "Inline conversational and editorial formats that turn passive readers into engaged audiences.", color: "#7b3fff" },
     ],
     monoLabel: "Sales teams", monoTitle: "The simplest ad platform for publishers.",
     monoDesc: "One platform to manage header bidding, direct deals, and programmatic, with real-time floor pricing and intelligent backfill. No black boxes.",
@@ -67,9 +67,9 @@ const COPY = {
     cta1: "Devenir partenaire", cta2: "Voir les formats",
     stats: [{ v: "+40%", l: "Lift de marque" }, { v: "34s", l: "Attention moy. par format" }, { v: ">1%", l: "Taux d'interaction" }, { v: "200+", l: "Éditeurs partenaires" }],
     pillars: [
-      { icon: "💰", title: "Vendre", subtitle: "Monétisez chaque impression", desc: "Header bidding, deals directs, programmatique: une plateforme unifiée pour maximiser vos revenus publicitaires sans complexité.", color: "#5b8cff" },
-      { icon: "📊", title: "Collecter", subtitle: "Possédez vos données audience", desc: "Construisez un CRM/DMP first-party depuis chaque article lu. Sans cookie, conforme RGPD, 100% owned par vous.", color: "#07e2dc" },
-      { icon: "💬", title: "Engager", subtitle: "Activez vos lecteurs", desc: "Formats conversationnels et éditoriaux inline qui transforment des lecteurs passifs en audiences engagées.", color: "#7b3fff" },
+      { icon: DollarSign, title: "Vendre", subtitle: "Monétisez chaque impression", desc: "Header bidding, deals directs, programmatique: une plateforme unifiée pour maximiser vos revenus publicitaires sans complexité.", color: "#5b8cff" },
+      { icon: BarChart3, title: "Collecter", subtitle: "Possédez vos données audience", desc: "Construisez un CRM/DMP first-party depuis chaque article lu. Sans cookie, conforme RGPD, 100% owned par vous.", color: "#07e2dc" },
+      { icon: MessageSquare, title: "Engager", subtitle: "Activez vos lecteurs", desc: "Formats conversationnels et éditoriaux inline qui transforment des lecteurs passifs en audiences engagées.", color: "#7b3fff" },
     ],
     monoLabel: "Équipes commerciales", monoTitle: "La plateforme publicitaire la plus simple pour les éditeurs.",
     monoDesc: "Une plateforme pour gérer le header bidding, les deals directs et le programmatique, avec un floor pricing en temps réel et un backfill intelligent. Pas de boîtes noires.",
@@ -127,7 +127,7 @@ export default function PublishersPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {c.pillars.map(p => (
               <div key={p.title} className="rounded-2xl border p-7 text-center" style={{ borderColor: `${p.color}35`, background: `linear-gradient(145deg, ${p.color}15 0%, #eef0fb 100%)`, boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
-                <div className="text-3xl mb-4">{p.icon}</div>
+                <div className="mb-4 flex justify-center"><p.icon className="w-8 h-8" style={{ color: p.color }} /></div>
                 <div className="text-2xl font-bold mb-1" style={{ color: p.color }}>{p.title}</div>
                 <div className="text-sm font-semibold text-ca-text mb-3">{p.subtitle}</div>
                 <p className="text-sm text-ca-muted leading-relaxed">{p.desc}</p>
