@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
-import { motion, useInView, useSpring, useTransform, useMotionValue } from "framer-motion";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { BrandLogoCarousel } from "@/components/sections/BrandLogoCarousel";
 import { useLang } from "@/lib/i18n";
@@ -129,37 +129,18 @@ const COPY = {
 export default function AdvertisersPage() {
   const { lang } = useLang();
   const c = COPY[lang];
-  const heroRef = useRef<HTMLElement>(null);
-  const lampX = useMotionValue(0);
-  const lampY = useMotionValue(0);
-  const springX = useSpring(lampX, { stiffness: 120, damping: 20, mass: 0.4 });
-  const springY = useSpring(lampY, { stiffness: 120, damping: 20, mass: 0.4 });
-
-  function handleHeroMouseMove(e: React.MouseEvent<HTMLElement>) {
-    const rect = heroRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    lampX.set(e.clientX - rect.left - rect.width / 2);
-    lampY.set(e.clientY - rect.top);
-  }
-  function handleHeroMouseLeave() {
-    lampX.set(0);
-    lampY.set(0);
-  }
-
   return (
     <main>
-      <section ref={heroRef} onMouseMove={handleHeroMouseMove} onMouseLeave={handleHeroMouseLeave} className="relative bg-ca-dark overflow-hidden py-28">
+      <section className="relative bg-ca-dark overflow-hidden py-28">
         <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[5%] w-[700px] h-[700px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(91,140,255,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 6s" }} />
         </div>
-        <motion.div
+        <div
           aria-hidden
           className="absolute top-0 left-0 right-0 z-0 flex justify-center overflow-hidden pointer-events-none"
           style={{
             height: "26rem",
-            x: springX,
-            y: useTransform(springY, (v) => v * 0.08),
             maskImage: "radial-gradient(ellipse 60% 90% at 50% 0%, black 35%, transparent 85%)",
             WebkitMaskImage: "radial-gradient(ellipse 60% 90% at 50% 0%, black 35%, transparent 85%)",
           }}
@@ -214,7 +195,7 @@ export default function AdvertisersPage() {
               WebkitMaskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
             }}
           />
-        </motion.div>
+        </div>
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
           <div className="text-left">
             <motion.div
