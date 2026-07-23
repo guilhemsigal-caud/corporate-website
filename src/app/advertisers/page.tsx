@@ -1,6 +1,8 @@
 "use client";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { BrandLogoCarousel } from "@/components/sections/BrandLogoCarousel";
 import { useLang } from "@/lib/i18n";
@@ -10,6 +12,35 @@ function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
       <span className="text-4xl font-bold gradient-text-blue-mint">{value}</span>
+      <span className="text-base text-ca-muted mt-1">{label}</span>
+    </div>
+  );
+}
+
+/** Same value shape as Stat, but the number animates (count-up) into view — used for the KPI row. */
+function CountUpStat({ value, label }: { value: string; label: string }) {
+  const parsed = value.match(/^([^\d]*)(\d+\.?\d*)(.*)$/);
+  const prefix = parsed?.[1] ?? "";
+  const numeric = parsed ? parseFloat(parsed[2]) : 0;
+  const suffix = parsed?.[3] ?? "";
+  const isDecimal = !Number.isInteger(numeric);
+
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const spring = useSpring(0, { stiffness: 140, damping: 28, mass: 0.6 });
+  const display = useTransform(spring, (v) => (isDecimal ? v.toFixed(1) : Math.round(v).toString()));
+
+  useEffect(() => {
+    if (isInView) spring.set(numeric);
+  }, [isInView, spring, numeric]);
+
+  return (
+    <div className="flex flex-col">
+      <span ref={ref} className="text-4xl font-bold gradient-text-blue-mint tabular-nums">
+        {prefix}
+        <motion.span>{display}</motion.span>
+        {suffix}
+      </span>
       <span className="text-base text-ca-muted mt-1">{label}</span>
     </div>
   );
@@ -138,7 +169,7 @@ export default function AdvertisersPage() {
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center p-8 rounded-2xl border border-ca-border bg-ca-surface" style={{ boxShadow: "0 2px 12px rgba(0,0,40,0.06)" }}>
-            {c.kpis.map(k => <Stat key={k.l} value={k.v} label={k.l} />)}
+            {c.kpis.map(k => <CountUpStat key={k.l} value={k.v} label={k.l} />)}
           </div>
         </div>
       </section>
