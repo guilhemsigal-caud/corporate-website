@@ -7,8 +7,8 @@ import { useLang } from "@/lib/i18n";
 import { isPostVisibleInLang, type BlogPost } from "@/content/blog";
 
 const COPY = {
-  en: { badge: "Blog & Insights", headline: "The Open Web Digest", subtitle: "Research, product news, and adtech thinking from the Collective Audience team.", read: "Read article", readShort: "Read", by: "By" },
-  fr: { badge: "Blog & Insights", headline: "Le Digest de l'Open Web", subtitle: "Recherche, actualités produit et réflexions adtech par l'équipe Collective Audience.", read: "Lire l'article", readShort: "Lire", by: "Par" },
+  en: { badge: "Blog & Insights", headline: "The Open Web Digest", subtitle: "Research, product news, and adtech thinking from the Collective Audience team.", readShort: "Read" },
+  fr: { badge: "Blog & Insights", headline: "Le Digest de l'Open Web", subtitle: "Recherche, actualités produit et réflexions adtech par l'équipe Collective Audience.", readShort: "Lire" },
 };
 
 function formatDate(date: string, locale: string) {
@@ -19,14 +19,9 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
   const { lang } = useLang();
   const c = COPY[lang];
   const visiblePosts = posts.filter((p) => isPostVisibleInLang(p, lang));
-  const [featured, ...rest] = visiblePosts;
   const dateLocale = lang === "fr" ? "fr-FR" : "en-US";
 
-  if (!featured) return null;
-
-  const featuredTitle = lang === "fr" && featured.fr ? featured.fr.title : featured.title;
-  const featuredExcerpt = lang === "fr" && featured.fr ? featured.fr.excerpt : featured.excerpt;
-  const featuredReadTime = lang === "fr" && featured.fr ? featured.fr.readTime : featured.readTime;
+  if (!visiblePosts.length) return null;
 
   return (
     <main>
@@ -40,46 +35,9 @@ export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
             <p className="text-ca-muted text-base max-w-xl">{c.subtitle}</p>
           </div>
 
-          {/* Featured post */}
-          <Link
-            href={`/blog/${featured.slug}`}
-            className="group grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl border overflow-hidden bg-white mb-10 transition-all duration-200 hover:-translate-y-1"
-            style={{ borderColor: `${featured.accent}30`, boxShadow: "0 4px 20px rgba(20,20,60,0.06)" }}
-          >
-            <div className="relative w-full aspect-[16/10] md:aspect-auto" style={{ background: `linear-gradient(145deg, ${featured.accent}25 0%, #eef0fb 100%)` }}>
-              {featured.coverImage ? (
-                <Image src={featured.coverImage} alt={featured.coverImageAlt ?? featuredTitle} fill className="object-cover" sizes="(max-width: 768px) 100vw, 700px" priority />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl font-bold opacity-20" style={{ color: featured.accent }}>{featured.category.slice(0, 2).toUpperCase()}</span>
-                </div>
-              )}
-            </div>
-            <div className="p-6 md:p-8 flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-3 flex-wrap">
-                <span className="text-xs font-semibold tracking-widest uppercase px-2 py-0.5 rounded-full border" style={{ color: featured.accent, borderColor: `${featured.accent}40` }}>
-                  {featured.category}
-                </span>
-                <span className="text-sm text-ca-muted">{formatDate(featured.date, dateLocale)}</span>
-                <span className="text-ca-border">·</span>
-                <span className="text-sm text-ca-muted">{featuredReadTime}</span>
-              </div>
-              <h2 className="text-xl md:text-2xl font-bold text-ca-text mb-2 leading-snug group-hover:opacity-70 transition-opacity">
-                {featuredTitle}
-              </h2>
-              <p className="text-ca-muted leading-relaxed mb-4 text-sm line-clamp-3">{featuredExcerpt}</p>
-              {featured.author && (
-                <p className="text-sm text-ca-muted mb-4">{c.by} <span className="text-ca-text font-medium">{featured.author}</span></p>
-              )}
-              <span className="inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3" style={{ color: featured.accent }}>
-                {c.read} <ArrowRight className="w-4 h-4" aria-hidden />
-              </span>
-            </div>
-          </Link>
-
           {/* Article grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rest.map((post) => {
+            {visiblePosts.map((post) => {
               const postTitle = lang === "fr" && post.fr ? post.fr.title : post.title;
               const postExcerpt = lang === "fr" && post.fr ? post.fr.excerpt : post.excerpt;
               const postReadTime = lang === "fr" && post.fr ? post.fr.readTime : post.readTime;
