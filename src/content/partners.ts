@@ -39,7 +39,7 @@ export const BRAND_PARTNERS: Partner[] = [
   { name: "Fnac", slug: "fnac", logo: "/partners/fnac.svg" },
   { name: "Nasdaq", slug: "nasdaq", logo: "/partners/nasdaq.png" },
   { name: "Publicis", slug: "publicis", logo: "/partners/publicis.png" },
-  { name: "GroupM", slug: "groupm", logo: "/partners/groupm.svg" },
+  { name: "WPP Media", slug: "wpp-media", logo: "/partners/wpp-media.svg" },
   { name: "Le Monde", slug: "le-monde", logo: "/partners/le-monde.png" },
 ];
 

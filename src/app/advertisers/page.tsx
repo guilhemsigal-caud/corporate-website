@@ -85,7 +85,7 @@ const COPY = {
     testiTitle: "What agency partners say",
     testimonials: [
       { quote: "The interactive formats from Collective Audience consistently outperform our standard display spend, both on attention and brand lift metrics.", author: "Head of Programmatic", company: "Publicis Media" },
-      { quote: "We appreciate the cookieless approach. In a post-cookie world, being able to target by context and first-party signals is a real competitive advantage.", author: "Investment Director", company: "GroupM" },
+      { quote: "We appreciate the cookieless approach. In a post-cookie world, being able to target by context and first-party signals is a real competitive advantage.", author: "Investment Director", company: "WPP Media" },
       { quote: "The reporting is transparent and the team is responsive. Brand lift studies confirmed: significantly higher recall than traditional display.", author: "Media Manager", company: "Starcom" },
     ],
   },
@@ -120,7 +120,7 @@ const COPY = {
     testiTitle: "Ce que disent les agences partenaires",
     testimonials: [
       { quote: "Les formats interactifs de Collective Audience surperforment systématiquement nos dépenses display standard, tant sur l'attention que sur le brand lift.", author: "Head of Programmatic", company: "Publicis Media" },
-      { quote: "Nous apprécions l'approche sans cookie. Dans un monde post-cookie, cibler par contexte et signaux first-party est un vrai avantage concurrentiel.", author: "Directeur des Investissements", company: "GroupM" },
+      { quote: "Nous apprécions l'approche sans cookie. Dans un monde post-cookie, cibler par contexte et signaux first-party est un vrai avantage concurrentiel.", author: "Directeur des Investissements", company: "WPP Media" },
       { quote: "Le reporting est transparent et l'équipe réactive. Les études brand lift l'ont confirmé : un souvenir de marque significativement supérieur au display traditionnel.", author: "Media Manager", company: "Starcom" },
     ],
   },
