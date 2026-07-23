@@ -136,14 +136,115 @@ export default function AdvertisersPage() {
           <div className="absolute top-[-10%] right-[5%] w-[700px] h-[700px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(91,140,255,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 6s" }} />
         </div>
-        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-mint/30 bg-ca-mint/8 text-sm font-semibold tracking-widest uppercase text-ca-mint mb-8">{c.badge}</div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
-          <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]" style={{ background: "linear-gradient(135deg, #07e2dc, #5b8cff)", color: "#0e1025" }}>{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
-            <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none opacity-[0.3]"
+          style={{
+            backgroundImage: "linear-gradient(to right, #1e2236 1px, transparent 1px), linear-gradient(to bottom, #1e2236 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage: "radial-gradient(ellipse 80% 80% at 30% 40%, #000 45%, transparent 100%)",
+          }}
+        />
+        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+          <div className="text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-ca-mint/30 bg-ca-mint/8 text-sm font-semibold tracking-widest uppercase text-ca-mint mb-8"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-ca-mint" style={{ animation: "pulse-ring 2s ease-in-out infinite" }} />
+              {c.badge}
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6"
+              style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+            >
+              {c.h1}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.22 }}
+              className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10"
+            >
+              {c.subtitle}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.34 }}
+              className="flex flex-col sm:flex-row gap-4 mb-12"
+            >
+              <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]" style={{ background: "linear-gradient(135deg, #07e2dc, #5b8cff)", color: "#0e1025" }}>{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
+              <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-wrap gap-3"
+            >
+              {c.kpis.map((k, i) => (
+                <motion.div
+                  key={k.l}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 + i * 0.07, duration: 0.4 }}
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-ca-border/70 bg-ca-surface/70 backdrop-blur-sm"
+                >
+                  <span className="text-base font-bold gradient-text-blue-mint">{k.v}</span>
+                  <span className="text-xs text-ca-muted tracking-wide">{k.l}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative"
+          >
+            <div aria-hidden className="absolute -inset-6 rounded-[2rem] opacity-60 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 30%, rgba(7,226,220,0.16) 0%, transparent 70%)" }} />
+            <div className="relative rounded-2xl border border-ca-border bg-ca-surface/80 backdrop-blur-md overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,40,0.18)" }}>
+              <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: "linear-gradient(to right, transparent, #07e2dc, transparent)" }} />
+              <div className="px-5 py-3 border-b border-ca-border flex items-center justify-between">
+                <span className="text-xs text-ca-muted">{c.dashCampaign}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/15 text-green-500 border border-green-500/20">Live</span>
+              </div>
+              <div className="p-6">
+                {c.dashMetrics.map(([l, v, col], i) => (
+                  <div key={l as string} className="mb-4 last:mb-0">
+                    <div className="flex justify-between mb-1.5">
+                      <span className="text-xs text-ca-muted">{l as string}</span>
+                      <span className="text-xs font-bold" style={{ color: col as string }}>{v as string}</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-ca-border overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-full"
+                        style={{ background: col as string }}
+                        initial={{ width: 0 }}
+                        animate={{ width: v as string }}
+                        transition={{ duration: 1, delay: 0.6 + i * 0.15, ease: "easeOut" }}
+                      />
+                    </div>
+                  </div>
+                ))}
+                <div className="grid grid-cols-3 gap-2 mt-5 pt-5 border-t border-ca-border">
+                  {c.dashStats.map(([l, v]) => (
+                    <div key={l as string} className="rounded-lg bg-ca-dark border border-ca-border p-2.5 text-center">
+                      <div className="text-[10px] text-ca-muted mb-0.5">{l as string}</div>
+                      <div className="text-sm font-bold text-ca-text">{v as string}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
