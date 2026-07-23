@@ -138,13 +138,64 @@ export default function AdvertisersPage() {
         </div>
         <div
           aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-[0.3]"
+          className="absolute top-0 left-0 right-0 z-0 flex justify-center overflow-hidden pointer-events-none"
           style={{
-            backgroundImage: "linear-gradient(to right, #1e2236 1px, transparent 1px), linear-gradient(to bottom, #1e2236 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-            maskImage: "radial-gradient(ellipse 80% 80% at 30% 40%, #000 45%, transparent 100%)",
+            height: "26rem",
+            maskImage: "radial-gradient(ellipse 60% 90% at 50% 0%, black 35%, transparent 85%)",
+            WebkitMaskImage: "radial-gradient(ellipse 60% 90% at 50% 0%, black 35%, transparent 85%)",
           }}
-        />
+        >
+          {/* Main glow */}
+          <div className="absolute inset-auto h-36 w-[28rem] -translate-y-[30%] rounded-full blur-3xl" style={{ background: "rgba(7,226,220,0.22)" }} />
+
+          {/* Lamp beam */}
+          <motion.div
+            initial={{ width: "8rem" }}
+            whileInView={{ width: "16rem" }}
+            viewport={{ once: true }}
+            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
+            className="absolute top-0 h-36 -translate-y-[20%] rounded-full blur-2xl"
+            style={{ background: "rgba(7,226,220,0.2)" }}
+          />
+
+          {/* Top line */}
+          <motion.div
+            initial={{ width: "15rem" }}
+            whileInView={{ width: "30rem" }}
+            viewport={{ once: true }}
+            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
+            className="absolute inset-auto h-px -translate-y-[10%]"
+            style={{ background: "rgba(7,226,220,0.45)" }}
+          />
+
+          {/* Left gradient cone */}
+          <motion.div
+            initial={{ opacity: 0.5, width: "15rem" }}
+            whileInView={{ opacity: 1, width: "30rem" }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-auto right-1/2 h-56 w-[30rem]"
+            style={{
+              backgroundImage: "conic-gradient(from 70deg at center top, rgba(7,226,220,0.22), transparent, transparent)",
+              maskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 65%)",
+              WebkitMaskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 65%)",
+            }}
+          />
+
+          {/* Right gradient cone */}
+          <motion.div
+            initial={{ opacity: 0.5, width: "15rem" }}
+            whileInView={{ opacity: 1, width: "30rem" }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-auto left-1/2 h-56 w-[30rem]"
+            style={{
+              backgroundImage: "conic-gradient(from 290deg at center top, transparent, transparent, rgba(7,226,220,0.22))",
+              maskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
+              WebkitMaskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
+            }}
+          />
+        </div>
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
           <div className="text-left">
             <motion.div
