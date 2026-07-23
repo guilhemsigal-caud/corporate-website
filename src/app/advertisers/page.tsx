@@ -146,7 +146,7 @@ export default function AdvertisersPage() {
           }}
         >
           {/* Main glow */}
-          <div className="absolute inset-auto h-36 w-[28rem] -translate-y-[30%] rounded-full blur-3xl" style={{ background: "rgba(7,226,220,0.22)" }} />
+          <div className="absolute inset-auto h-36 w-[28rem] -translate-y-[30%] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, rgba(91,140,255,0.28) 0%, rgba(7,226,220,0.22) 45%, rgba(123,63,255,0.16) 75%, transparent 100%)" }} />
 
           {/* Lamp beam */}
           <motion.div
@@ -155,7 +155,7 @@ export default function AdvertisersPage() {
             viewport={{ once: true }}
             transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
             className="absolute top-0 h-36 -translate-y-[20%] rounded-full blur-2xl"
-            style={{ background: "rgba(7,226,220,0.2)" }}
+            style={{ background: "linear-gradient(90deg, rgba(91,140,255,0.28) 0%, rgba(7,226,220,0.28) 50%, rgba(123,63,255,0.28) 100%)" }}
           />
 
           {/* Top line */}
@@ -165,7 +165,7 @@ export default function AdvertisersPage() {
             viewport={{ once: true }}
             transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
             className="absolute inset-auto h-px -translate-y-[10%]"
-            style={{ background: "rgba(7,226,220,0.45)" }}
+            style={{ background: "linear-gradient(90deg, #5b8cff 0%, #07e2dc 50%, #7b3fff 100%)", opacity: 0.5 }}
           />
 
           {/* Left gradient cone */}
@@ -176,7 +176,7 @@ export default function AdvertisersPage() {
             transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-auto right-1/2 h-56 w-[30rem]"
             style={{
-              backgroundImage: "conic-gradient(from 70deg at center top, rgba(7,226,220,0.22), transparent, transparent)",
+              backgroundImage: "conic-gradient(from 70deg at center top, rgba(91,140,255,0.24), rgba(7,226,220,0.16), transparent)",
               maskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 65%)",
               WebkitMaskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 65%)",
             }}
@@ -190,7 +190,7 @@ export default function AdvertisersPage() {
             transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-auto left-1/2 h-56 w-[30rem]"
             style={{
-              backgroundImage: "conic-gradient(from 290deg at center top, transparent, transparent, rgba(7,226,220,0.22))",
+              backgroundImage: "conic-gradient(from 290deg at center top, transparent, rgba(7,226,220,0.16), rgba(123,63,255,0.24))",
               maskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
               WebkitMaskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
             }}
