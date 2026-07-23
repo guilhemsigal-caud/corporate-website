@@ -10,12 +10,25 @@ export interface BlogPost {
   author?: string;
   coverImage?: string;
   coverImageAlt?: string;
+  /** Which language the primary title/excerpt/content fields above are written in. Defaults to "en" when absent (legacy/demo posts authored directly in the studio). */
+  language?: "en" | "fr";
   fr?: {
     title: string;
     excerpt: string;
     readTime: string;
     content?: string | unknown[];
   };
+}
+
+/**
+ * Whether a post has real content in the given UI language.
+ * Migrated posts only exist in their `language`; legacy/demo posts carry a
+ * proper bilingual pair (primary + `fr`) and are always visible.
+ */
+export function isPostVisibleInLang(post: BlogPost, lang: "en" | "fr"): boolean {
+  const primaryLang = post.language || "en";
+  if (primaryLang === lang) return true;
+  return lang === "fr" && Boolean(post.fr?.title);
 }
 
 export const BLOG_POSTS: BlogPost[] = [

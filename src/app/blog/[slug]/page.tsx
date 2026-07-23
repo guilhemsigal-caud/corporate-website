@@ -29,7 +29,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const related = allPosts.filter((p) => p.slug !== slug && p.category === post!.category).slice(0, 3);
+  // Slice generously — BlogPostClient filters this by the viewer's language client-side and takes the first 3.
+  const related = allPosts.filter((p) => p.slug !== slug && p.category === post!.category).slice(0, 12);
 
   return <BlogPostClient post={post} related={related} />;
 }

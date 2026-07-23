@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
-import type { BlogPost } from "@/content/blog";
+import { isPostVisibleInLang, type BlogPost } from "@/content/blog";
 
 const COPY = {
   en: { badge: "Blog & Insights", headline: "The Open Web Digest", subtitle: "Research, product news, and adtech thinking from the Collective Audience team.", read: "Read article", readShort: "Read", by: "By" },
@@ -17,7 +17,8 @@ function formatDate(date: string, locale: string) {
 export function BlogPageClient({ posts }: { posts: BlogPost[] }) {
   const { lang } = useLang();
   const c = COPY[lang];
-  const [featured, ...rest] = posts;
+  const visiblePosts = posts.filter((p) => isPostVisibleInLang(p, lang));
+  const [featured, ...rest] = visiblePosts;
   const dateLocale = lang === "fr" ? "fr-FR" : "en-US";
 
   if (!featured) return null;

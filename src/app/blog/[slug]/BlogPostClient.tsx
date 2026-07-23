@@ -7,7 +7,7 @@ import { CTABanner } from "@/components/sections/CTABanner";
 import { useLang } from "@/lib/i18n";
 import { marked } from "marked";
 import { useMemo } from "react";
-import type { BlogPost } from "@/content/blog";
+import { isPostVisibleInLang, type BlogPost } from "@/content/blog";
 
 const COPY = {
   en: { back: "Blog", related: "More articles", read: "Read" },
@@ -66,6 +66,17 @@ const portableTextComponents: PortableTextComponents = {
         )}
       </figure>
     ),
+    videoEmbed: ({ value }) => (
+      <div className="relative w-full my-8 rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+        <iframe
+          src={value?.url}
+          title="Video"
+          className="absolute inset-0 w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    ),
   },
 };
 
@@ -100,6 +111,7 @@ export function BlogPostClient({ post, related }: { post: BlogPost; related: Blo
     : post.content;
 
   const formattedDate = new Date(post.date).toLocaleDateString(dateLocale, { month: "long", day: "numeric", year: "numeric" });
+  const visibleRelated = related.filter((p) => isPostVisibleInLang(p, lang)).slice(0, 3);
 
   return (
     <main>
@@ -144,12 +156,12 @@ export function BlogPostClient({ post, related }: { post: BlogPost; related: Blo
         </div>
       </section>
 
-      {related.length > 0 && (
+      {visibleRelated.length > 0 && (
         <section className="bg-ca-surface border-t border-ca-border py-14">
           <div className="max-w-5xl mx-auto px-6 md:px-8">
             <h2 className="text-lg font-bold text-ca-text mb-6">{c.related}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {related.map((p) => {
+              {visibleRelated.map((p) => {
                 const pTitle = lang === "fr" && p.fr ? p.fr.title : p.title;
                 return (
                   <Link key={p.slug} href={`/blog/${p.slug}`}
