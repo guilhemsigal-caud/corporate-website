@@ -136,64 +136,30 @@ export default function AdvertisersPage() {
           <div className="absolute top-[-10%] right-[5%] w-[700px] h-[700px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.14) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(91,140,255,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 6s" }} />
         </div>
-        <div
-          aria-hidden
-          className="absolute top-0 left-0 right-0 z-0 flex justify-center overflow-hidden pointer-events-none"
-          style={{
-            height: "26rem",
-            maskImage: "radial-gradient(ellipse 60% 90% at 50% 0%, black 35%, transparent 85%)",
-            WebkitMaskImage: "radial-gradient(ellipse 60% 90% at 50% 0%, black 35%, transparent 85%)",
-          }}
-        >
-          {/* Main glow */}
-          <div className="absolute inset-auto h-36 w-[28rem] -translate-y-[30%] rounded-full blur-3xl" style={{ background: "radial-gradient(circle, rgba(91,140,255,0.28) 0%, rgba(7,226,220,0.22) 45%, rgba(123,63,255,0.16) 75%, transparent 100%)" }} />
-
-          {/* Lamp beam */}
+        <div aria-hidden className="absolute top-0 left-0 right-0 z-0 overflow-hidden pointer-events-none" style={{ height: "30rem" }}>
           <motion.div
-            initial={{ width: "8rem" }}
-            whileInView={{ width: "16rem" }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
-            className="absolute top-0 h-36 -translate-y-[20%] rounded-full blur-2xl"
-            style={{ background: "linear-gradient(90deg, rgba(91,140,255,0.28) 0%, rgba(7,226,220,0.28) 50%, rgba(123,63,255,0.28) 100%)" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="absolute top-[-12rem] left-1/2 -translate-x-[80%] w-[42rem] h-[42rem] rounded-full blur-3xl"
+            style={{ background: "radial-gradient(circle, rgba(91,140,255,0.32) 0%, transparent 68%)" }}
           />
-
-          {/* Top line */}
           <motion.div
-            initial={{ width: "15rem" }}
-            whileInView={{ width: "30rem" }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
-            className="absolute inset-auto h-px -translate-y-[10%]"
-            style={{ background: "linear-gradient(90deg, #5b8cff 0%, #07e2dc 50%, #7b3fff 100%)", opacity: 0.5 }}
+            transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+            className="absolute top-[-14rem] left-1/2 -translate-x-1/2 w-[38rem] h-[38rem] rounded-full blur-3xl"
+            style={{ background: "radial-gradient(circle, rgba(7,226,220,0.3) 0%, transparent 68%)" }}
           />
-
-          {/* Left gradient cone */}
           <motion.div
-            initial={{ opacity: 0.5, width: "15rem" }}
-            whileInView={{ opacity: 1, width: "30rem" }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-auto right-1/2 h-56 w-[30rem]"
-            style={{
-              backgroundImage: "conic-gradient(from 70deg at center top, rgba(91,140,255,0.24), rgba(7,226,220,0.16), transparent)",
-              maskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 65%)",
-              WebkitMaskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 65%)",
-            }}
-          />
-
-          {/* Right gradient cone */}
-          <motion.div
-            initial={{ opacity: 0.5, width: "15rem" }}
-            whileInView={{ opacity: 1, width: "30rem" }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-auto left-1/2 h-56 w-[30rem]"
-            style={{
-              backgroundImage: "conic-gradient(from 290deg at center top, transparent, rgba(7,226,220,0.16), rgba(123,63,255,0.24))",
-              maskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
-              WebkitMaskImage: "radial-gradient(circle at 0% 0%, black 0%, transparent 65%)",
-            }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="absolute top-[-12rem] left-1/2 translate-x-[-20%] w-[42rem] h-[42rem] rounded-full blur-3xl"
+            style={{ background: "radial-gradient(circle, rgba(123,63,255,0.26) 0%, transparent 68%)" }}
           />
         </div>
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
