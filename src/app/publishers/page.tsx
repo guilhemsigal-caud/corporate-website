@@ -110,7 +110,6 @@ export default function PublishersPage() {
           <div className="absolute bottom-[-5%] right-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 5s" }} />
         </div>
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-blue/30 bg-ca-blue/8 text-sm font-semibold tracking-widest uppercase text-ca-blue mb-8">{c.badge}</div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
           <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4">

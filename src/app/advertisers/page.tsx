@@ -164,15 +164,6 @@ export default function AdvertisersPage() {
         </div>
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
           <div className="text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut" }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-ca-mint/30 bg-ca-mint/8 text-sm font-semibold tracking-widest uppercase text-ca-mint mb-8"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-ca-mint" style={{ animation: "pulse-ring 2s ease-in-out infinite" }} />
-              {c.badge}
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
