@@ -61,7 +61,7 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between gap-8">
           <Link href="/" className="flex-shrink-0">
-            <img src="/logo.svg" alt="Collective Audience" className="h-7 w-auto" />
+            <img src="/logo.svg" alt="Collective Audience" className="h-14 w-auto" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center" aria-label="Main">

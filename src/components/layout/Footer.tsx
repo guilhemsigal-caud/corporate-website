@@ -39,7 +39,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div>
             <Link href="/" className="flex items-center mb-4">
-              <img src="/logo.svg" alt="Collective Audience" className="h-8 w-auto" />
+              <img src="/logo.svg" alt="Collective Audience" className="h-16 w-auto" />
             </Link>
             <p className="text-base text-ca-muted leading-relaxed mb-5 max-w-[260px]">{c.tagline}</p>
             <div className="space-y-3 mb-5">
