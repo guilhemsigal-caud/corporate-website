@@ -109,13 +109,8 @@ export function DemoGrid({ demos, accent, slug }: Props) {
       collapse(name);
       setExpanded(null);
     };
-    activeHandlers.onInteract = (name) => {
-      const idx = names.indexOf(name);
-      if (idx >= 0) {
-        expand(name);
-        setExpanded(idx);
-      }
-    };
+    // Interacting with a creative must NOT open full-screen — only the Play
+    // button does. So we deliberately leave onInteract unset.
     bootstrapSdk();
     return () => {
       activeHandlers.onClose = undefined;
@@ -168,7 +163,7 @@ export function DemoGrid({ demos, accent, slug }: Props) {
       </button>
 
       {/* Grid of embedded creatives */}
-      <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}>
+      <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))" }}>
         {demos.map((demo, i) => (
           <div
             key={i}
@@ -186,7 +181,7 @@ export function DemoGrid({ demos, accent, slug }: Props) {
               <Play className="w-3.5 h-3.5 fill-[#0e1025]" />
             </button>
 
-            <div className="flex-1 min-h-[300px] w-full p-3">
+            <div className="flex-1 min-h-[480px] w-full p-3">
               <div
                 className="BeOpWidget w-full"
                 data-name={names[i]}
