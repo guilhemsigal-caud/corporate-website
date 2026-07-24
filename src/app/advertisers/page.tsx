@@ -55,7 +55,7 @@ function FeatureLine({ text }: { text: string }) {
 
 const COPY = {
   en: {
-    badge: "For Advertisers",
+    badge: "Advertisers",
     h1: "High performance advertising platform.",
     subtitle: "Reach engaged readers on 200+ premium publishers with high-attention formats, cookieless targeting, and measurable brand outcomes.",
     cta1: "Contact our sales team", cta2: "Explore formats →",
@@ -90,7 +90,7 @@ const COPY = {
     ],
   },
   fr: {
-    badge: "Pour les annonceurs",
+    badge: "Annonceurs",
     h1: "Plateforme publicitaire haute performance.",
     subtitle: "Atteignez des lecteurs engagés sur 200+ éditeurs premium avec des formats haute attention, un ciblage sans cookie et des résultats de marque mesurables.",
     cta1: "Contacter notre équipe commerciale", cta2: "Explorer les formats →",

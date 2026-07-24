@@ -24,7 +24,7 @@ function FeatureLine({ text }: { text: string }) {
 
 const COPY = {
   en: {
-    badge: "For Publishers",
+    badge: "Publishers",
     h1: "A new model for publishers.",
     subtitle: "Sell premium inventory, collect first-party audience data, and engage readers with editorial formats that generate real attention, all from one open platform.",
     cta1: "Become a partner", cta2: "See ad formats",
@@ -61,7 +61,7 @@ const COPY = {
     ],
   },
   fr: {
-    badge: "Pour les éditeurs",
+    badge: "Éditeurs",
     h1: "Un nouveau modèle pour les éditeurs.",
     subtitle: "Vendez votre inventaire premium, collectez des données audience first-party et engagez vos lecteurs avec des formats éditoriaux qui génèrent une vraie attention, depuis une seule plateforme ouverte.",
     cta1: "Devenir partenaire", cta2: "Voir les formats",
