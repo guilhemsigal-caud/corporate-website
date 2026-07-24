@@ -171,7 +171,6 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16"
           >
-            <p className="text-base font-medium text-white/70 mb-5">{base.nlTitle}</p>
             {/* Collective Audience newsletter embed — FR / US per locale */}
             <div className="max-w-md">
               <div
