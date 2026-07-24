@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { CTABanner } from "@/components/sections/CTABanner";
-import { DemoPlayer } from "./DemoPlayer";
+import { DemoGrid } from "./DemoGrid";
 import { useLang } from "@/lib/i18n";
 import type { GalleryItem } from "@/content/gallery";
 
@@ -60,7 +60,7 @@ export function GalleryItemClient({ item, related }: Props) {
           {hasDemos ? (
             <>
               <p className="text-sm text-ca-muted mb-6">{c.countLabel(item.demos!.length)}</p>
-              <DemoPlayer demos={item.demos!} accent={item.accent} name={item.name} />
+              <DemoGrid demos={item.demos!} accent={item.accent} slug={item.slug} />
             </>
           ) : (
             <div className="rounded-2xl border flex flex-col items-center justify-center py-20 text-center" style={{ borderColor: `${item.accent}35`, background: `${item.accent}08` }}>
