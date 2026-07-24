@@ -10,7 +10,7 @@ const COPY = {
     copyright: `© ${new Date().getFullYear()} Collective Audience. All rights reserved.`,
     cols: [
       { heading: "Solutions", links: [{ label: "Publishers", href: "/publishers" }, { label: "Advertisers", href: "/advertisers" }, { label: "Gallery", href: "/gallery" }, { label: "About", href: "/about" }, { label: "Blog", href: "/blog" }] },
-      { heading: "Resources", links: [{ label: "Studies", href: "/resources/studies" }, { label: "Newsletter", href: "/newsletter" }] },
+      { heading: "Resources", links: [{ label: "Newsletter", href: "/newsletter" }] },
       { heading: "Company", links: [{ label: "Team & Advisors", href: "/about/team" }, { label: "Careers", href: "/careers" }, { label: "Contact", href: "/contact" }] },
     ],
     legal: [{ label: "Privacy Policy", href: "/legal/privacy" }, { label: "Terms of Use", href: "/legal/terms" }, { label: "Cookie Policy", href: "/legal/cookies" }, { label: "Accessibility", href: "/legal/accessibility" }],
@@ -20,7 +20,7 @@ const COPY = {
     copyright: `© ${new Date().getFullYear()} Collective Audience. Tous droits réservés.`,
     cols: [
       { heading: "Solutions", links: [{ label: "Éditeurs", href: "/publishers" }, { label: "Annonceurs", href: "/advertisers" }, { label: "Galerie", href: "/gallery" }, { label: "À propos", href: "/about" }, { label: "Blog", href: "/blog" }] },
-      { heading: "Ressources", links: [{ label: "Études", href: "/resources/studies" }, { label: "Newsletter", href: "/newsletter" }] },
+      { heading: "Ressources", links: [{ label: "Newsletter", href: "/newsletter" }] },
       { heading: "Entreprise", links: [{ label: "Équipe & Conseillers", href: "/about/team" }, { label: "Carrières", href: "/careers" }, { label: "Contact", href: "/contact" }] },
     ],
     legal: [{ label: "Politique de confidentialité", href: "/legal/privacy" }, { label: "Conditions d'utilisation", href: "/legal/terms" }, { label: "Politique de cookies", href: "/legal/cookies" }, { label: "Accessibilité", href: "/legal/accessibility" }],

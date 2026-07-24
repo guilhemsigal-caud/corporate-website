@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin, Instagram } from "lucide-react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { bootstrapBeOp, watchBeOp } from "@/lib/beop";
@@ -171,14 +171,33 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16"
           >
-            {/* Collective Audience newsletter embed — FR / US per locale */}
-            <div className="max-w-md">
-              <div
-                key={newsletterId}
-                className="BeOpWidget"
-                data-content={newsletterId}
-                data-name={`embed-${newsletterId}`}
-              />
+            <div className="flex flex-wrap items-center gap-5">
+              {/* Collective Audience newsletter embed — FR / US per locale */}
+              <div className="max-w-md w-full sm:w-auto sm:flex-1">
+                <div
+                  key={newsletterId}
+                  className="BeOpWidget"
+                  data-content={newsletterId}
+                  data-name={`embed-${newsletterId}`}
+                />
+              </div>
+              {/* Social links — TODO: replace href="#" with real URLs */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="#"
+                  aria-label="LinkedIn"
+                  className="w-10 h-10 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all duration-200"
+                >
+                  <Linkedin className="w-5 h-5" aria-hidden />
+                </a>
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  className="w-10 h-10 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all duration-200"
+                >
+                  <Instagram className="w-5 h-5" aria-hidden />
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
