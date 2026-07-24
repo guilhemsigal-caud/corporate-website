@@ -35,7 +35,7 @@ export function ImpactMetrics() {
   const c = COPY[lang];
 
   return (
-    <section className="bg-ca-surface border-y border-ca-border py-20 md:py-24 overflow-hidden" aria-labelledby="proven-performance">
+    <section className="bg-ca-surface border-y border-ca-border pt-10 pb-20 md:pt-12 md:pb-24 overflow-hidden" aria-labelledby="proven-performance">
       <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px]">
         <motion.p
           id="proven-performance"
@@ -43,7 +43,7 @@ export function ImpactMetrics() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-left text-base font-semibold tracking-widest uppercase text-ca-muted mb-10 md:mb-12"
+          className="text-left text-2xl md:text-3xl font-bold tracking-widest uppercase text-ca-muted mb-10 md:mb-12"
         >
           {c.eyebrow}
         </motion.p>

@@ -13,7 +13,6 @@ const NAV: Record<Lang, NavItem[]> = {
   en: [
     { label: "Publishers", href: "/publishers" },
     { label: "Advertisers", href: "/advertisers" },
-    { label: "Platform", href: "/platform" },
     { label: "Gallery", href: "/gallery" },
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
@@ -21,7 +20,6 @@ const NAV: Record<Lang, NavItem[]> = {
   fr: [
     { label: "Éditeurs", href: "/publishers" },
     { label: "Annonceurs", href: "/advertisers" },
-    { label: "Plateforme", href: "/platform" },
     { label: "Galerie", href: "/gallery" },
     { label: "À propos", href: "/about" },
     { label: "Blog", href: "/blog" },

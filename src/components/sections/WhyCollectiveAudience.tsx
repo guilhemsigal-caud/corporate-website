@@ -23,7 +23,7 @@ export function WhyCollectiveAudience() {
   const c = COPY[lang];
 
   return (
-    <section className="bg-ca-dark py-24 overflow-hidden">
+    <section className="bg-ca-dark pt-24 pb-10 overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -31,21 +31,9 @@ export function WhyCollectiveAudience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Eyebrow */}
-          <span
-            className="inline-block text-sm font-semibold tracking-widest uppercase mb-6 px-3 py-1 rounded-full border"
-            style={{
-              color: "#5b8cff",
-              borderColor: "rgba(91,140,255,0.2)",
-              background: "rgba(91,140,255,0.06)",
-            }}
-          >
-            {c.eyebrow}
-          </span>
-
-          {/* Heading */}
+          {/* Main heading */}
           <h2
-            className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight"
+            className="text-4xl md:text-6xl font-bold tracking-tight mb-4 leading-tight"
             style={{
               background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)",
               WebkitBackgroundClip: "text",
@@ -53,18 +41,23 @@ export function WhyCollectiveAudience() {
               backgroundClip: "text",
             }}
           >
-            {c.title}
+            {c.eyebrow}
           </h2>
 
           {/* Subtitle */}
-          <p className="text-ca-muted text-xl md:text-2xl leading-relaxed max-w-2xl">
+          <p className="text-ca-text text-xl md:text-2xl font-semibold leading-snug mb-4">
+            {c.title}
+          </p>
+
+          {/* Description */}
+          <p className="text-ca-muted text-base md:text-lg leading-relaxed max-w-2xl">
             {c.subtitle}
           </p>
         </motion.div>
       </div>
 
       {/* Bottom separator */}
-      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] mt-16">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] mt-10">
         <div
           className="h-px w-full"
           style={{
