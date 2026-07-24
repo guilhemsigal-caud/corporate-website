@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { bootstrapBeOp, watchBeOp } from "@/lib/beop";
@@ -171,11 +171,6 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16"
           >
-            <div className="flex items-center gap-2 mb-2">
-              <Mail className="w-4 h-4 text-ca-mint" aria-hidden />
-              <span className="text-base font-medium text-white/70">{base.nlTitle}</span>
-            </div>
-            <p className="text-white/35 text-sm mb-6">{base.nlSub}</p>
             {/* Collective Audience newsletter embed — FR / US per locale */}
             <div className="max-w-md">
               <div
