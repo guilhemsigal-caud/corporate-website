@@ -44,7 +44,7 @@ const COPY = {
       cta2: "Browse creative gallery",
       cta2Href: "/gallery",
     },
-    nlTitle: "Stay ahead of the open web",
+    nlTitle: "Subscribe to our newsletter",
     nlSub: "Industry insights, product updates, and adtech trends, straight to your inbox.",
     nlPlaceholder: "your@email.com",
     nlBtn: "Subscribe",
@@ -80,7 +80,7 @@ const COPY = {
       cta2: "Parcourir la galerie créative",
       cta2Href: "/gallery",
     },
-    nlTitle: "Restez en avance sur l'open web",
+    nlTitle: "Inscrivez-vous à notre newsletter",
     nlSub: "Insights secteur, mises à jour produit et tendances adtech, directement dans votre boîte mail.",
     nlPlaceholder: "votre@email.com",
     nlBtn: "S'abonner",
@@ -171,6 +171,7 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-16"
           >
+            <p className="text-base font-medium text-white/70 mb-5">{base.nlTitle}</p>
             {/* Collective Audience newsletter embed — FR / US per locale */}
             <div className="max-w-md">
               <div
