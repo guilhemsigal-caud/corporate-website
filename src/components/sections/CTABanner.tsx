@@ -118,10 +118,6 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ca-mint mb-6 px-3 py-1 rounded-full border border-ca-mint/20">
-              {c.badge}
-            </span>
-
             <h2
               id="cta-heading"
               className="text-white font-bold tracking-tight mb-5 leading-tight"

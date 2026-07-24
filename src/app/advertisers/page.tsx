@@ -199,25 +199,6 @@ export default function AdvertisersPage() {
               <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold hover:brightness-105 transition-all hover:shadow-[0_0_30px_rgba(7,226,220,0.35)]" style={{ background: "linear-gradient(135deg, #07e2dc, #5b8cff)", color: "#0e1025" }}>{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
               <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-wrap gap-3"
-            >
-              {c.kpis.map((k, i) => (
-                <motion.div
-                  key={k.l}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.55 + i * 0.07, duration: 0.4 }}
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-ca-border/70 bg-ca-surface/70 backdrop-blur-sm"
-                >
-                  <span className="text-base font-bold gradient-text-blue-mint">{k.v}</span>
-                  <span className="text-xs text-ca-muted tracking-wide">{k.l}</span>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
 
           <motion.div

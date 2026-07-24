@@ -39,7 +39,7 @@ const COPY = {
     monoFeatures: ["Header bidding with 30+ SSP connections","Dynamic floor pricing & yield optimization","Direct deal management (guaranteed + preferred)","Real-time eCPM, RPM & revenue reporting","Cookie-free, privacy-first buying","Semantic forecasting for demand planning"],
     monoStats: [{ v: "+28%", l: "avg. eCPM uplift" }, { v: "94%", l: "fill rate" }, { v: "<50ms", l: "latency" }],
     dashTitle: "Publisher Revenue Dashboard", dashToday: "Today's revenue", dashBadge: "+28% vs last month",
-    dashRows: [["eCPM","€3.42","↑ 28%"],["Fill Rate","94.2%","↑ 2.1%"],["RPM","€3.22","↑ 24%"]],
+    dashRows: [["eCPM","$3.42","↑ 28%"],["Fill Rate","94.2%","↑ 2.1%"],["RPM","$3.22","↑ 24%"]],
     dataLabel: "Marketing teams", dataTitle: "Own your audience. No intermediaries.",
     dataDesc: "Every reader who interacts with your content enriches your first-party CRM. Build real audience intelligence without relying on third-party data brokers.",
     dataFeatures: ["CRM & DMP built directly into editorial flow","Cookieless audience profiles via AudienceMatching","Behavioral, contextual & declared data collection","GDPR-compliant consent management (Didomi/OneTrust)","Export segments to any DSP or direct deal","Data clean room for advertiser matching"],
@@ -109,16 +109,14 @@ export default function PublishersPage() {
           <div className="absolute top-[-10%] left-[5%] w-[700px] h-[700px] rounded-full" style={{ background: "radial-gradient(circle,rgba(91,140,255,0.16) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite" }} />
           <div className="absolute bottom-[-5%] right-[10%] w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle,rgba(7,226,220,0.1) 0%,transparent 70%)", animation: "blob 12s ease-in-out infinite 5s" }} />
         </div>
-        <div aria-hidden className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: "linear-gradient(to right,#c4d0f0 1px,transparent 1px),linear-gradient(to bottom,#c4d0f0 1px,transparent 1px)", backgroundSize: "72px 72px", maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,#000 50%,transparent 100%)" }} />
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-[68px] lg:px-[100px] text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ca-blue/30 bg-ca-blue/8 text-sm font-semibold tracking-widest uppercase text-ca-blue mb-8">{c.badge}</div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.07] mb-6" style={{ background: "linear-gradient(135deg, #0e1025 0%, #3a4070 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{c.h1}</h1>
           <p className="text-ca-muted text-xl leading-relaxed max-w-2xl mb-10">{c.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-semibold hover:brightness-110 transition-all hover:shadow-[0_0_30px_rgba(91,140,255,0.4)]" style={{ background: "linear-gradient(135deg, #5b8cff, #7b3fff)" }}>{c.cta1} <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" /></Link>
             <Link href="/gallery" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-ca-border bg-black/5 text-ca-text font-semibold hover:bg-black/8 transition-all">{c.cta2}</Link>
           </div>
-          <div className="flex flex-wrap gap-x-12 gap-y-6">{c.stats.map(s => <Stat key={s.l} value={s.v} label={s.l} />)}</div>
         </div>
       </section>
 
@@ -154,7 +152,7 @@ export default function PublishersPage() {
             </div>
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <div><div className="text-xs text-ca-muted mb-1">{c.dashToday}</div><div className="text-3xl font-bold text-ca-blue">€4,821</div></div>
+                <div><div className="text-xs text-ca-muted mb-1">{c.dashToday}</div><div className="text-3xl font-bold text-ca-blue">$4,821</div></div>
                 <div className="text-xs px-2.5 py-1 rounded-full bg-green-500/15 text-green-400 border border-green-500/20 font-semibold">{c.dashBadge}</div>
               </div>
               <div className="flex items-end gap-1.5 h-24 mb-4">
@@ -204,15 +202,15 @@ export default function PublishersPage() {
             <div className="flex gap-8 pt-6 border-t border-ca-border">{c.editStats.map(s => <Stat key={s.l} value={s.v} label={s.l} />)}</div>
           </div>
           <div className="rounded-2xl border overflow-hidden" style={{ borderColor: "rgba(123,63,255,0.35)", background: "linear-gradient(145deg,rgba(123,63,255,0.12) 0%,#eef0fb 100%)", boxShadow: "0 2px 20px rgba(0,0,40,0.08)" }}>
-            <div className="px-5 py-3 border-b border-ca-border"><span className="text-xs text-ca-muted">lemonde.fr · Article preview</span></div>
+            <div className="px-5 py-3 border-b border-ca-border"><span className="text-xs text-ca-muted">website.xyz · Article preview</span></div>
             <div className="p-5">
               <div className="h-4 rounded bg-ca-border/40 w-3/4 mb-2" /><div className="h-3 rounded bg-ca-border/25 w-full mb-1.5" /><div className="h-3 rounded bg-ca-border/25 w-5/6 mb-5" />
               <div className="rounded-xl border overflow-hidden relative" style={{ borderColor: "rgba(123,63,255,0.3)", background: "rgba(123,63,255,0.08)" }}>
                 <div className="p-4">
-                  <div className="text-[10px] uppercase tracking-widest text-ca-violet mb-2 font-semibold">Sponsorisé · Format Conversationnel</div>
-                  <div className="text-sm font-bold text-ca-text mb-1">Quelle voiture électrique vous correspond ?</div>
-                  <div className="text-xs text-ca-muted mb-3">Répondez à 3 questions pour découvrir votre modèle idéal</div>
-                  <div className="flex gap-2">{["Citadine","SUV","Berline"].map(o => <button key={o} className="text-xs px-3 py-1.5 rounded-lg border border-ca-violet/40 text-ca-violet hover:bg-ca-violet/10 transition-colors">{o}</button>)}</div>
+                  <div className="text-[10px] uppercase tracking-widest text-ca-violet mb-2 font-semibold">Sponsored · Conversational Format</div>
+                  <div className="text-sm font-bold text-ca-text mb-1">Which electric vehicle fits your lifestyle?</div>
+                  <div className="text-xs text-ca-muted mb-3">Answer 3 quick questions to find your perfect model</div>
+                  <div className="flex gap-2">{["Compact","SUV","Sedan"].map(o => <button key={o} className="text-xs px-3 py-1.5 rounded-lg border border-ca-violet/40 text-ca-violet hover:bg-ca-violet/10 transition-colors">{o}</button>)}</div>
                 </div>
               </div>
               <div className="h-3 rounded bg-ca-border/20 w-full mt-4 mb-1.5" /><div className="h-3 rounded bg-ca-border/20 w-3/4" />

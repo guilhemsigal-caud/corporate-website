@@ -45,7 +45,7 @@ export function WhyCollectiveAudience() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-ca-text text-xl md:text-2xl font-semibold leading-snug mb-4">
+          <p className="text-ca-text text-2xl md:text-3xl font-semibold leading-snug mb-4">
             {c.title}
           </p>
 

@@ -60,7 +60,7 @@ function CreativeCard({ src, brand, w }: { src: string; brand: string; w: number
 function CategoryText({ headline, desc, w }: { headline: string; desc: string; w: number }) {
   return (
     <div
-      className="flex-none flex flex-col justify-center h-[180px] sm:h-[240px] md:h-[300px] lg:h-[360px]"
+      className="flex-none flex flex-col items-center justify-center text-center h-[180px] sm:h-[240px] md:h-[300px] lg:h-[360px]"
       style={{ width: w, paddingLeft: 8, paddingRight: 8 }}
     >
       <p
@@ -72,7 +72,6 @@ function CategoryText({ headline, desc, w }: { headline: string; desc: string; w
       <p className="text-sm leading-relaxed" style={{ color: "#5a6480" }}>
         {desc}
       </p>
-      <div className="w-1.5 h-1.5 rounded-full mt-4" style={{ background: "#5b8cff", opacity: 0.45 }} />
     </div>
   );
 }
@@ -93,25 +92,15 @@ export function CreativeShowcase() {
       >
         {/* Header */}
         <div className="flex-none px-6 md:px-[68px] lg:px-[100px] pt-8 pb-6 md:pt-16 md:pb-10">
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-xs tracking-widest uppercase font-semibold mb-4"
-            style={{ color: "#5b8cff" }}
-          >
-            Creative Showcase
-          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
             className="font-bold tracking-tight"
             style={{ fontSize: "clamp(1.8rem, 2.6vw, 2.8rem)", color: "#0e1025" }}
           >
-            Interactive formats across<br />premium publishers
+            Interactive formats
           </motion.h2>
         </div>
 

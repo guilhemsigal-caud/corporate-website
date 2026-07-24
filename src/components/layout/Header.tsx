@@ -72,7 +72,10 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className="px-4 py-2 rounded-lg text-base font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ca-blue"
-                  style={{ color: active ? "#0e1025" : "#3a455c" }}
+                  style={{
+                    color: active ? "#0e1025" : "#3a455c",
+                    background: active ? "rgba(91,140,255,0.1)" : "transparent",
+                  }}
                   aria-current={active ? "page" : undefined}
                 >
                   {item.label}

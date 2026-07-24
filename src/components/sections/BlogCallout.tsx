@@ -22,18 +22,14 @@ const ARTICLES = {
 
 const COPY = {
   en: {
-    eyebrow: "From the blog",
-    title: "Insights & resources",
-    subtitle: "The latest thinking on audience intelligence, programmatic advertising, and the open web.",
+    title: "Latest news",
     readMore: "Read more",
-    cta: "Read all posts",
+    cta: "Read all posts from our blog",
   },
   fr: {
-    eyebrow: "Sur le blog",
-    title: "Insights & ressources",
-    subtitle: "Les dernières réflexions sur l'intelligence audience, la publicité programmatique et l'open web.",
+    title: "Dernières actualités",
     readMore: "Lire la suite",
-    cta: "Voir tous les articles",
+    cta: "Voir tous les articles de notre blog",
   },
 };
 
@@ -53,16 +49,9 @@ export function BlogCallout() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12"
         >
-          <span
-            className="inline-block text-xs font-semibold tracking-widest uppercase mb-5 px-3 py-1 rounded-full border"
-            style={{ color: "#5b8cff", borderColor: "rgba(91,140,255,0.2)", background: "rgba(91,140,255,0.06)" }}
-          >
-            {c.eyebrow}
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-ca-text">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ca-text">
             {c.title}
           </h2>
-          <p className="text-ca-muted text-lg max-w-xl">{c.subtitle}</p>
         </motion.div>
 
         {/* Cards */}
