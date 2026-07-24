@@ -1,9 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
+import { bootstrapBeOp, watchBeOp } from "@/lib/beop";
+
+// Collective Audience newsletter embeds (BeOp content ids)
+const NEWSLETTER_WIDGET = {
+  fr: "66fe6bd5d7fdb349313f956f",
+  en: "66fe6bb054d3bf2ffecbbeb1",
+};
 
 export type CTAVariant = "default" | "publishers" | "advertisers";
 
@@ -86,6 +94,13 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
   const { lang } = useLang();
   const base = COPY[lang];
   const c = base[variant];
+  const newsletterId = NEWSLETTER_WIDGET[lang];
+
+  // Load the CA widget SDK and (re)render the newsletter embed for this locale.
+  useEffect(() => {
+    bootstrapBeOp();
+    watchBeOp();
+  }, [lang]);
 
   return (
     <section className="px-4 md:px-5 py-4 pb-8" aria-labelledby="cta-heading">
@@ -161,29 +176,15 @@ export function CTABanner({ variant = "default" }: { variant?: CTAVariant }) {
               <span className="text-base font-medium text-white/70">{base.nlTitle}</span>
             </div>
             <p className="text-white/35 text-sm mb-6">{base.nlSub}</p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md">
-              <label className="sr-only" htmlFor="cta-newsletter-email">{base.nlPlaceholder}</label>
-              <input
-                id="cta-newsletter-email"
-                type="email"
-                placeholder={base.nlPlaceholder}
-                className="flex-1 px-4 py-3 rounded-xl border border-white/12 bg-white/5 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-ca-blue/40 focus:ring-2 focus:ring-ca-blue/30 transition-colors"
-                required
+            {/* Collective Audience newsletter embed — FR / US per locale */}
+            <div className="max-w-md">
+              <div
+                key={newsletterId}
+                className="BeOpWidget"
+                data-content={newsletterId}
+                data-name={`embed-${newsletterId}`}
               />
-              <button
-                type="submit"
-                className="px-5 py-3 rounded-xl bg-white/10 border border-white/15 text-white font-medium text-sm hover:bg-white/15 transition-all duration-200 whitespace-nowrap"
-              >
-                {base.nlBtn}
-              </button>
-            </form>
-            <p className="text-sm text-white/35 mt-4">
-              {base.nlDisclaimer}{" "}
-              <Link href="/legal/privacy" className="underline hover:text-white/50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
-                {base.nlPrivacy}
-              </Link>
-              {base.nlUnsub}
-            </p>
+            </div>
           </motion.div>
         </div>
       </div>

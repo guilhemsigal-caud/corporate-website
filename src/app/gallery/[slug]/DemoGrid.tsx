@@ -4,78 +4,8 @@ import { useEffect, useState } from "react";
 import { Play, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
+import { bootstrapBeOp, beopHandlers, expandSlot, collapseSlot } from "@/lib/beop";
 import type { GalleryDemo } from "@/content/gallery";
-
-/* ── Collective Audience widget SDK ────────────────────────────── */
-const SDK_SRC = "https://widget.collectiveaudience.co/sdk.js";
-const ACCOUNT = "5be04b9546e0fb00011f9fa7";
-const INTERACTION_EVENTS: Record<string, true> = {
-  vote: true, complete: true, signup: true, login: true, sharing: true, comment: true,
-};
-
-interface BeOpSDK {
-  init(o: { account: string }): void;
-  watch(): void;
-  onPressClose(cb: (name: string) => void, delay?: number): void;
-  subscribeToWidgetEvents(cb: (event: string, name: string) => void): void;
-}
-declare global {
-  interface Window {
-    BeOpSDK?: BeOpSDK;
-    beOpAsyncInit?: () => void;
-  }
-}
-
-// Handlers of the currently mounted grid — the SDK is initialised once and
-// forwards its events (close / interaction) to whichever grid is on screen.
-const activeHandlers: { onClose?: (name: string) => void; onInteract?: (name: string) => void } = {};
-let sdkBootstrapped = false;
-
-function findSlot(name: string) {
-  return document.querySelector<HTMLElement>(`[data-name="${name}"]`);
-}
-function expand(name: string) {
-  const s = findSlot(name);
-  if (s && !s.hasAttribute("data-expand")) s.setAttribute("data-expand", "true");
-}
-function collapse(name: string) {
-  findSlot(name)?.removeAttribute("data-expand");
-}
-
-function bootstrapSdk() {
-  if (typeof window === "undefined") return;
-  // Already initialised (e.g. client-side navigation): just re-scan the DOM.
-  if (sdkBootstrapped && window.BeOpSDK) {
-    window.BeOpSDK.watch();
-    return;
-  }
-  window.beOpAsyncInit = function () {
-    const SDK = window.BeOpSDK;
-    if (!SDK) return;
-    if (sdkBootstrapped) {
-      SDK.watch();
-      return;
-    }
-    SDK.init({ account: ACCOUNT });
-    SDK.onPressClose((name) => activeHandlers.onClose?.(name), 1000);
-    SDK.subscribeToWidgetEvents((event, name) => {
-      if (INTERACTION_EVENTS[event]) activeHandlers.onInteract?.(name);
-    });
-    SDK.watch();
-    sdkBootstrapped = true;
-  };
-  // Script already present but SDK ready → fire init directly.
-  if (window.BeOpSDK) {
-    window.beOpAsyncInit();
-    return;
-  }
-  if (!document.querySelector(`script[src="${SDK_SRC}"]`)) {
-    const s = document.createElement("script");
-    s.async = true;
-    s.src = SDK_SRC;
-    document.head.appendChild(s);
-  }
-}
 
 /** The demo content id is the `beop_content` param already present in the URL. */
 function contentId(demo: GalleryDemo): string {
@@ -105,34 +35,34 @@ export function DemoGrid({ demos, accent, slug }: Props) {
   const names = demos.map((_, i) => `${slug}_${i}`);
 
   useEffect(() => {
-    activeHandlers.onClose = (name) => {
-      collapse(name);
+    beopHandlers.onClose = (name) => {
+      collapseSlot(name);
       setExpanded(null);
     };
     // Interacting with a creative must NOT open full-screen — only the Play
     // button does. So we deliberately leave onInteract unset.
-    bootstrapSdk();
+    bootstrapBeOp();
     return () => {
-      activeHandlers.onClose = undefined;
-      activeHandlers.onInteract = undefined;
+      beopHandlers.onClose = undefined;
+      beopHandlers.onInteract = undefined;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   const openAt = (idx: number) => {
-    if (expanded !== null && expanded !== idx) collapse(names[expanded]);
-    expand(names[idx]);
+    if (expanded !== null && expanded !== idx) collapseSlot(names[expanded]);
+    expandSlot(names[idx]);
     setExpanded(idx);
   };
   const close = () => {
-    if (expanded !== null) collapse(names[expanded]);
+    if (expanded !== null) collapseSlot(names[expanded]);
     setExpanded(null);
   };
   const step = (dir: 1 | -1) => {
     if (expanded === null) return;
     const next = (expanded + dir + demos.length) % demos.length;
-    collapse(names[expanded]);
-    expand(names[next]);
+    collapseSlot(names[expanded]);
+    expandSlot(names[next]);
     setExpanded(next);
   };
 
