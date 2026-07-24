@@ -9,7 +9,7 @@ const COPY = {
     tagline: "The Open Web Platform, unifying media, data, and advertising for the cookieless era.",
     copyright: `© ${new Date().getFullYear()} Collective Audience. All rights reserved.`,
     cols: [
-      { heading: "Solutions", links: [{ label: "Publishers", href: "/publishers" }, { label: "Advertisers", href: "/advertisers" }, { label: "Platform", href: "/platform" }, { label: "Creative Gallery", href: "/gallery" }] },
+      { heading: "Solutions", links: [{ label: "Publishers", href: "/publishers" }, { label: "Advertisers", href: "/advertisers" }, { label: "Gallery", href: "/gallery" }, { label: "About", href: "/about" }, { label: "Blog", href: "/blog" }] },
       { heading: "Resources", links: [{ label: "Blog & Insights", href: "/blog" }, { label: "Studies", href: "/resources/studies" }, { label: "Newsletter", href: "/newsletter" }] },
       { heading: "Company", links: [{ label: "About", href: "/about" }, { label: "Team & Advisors", href: "/about/team" }, { label: "Careers", href: "/careers" }, { label: "Contact", href: "/contact" }] },
     ],
@@ -19,7 +19,7 @@ const COPY = {
     tagline: "La plateforme de l'open web, pour unifier médias, données et publicité pour l'ère sans cookies.",
     copyright: `© ${new Date().getFullYear()} Collective Audience. Tous droits réservés.`,
     cols: [
-      { heading: "Solutions", links: [{ label: "Éditeurs", href: "/publishers" }, { label: "Annonceurs", href: "/advertisers" }, { label: "Plateforme", href: "/platform" }, { label: "Galerie créative", href: "/gallery" }] },
+      { heading: "Solutions", links: [{ label: "Éditeurs", href: "/publishers" }, { label: "Annonceurs", href: "/advertisers" }, { label: "Galerie", href: "/gallery" }, { label: "À propos", href: "/about" }, { label: "Blog", href: "/blog" }] },
       { heading: "Ressources", links: [{ label: "Blog & Insights", href: "/blog" }, { label: "Études", href: "/resources/studies" }, { label: "Newsletter", href: "/newsletter" }] },
       { heading: "Entreprise", links: [{ label: "À propos", href: "/about" }, { label: "Équipe & Conseillers", href: "/about/team" }, { label: "Carrières", href: "/careers" }, { label: "Contact", href: "/contact" }] },
     ],
